@@ -1,0 +1,13 @@
+{
+  "repo": "smithy-examples",
+  "templates": {
+    "quickstart-cli": {
+      "description": "Smithy Quickstart example weather service using the Smithy CLI.",
+      "path": "getting-started-example/weather-service"
+    },
+    "quickstart-gradle": {
+      "description": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
+      "path": "getting-started-example-gradle/weather-service"
+    }
+  }
+}
