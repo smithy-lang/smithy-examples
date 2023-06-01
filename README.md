@@ -1,11 +1,10 @@
-## My Project
+## Smithy Examples
 
-TODO: Fill this README out!
+This repository contains a range of examples to help you get up and running with [Smithy](https://smithy.io).
 
-Be sure to:
 
-* Change the title in this README
-* Edit your repository description on GitHub
+## Contributing
+Contributions are welcome. Please read the [contribution guidelines](CONTRIBUTING.md) first.
 
 ## Security
 
