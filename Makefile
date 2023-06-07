@@ -3,7 +3,7 @@ BASE_DIR=.
 test-all-make:
 	@echo running all make tests...
 	for file in $$(find ${BASE_DIR}/*/ -type f -name Makefile) ; do \
-		(cd $$(dirname $$file) ; make test) ; \
+		(cd $$(dirname $$file) ; make test-all) ; \
 		if [ ! $$? = 0 ]; then \
 			echo "Make build for example $$file failed." ; \
 			exit 1; \

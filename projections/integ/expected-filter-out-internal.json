@@ -1,0 +1,430 @@
+{
+  "smithy": "2.0",
+  "metadata": {
+    "authors": [
+      "Bob",
+      "Alice"
+    ],
+    "company": "Examples R Us",
+    "license": "MYLICENSE 4.0"
+  },
+  "shapes": {
+    "smithy.example#ChanceOfRain": {
+      "type": "float"
+    },
+    "smithy.example#City": {
+      "type": "resource",
+      "identifiers": {
+        "cityId": {
+          "target": "smithy.example#CityId"
+        }
+      },
+      "properties": {
+        "coordinates": {
+          "target": "smithy.example#CityCoordinates"
+        },
+        "name": {
+          "target": "smithy.api#String"
+        }
+      },
+      "create": {
+        "target": "smithy.example#CreateCity"
+      },
+      "read": {
+        "target": "smithy.example#GetCity"
+      },
+      "resources": [
+        {
+          "target": "smithy.example#Forecast"
+        }
+      ]
+    },
+    "smithy.example#CityCoordinates": {
+      "type": "structure",
+      "members": {
+        "latitude": {
+          "target": "smithy.api#Float",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "longitude": {
+          "target": "smithy.api#Float",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "smithy.example#CityId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[A-Za-z0-9 ]+$"
+      }
+    },
+    "smithy.example#CreateCity": {
+      "type": "operation",
+      "input": {
+        "target": "smithy.example#CreateCityInput"
+      },
+      "output": {
+        "target": "smithy.example#CreateCityOutput"
+      },
+      "traits": {
+        "smithy.api#examples": [
+          {
+            "title": "Create City Example",
+            "documentation": "An example that creates a City Called Seattle",
+            "input": {
+              "name": "Seattle",
+              "coordinates": {
+                "latitude": 47.6,
+                "longitude": 122.3
+              }
+            },
+            "output": {
+              "cityId": "1234",
+              "name": "Seattle",
+              "coordinates": {
+                "latitude": 47.6,
+                "longitude": 122.3
+              }
+            }
+          }
+        ]
+      }
+    },
+    "smithy.example#CreateCityInput": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "coordinates": {
+          "target": "smithy.example#CityCoordinates",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "smithy.example#CreateCityOutput": {
+      "type": "structure",
+      "members": {
+        "cityId": {
+          "target": "smithy.example#CityId",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "coordinates": {
+          "target": "smithy.example#CityCoordinates",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "smithy.example#Forecast": {
+      "type": "resource",
+      "identifiers": {
+        "cityId": {
+          "target": "smithy.example#CityId"
+        }
+      },
+      "read": {
+        "target": "smithy.example#GetForecast"
+      }
+    },
+    "smithy.example#ForecastResult": {
+      "type": "union",
+      "members": {
+        "rain": {
+          "target": "smithy.example#ChanceOfRain"
+        },
+        "sun": {
+          "target": "smithy.example#UVIndex"
+        }
+      }
+    },
+    "smithy.example#GetCity": {
+      "type": "operation",
+      "input": {
+        "target": "smithy.example#GetCityInput"
+      },
+      "output": {
+        "target": "smithy.example#GetCityOutput"
+      },
+      "errors": [
+        {
+          "target": "smithy.example#NoSuchResource"
+        }
+      ],
+      "traits": {
+        "smithy.api#examples": [
+          {
+            "title": "Get City Example",
+            "documentation": "Gets a city with the ID 1234",
+            "input": {
+              "cityId": "1234"
+            },
+            "output": {
+              "name": "Seattle",
+              "coordinates": {
+                "latitude": 47.6,
+                "longitude": 122.3
+              }
+            }
+          }
+        ],
+        "smithy.api#readonly": {}
+      }
+    },
+    "smithy.example#GetCityInput": {
+      "type": "structure",
+      "members": {
+        "cityId": {
+          "target": "smithy.example#CityId",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "smithy.example#GetCityOutput": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "coordinates": {
+          "target": "smithy.example#CityCoordinates",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "smithy.example#GetCurrentTime": {
+      "type": "operation",
+      "input": {
+        "target": "smithy.api#Unit"
+      },
+      "output": {
+        "target": "smithy.example#GetCurrentTimeOutput"
+      },
+      "traits": {
+        "smithy.api#readonly": {}
+      }
+    },
+    "smithy.example#GetCurrentTimeOutput": {
+      "type": "structure",
+      "members": {
+        "time": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "smithy.example#GetForecast": {
+      "type": "operation",
+      "input": {
+        "target": "smithy.example#GetForecastInput"
+      },
+      "output": {
+        "target": "smithy.example#GetForecastOutput"
+      },
+      "traits": {
+        "smithy.api#examples": [
+          {
+            "title": "Create City Example",
+            "documentation": "An example that creates a City Called Seattle",
+            "input": {
+              "cityId": "1234"
+            },
+            "output": {
+              "rating": "SOMEWHAT_HAPPY",
+              "forecast": {
+                "rain": 12.0
+              }
+            }
+          }
+        ],
+        "smithy.api#readonly": {}
+      }
+    },
+    "smithy.example#GetForecastInput": {
+      "type": "structure",
+      "members": {
+        "cityId": {
+          "target": "smithy.example#CityId",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "smithy.example#GetForecastOutput": {
+      "type": "structure",
+      "members": {
+        "rating": {
+          "target": "smithy.example#Rating"
+        },
+        "forecast": {
+          "target": "smithy.example#ForecastResult"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "smithy.example#NoSuchResource": {
+      "type": "structure",
+      "members": {
+        "resourceType": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#error": "client"
+      }
+    },
+    "smithy.example#Rating": {
+      "type": "enum",
+      "members": {
+        "SUPER_HAPPY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUPER_HAPPY"
+          }
+        },
+        "SOMEWHAT_HAPPY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SOMEWHAT_HAPPY"
+          }
+        },
+        "MEH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEH"
+          }
+        },
+        "NOT_SO_HAPPY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_SO_HAPPY"
+          }
+        },
+        "UNHAPPY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNHAPPY"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "How happy do we expect this forecast to make you"
+      }
+    },
+    "smithy.example#ServiceError": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#error": "server"
+      }
+    },
+    "smithy.example#ThrottlingError": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#error": "client",
+        "smithy.api#retryable": {}
+      }
+    },
+    "smithy.example#UVIndex": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    },
+    "smithy.example#Weather": {
+      "type": "service",
+      "version": "2006-03-01",
+      "operations": [
+        {
+          "target": "smithy.example#GetCurrentTime"
+        }
+      ],
+      "resources": [
+        {
+          "target": "smithy.example#City"
+        }
+      ],
+      "errors": [
+        {
+          "target": "smithy.example#ServiceError"
+        },
+        {
+          "target": "smithy.example#ThrottlingError"
+        }
+      ],
+      "traits": {
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "pageSize"
+        },
+        "smithy.api#title": "Weather Service"
+      }
+    }
+  }
+}
