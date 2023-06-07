@@ -1,6 +1,6 @@
 
 openapiReference = integ/expected-spec.openapi.json
-openapiPath = smithy-to-openapi/build/smithy/source/openapi/Weather.openapi.json
+openapiPath = smithy-to-openapi/build/smithy/openapi-conversion/openapi/Weather.openapi.json
 
 clean:
 	@echo Cleaning build Directories...
