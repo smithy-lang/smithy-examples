@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "sources": ["models"],
+  "projections": {
+    "external": {
+      "transforms": [
+        {
+          "name": "excludeShapesByTrait",
+          "args": {
+            "traits": ["internal"]
+          }
+        },
+        {
+          "name": "excludeShapesByTag",
+          "args": {
+            "tags": ["internal", "beta"]
+          }
+        },
+        {
+          "name": "excludeTraitsByTag",
+          "args": {
+            "tags": ["internal", "beta"]
+          }
+        },
+        {
+          "name": "removeUnusedShapes",
+          "args": {}
+        },
+        {
+          "name": "includeMetadata",
+          "args": {
+            "keys": ["authors", "company", "license"]
+          }
+        }
+      ]
+    },
+    "downstream-consumer": {
+      "transforms": [
+        {
+          "name": "excludeTraits",
+          "args": {
+            "traits": ["examples"]
+          }
+        },
+        {
+          "name": "removeUnusedShapes",
+          "args": {}
+        },
+        {
+          "name": "excludeMetadata",
+          "args": {
+            "keys": ["validators"]
+          }
+        }
+      ]
+    }
+  }
+}

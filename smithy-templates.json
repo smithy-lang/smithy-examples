@@ -1,13 +1,33 @@
 {
-  "repo": "smithy-examples",
+  "name": "smithy-examples",
   "templates": {
     "quickstart-cli": {
-      "description": "Smithy Quickstart example weather service using the Smithy CLI.",
-      "path": "getting-started-example/weather-service"
+      "documentation": "Smithy Quickstart example weather service using the Smithy CLI.",
+      "path": "getting-started/getting-started-cli"
     },
     "quickstart-gradle": {
-      "description": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
-      "path": "getting-started-example-gradle/weather-service"
+      "documentation": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
+      "path": "getting-started/getting-started-gradle"
+    },
+    "custom-annotation-trait": {
+      "documentation": "Gradle project for creating a package for a custom annotation trait.",
+      "path": "custom-traits/custom-annotation-trait"
+    },
+    "custom-string-trait": {
+      "documentation": "Gradle project for creating a package for a custom string trait.",
+      "path": "custom-traits/custom-string-trait"
+    },
+    "custom-structure-trait": {
+      "documentation": "Gradle project for creating a package for a custom structure trait.",
+      "path": "custom-traits/custom-structure-trait"
+    },
+    "filter-internal-projection": {
+      "documentation": "Projection that filters out internal shapes and traits.",
+      "path": "projections/filter-out-internal"
+    },
+    "smithy-to-openapi": {
+      "documentation": "Generates an OpenAPI spec from a Smithy model",
+      "path": "conversion/smithy-to-openapi"
     }
   }
 }

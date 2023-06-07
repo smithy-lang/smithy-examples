@@ -1,0 +1,434 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Weather Service",
+    "version": "2006-03-01"
+  },
+  "paths": {
+    "/city": {
+      "post": {
+        "operationId": "CreateCity",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCityRequestContent"
+              },
+              "examples": {
+                "CreateCity_example1": {
+                  "summary": "Create City Example",
+                  "description": "An example that creates a City Called Seattle",
+                  "value": {
+                    "name": "Seattle",
+                    "coordinates": {
+                      "latitude": 47.6,
+                      "longitude": 122.3
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "CreateCity 200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCityResponseContent"
+                },
+                "examples": {
+                  "CreateCity_example1": {
+                    "summary": "Create City Example",
+                    "description": "An example that creates a City Called Seattle",
+                    "value": {
+                      "cityId": "1234",
+                      "name": "Seattle",
+                      "coordinates": {
+                        "latitude": 47.6,
+                        "longitude": 122.3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "ThrottlingError 429 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThrottlingErrorResponseContent"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "ServiceError 500 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorResponseContent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/city/{cityId}": {
+      "get": {
+        "operationId": "GetCity",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9 ]+$"
+            },
+            "required": true,
+            "examples": {
+              "GetCity_example1": {
+                "summary": "Get City Example",
+                "description": "Gets a city with the ID 1234",
+                "value": "1234"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GetCity 200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCityResponseContent"
+                },
+                "examples": {
+                  "GetCity_example1": {
+                    "summary": "Get City Example",
+                    "description": "Gets a city with the ID 1234",
+                    "value": {
+                      "name": "Seattle",
+                      "coordinates": {
+                        "latitude": 47.6,
+                        "longitude": 122.3
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NoSuchResource 404 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoSuchResourceResponseContent"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "ThrottlingError 429 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThrottlingErrorResponseContent"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "ServiceError 500 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorResponseContent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/city/{cityId}/forecast": {
+      "get": {
+        "operationId": "GetForecast",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9 ]+$"
+            },
+            "required": true,
+            "examples": {
+              "GetForecast_example1": {
+                "summary": "Create City Example",
+                "description": "An example that creates a City Called Seattle",
+                "value": "1234"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GetForecast 200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetForecastResponseContent"
+                },
+                "examples": {
+                  "GetForecast_example1": {
+                    "summary": "Create City Example",
+                    "description": "An example that creates a City Called Seattle",
+                    "value": {
+                      "rating": "SOMEWHAT_HAPPY",
+                      "forecast": {
+                        "rain": 12.0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "ThrottlingError 429 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThrottlingErrorResponseContent"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "ServiceError 500 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorResponseContent"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/current-time": {
+      "get": {
+        "operationId": "GetCurrentTime",
+        "responses": {
+          "200": {
+            "description": "GetCurrentTime 200 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCurrentTimeResponseContent"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "ThrottlingError 429 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThrottlingErrorResponseContent"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "ServiceError 500 response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceErrorResponseContent"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CityCoordinates": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "format": "float"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude"
+        ]
+      },
+      "CreateCityRequestContent": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "coordinates": {
+            "$ref": "#/components/schemas/CityCoordinates"
+          }
+        },
+        "required": [
+          "coordinates",
+          "name"
+        ]
+      },
+      "CreateCityResponseContent": {
+        "type": "object",
+        "properties": {
+          "cityId": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9 ]+$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "coordinates": {
+            "$ref": "#/components/schemas/CityCoordinates"
+          }
+        },
+        "required": [
+          "cityId",
+          "coordinates",
+          "name"
+        ]
+      },
+      "ForecastResult": {
+        "oneOf": [
+          {
+            "type": "object",
+            "title": "rain",
+            "properties": {
+              "rain": {
+                "type": "number",
+                "format": "float"
+              }
+            },
+            "required": [
+              "rain"
+            ]
+          },
+          {
+            "type": "object",
+            "title": "sun",
+            "properties": {
+              "sun": {
+                "type": "number",
+                "maximum": 15,
+                "minimum": 1
+              }
+            },
+            "required": [
+              "sun"
+            ]
+          }
+        ]
+      },
+      "GetCityResponseContent": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "coordinates": {
+            "$ref": "#/components/schemas/CityCoordinates"
+          }
+        },
+        "required": [
+          "coordinates",
+          "name"
+        ]
+      },
+      "GetCurrentTimeResponseContent": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "time"
+        ]
+      },
+      "GetForecastResponseContent": {
+        "type": "object",
+        "properties": {
+          "rating": {
+            "$ref": "#/components/schemas/Rating"
+          },
+          "forecast": {
+            "$ref": "#/components/schemas/ForecastResult"
+          }
+        }
+      },
+      "NoSuchResourceResponseContent": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "resourceType"
+        ]
+      },
+      "Rating": {
+        "type": "string",
+        "description": "How happy do we expect this forecast to make you",
+        "enum": [
+          "SUPER_HAPPY",
+          "SOMEWHAT_HAPPY",
+          "MEH",
+          "NOT_SO_HAPPY",
+          "UNHAPPY"
+        ]
+      },
+      "ServiceErrorResponseContent": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "ThrottlingErrorResponseContent": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      }
+    }
+  }
+}

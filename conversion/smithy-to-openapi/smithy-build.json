@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "sources": ["models"],
+  "maven": {
+    "dependencies": [
+      "software.amazon.smithy:smithy-openapi:1.30.0",
+      "software.amazon.smithy:smithy-aws-traits:1.30.0"
+    ]
+  },
+  "projections": {
+    "openapi-conversion": {
+      "plugins": {
+        "openapi": {
+          "service": "smithy.example#Weather",
+          "protocol": "aws.protocols#restJson1",
+          "version": "3.1.0"
+        }
+      }
+    }
+  }
+}
