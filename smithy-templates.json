@@ -25,9 +25,9 @@
       "documentation": "Projection that filters out internal shapes and traits.",
       "path": "projections/filter-out-internal"
     },
-    "openapi-conversion": {
+    "smithy-to-openapi": {
       "documentation": "Generates an OpenAPI spec from a Smithy model",
-      "path": "conversion/openapi"
+      "path": "conversion/smithy-to-openapi"
     }
   }
 }
