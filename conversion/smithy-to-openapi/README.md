@@ -1,5 +1,5 @@
 # Smithy to OpenAPI Template
-Convert the quickstart guide Smithy model into the [OpenAPI]() format.
+Convert the quickstart guide Smithy model into the [OpenAPI](https://spec.openapis.org/oas/latest.html) format.
 
 ## Build
 To build the models in this project run: 
