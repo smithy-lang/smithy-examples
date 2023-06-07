@@ -29,7 +29,7 @@ may be lossy.
 For more information on converting Smithy models to OpenAPI, including additional configuration
 options, see the guide [here](https://smithy.io/2.0/guides/converting-to-openapi.html).
 
-## Using
+### Use as a template
 To use this example as a template run the following.
 
 ```
