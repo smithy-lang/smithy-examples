@@ -1,22 +1,30 @@
 # Getting started Example
-This example provides a complete Smithy model for the Weather Service from the 
-[Smithy Quick Start Guide](https://smithy.io/2.0/quickstart.html).
+This directory provides examples of building complete Smithy model for 
+the Weather Service from the [Smithy Quick Start Guide](https://smithy.io/2.0/quickstart.html) 
+using a number of different build systems.
 
-## Using
-To use this example as a template run the following.
+## Build Systems
+- [Smithy CLI](#smithy-cli)
+- [Gradle](#gradle)
+--- 
 
-TODO: UPDATE URL WITH GITHUBREPO ONCE SOLIDIFIED
+## Smithy CLI
+This example uses the [smithy cli](https://smithy.io/2.0/guides/smithy-cli/index.html) to build the Weather Service model.
+
+### Usage
+You can use this example in your local workspace by executing the following command:
 ```
-smithy init --template quickstart-cli --url <>
+smithy init
+```
+Then, build the example by executing `smithy build` in the newly created `getting-started`
+directory.
+
+
+## Gradle
+This examples use the [smithy-gradle-plugin](https://github.com/awslabs/smithy-gradle-plugin) to build the Weather Service model.
+
+```
+smithy init -t getting-started-gradle
 ```
 
-*Note*: You will need the [Smithy CLI](https://smithy.io/2.0/guides/smithy-cli/index.html) installed to use this command.
-If you do not have the CLI installed, follow [this guide](https://smithy.io/2.0/guides/smithy-cli/index.html) to install it now.
-
-
-## Building
-To build this example run: 
-```
-make build
-```
-From the root of this example directory.
+To build the Weather Service model run `./gradlew clean build` from the newly created `getting-started-gradle` directory.
