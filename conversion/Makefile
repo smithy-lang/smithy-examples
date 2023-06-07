@@ -7,7 +7,7 @@ clean:
 	rm -rf smithy-to-openapi/build
 	@echo Cleaning Complete.
 
-openapi: clean
+smithy-to-openapi: clean
 	@echo Building openapi example...
 	cd smithy-to-openapi; smithy build
 	@echo openapi example built successfully
