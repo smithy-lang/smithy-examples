@@ -20,7 +20,7 @@ jobs:
       - name: Get current version
         id: get-current
         run: |
-          echo ::set-output name=current::$(cat VERSION)
+          echo ::set-output name=current::$(cat SMITHY_VERSION)
 
       - name: Check if the current version of Smithy should be updated
         id: update-check
