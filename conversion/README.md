@@ -22,7 +22,7 @@ as a build artifact of the `openapi-conversion` projection.
 
 *Note*: Smithy takes a different approach to modeling APIs from OpenAPI.
 Smithy is protocol agnostic, which means it focuses on the interfaces and abstractions that are provided to end-users 
-rather than how the data is sent over the wire. OpenAPI, on the other hand only defines RESTful APIs. Because these two
+rather than how the data is sent over the wire. OpenAPI, on the other hand only defines RESTful APIs.
 Because Smithy allows for a wider range of formats and a richer API model, conversions from Smithy to OpenAPI (and vice versa)
 may be lossy.
 

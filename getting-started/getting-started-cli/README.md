@@ -1,5 +1,5 @@
 # Quickstart Template
-Smithy [quickstart](https://smithy.io/2.0/quickstart.html) example built using gradle
+Smithy [quickstart](https://smithy.io/2.0/quickstart.html) example built using the Smithy CLI
 
 ## Building
 Once you have the CLI installed run: 
