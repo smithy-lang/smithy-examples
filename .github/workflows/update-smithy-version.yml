@@ -1,0 +1,55 @@
+name: Get latest smithy release version
+on:
+  schedule:
+    # Runs every wednesday at 10
+    - cron:  '0 10 * * WED'
+
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch latest version
+        id: fetch-latest
+        run: |
+          echo ::set-output name=latest::$( \
+            curl -sL https://api.github.com/repos/awslabs/smithy/releases/latest | \
+            jq -r ".tag_name")
+
+      - name: Get current version
+        id: get-current
+        run: |
+          echo ::set-output name=current::$(cat VERSION)
+
+      - name: Check if the current version of Smithy should be updated
+        id: update-check
+        run: |
+          echo ::set-output name=update-required::$( \
+          [ "${{ steps.get-current.current }}" = "${{ steps.fetch-latest.latest }}" ] && echo "false" \
+          || echo "true")
+
+      - name: Set up new git branch for version bump
+        id: git-setup
+        if: steps.update-check.update-required == 'true'
+        run: |
+          git checkout -b "automation/bump-smithy-version/${{ steps.fetch-latest.latest }}
+          git config --global user.email "github-aws-smithy-automation@amazon.com"
+          git config --global user.name "Smithy Automation"
+
+      - name: Find and replace
+        id: replace-current-version
+        if: steps.update-check.update-required == 'true'
+        run: |
+          find . -type f -name gradle.properties \ 
+          -exec sed -i "s|smithyVersion=${{ steps.get-current.current }}|smithyVersion=${{ steps.fetch-latest.latest }}|g" {} \;
+          find . -type f -name smithy-build.json \
+          -exec sed -i "s|:${{ steps.get-current.current }}|:${{ steps.fetch-latest.latest }}|g" {} \;
+           echo ${{ steps.fetch-latest.latest }} > SMITHY_VERSION
+
+      - name: Create PR
+        if: steps.update-check.update-required == 'true'
+        run: |
+          git add .
+          git commit -m 'Update Smithy Version'
+          gh pr create
