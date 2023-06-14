@@ -19,7 +19,7 @@ jobs:
             jq -r '.tag_name')" >> $GITHUB_OUTPUT
 
       - name: Get current version
-        id: get-version
+        id: get-current
         run: |
           echo "version=$(cat SMITHY_VERSION)" >> $GITHUB_OUTPUT
 
