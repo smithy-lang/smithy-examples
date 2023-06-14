@@ -14,21 +14,25 @@ jobs:
       - name: Fetch latest version
         id: fetch-latest
         run: |
-          echo ::set-output name=latest::$( \
+          echo "latest=$( \
             curl -sL https://api.github.com/repos/awslabs/smithy/releases/latest | \
-            jq -r ".tag_name")
+            jq -r '.tag_name')" >> $GITHUB_OUTPUT
 
       - name: Get current version
-        id: get-current
+        id: get-version
         run: |
-          echo ::set-output name=current::$(cat SMITHY_VERSION)
+          echo "Current version found: $(cat SMITHY_VERSION)"
+          echo "version=$(cat SMITHY_VERSION)" >> $GITHUB_OUTPUT
 
       - name: Check if the current version of Smithy should be updated
         id: update-check
         run: |
-          echo ::set-output name=update-required::$( \
-          [ "${{ steps.get-current.current }}" = "${{ steps.fetch-latest.latest }}" ] && echo "false" \
-          || echo "true")
+          echo "Found Current version: ${{ steps.get-version.version }}"
+          echo "Found Release version: ${{ steps.fetch-latest.latest }}"
+          echo update-required=$( \
+          [ "${{ steps.get-current.current }}" = "${{ steps.fetch-latest.latest }}" ] \
+          && echo "false" || echo "true") >> $GITHUB_OUTPUT
+          echo "${{ steps.update-check.update-required }}"
 
       - name: Set up new git branch for version bump
         id: git-setup
@@ -46,7 +50,7 @@ jobs:
           -exec sed -i "s|smithyVersion=${{ steps.get-current.current }}|smithyVersion=${{ steps.fetch-latest.latest }}|g" {} \;
           find . -type f -name smithy-build.json \
           -exec sed -i "s|:${{ steps.get-current.current }}|:${{ steps.fetch-latest.latest }}|g" {} \;
-           echo ${{ steps.fetch-latest.latest }} > SMITHY_VERSION
+          echo ${{ steps.fetch-latest.latest }} > SMITHY_VERSION
 
       - name: Create PR
         if: steps.update-check.update-required == 'true'
