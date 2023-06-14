@@ -53,6 +53,7 @@ jobs:
         run: |
           git add .
           git commit -m 'Update Smithy Version'
+          git push --set-upstream origin "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latest }}"
           gh pr create \
             --title "[Automation] Smithy Version Bump - \`${{ steps.fetch-latest.outputs.latest }}\`" \
             --body "Automated pull request to bump Smithy version from ${{ steps.get-current.outputs.current }} to ${{ steps.fetch-latest.outputs.latest }}"
