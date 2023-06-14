@@ -27,34 +27,35 @@ jobs:
       - name: Check if the current version of Smithy should be updated
         id: update-check
         run: |
-          echo "Found Current version: ${{ steps.get-version.version }}"
-          echo "Found Release version: ${{ steps.fetch-latest.latest }}"
+          echo "Found Current version: ${{ steps.get-version.outputs.version }}"
+          echo "Found Release version: ${{ steps.fetch-latest.outputs.latest }}"
           echo update-required=$( \
-          [ "${{ steps.get-current.current }}" = "${{ steps.fetch-latest.latest }}" ] \
+          [ "${{ steps.get-current.outputs.current }}" = "${{ steps.fetch-latest.outputs.latest }}" ] \
           && echo "false" || echo "true") >> $GITHUB_OUTPUT
-          echo "${{ steps.update-check.update-required }}"
+          echo "${{ steps.update-check.outputs.update-required }}"
 
       - name: Set up new git branch for version bump
         id: git-setup
-        if: steps.update-check.update-required == 'true'
+        if: steps.update-check.outputs.update-required == 'true'
         run: |
-          git checkout -b "automation/bump-smithy-version/${{ steps.fetch-latest.latest }}
+          git checkout -b "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latest }}"
           git config --global user.email "github-aws-smithy-automation@amazon.com"
           git config --global user.name "Smithy Automation"
 
       - name: Find and replace
         id: replace-current-version
-        if: steps.update-check.update-required == 'true'
+        if: steps.update-check.outputs.update-required == 'true'
         run: |
           find . -type f -name gradle.properties \ 
-          -exec sed -i "s|smithyVersion=${{ steps.get-current.current }}|smithyVersion=${{ steps.fetch-latest.latest }}|g" {} \;
+          -exec sed -i "s|smithyVersion=${{ steps.get-current.outputs.current }}|smithyVersion=${{ steps.fetch-latest.latest }}|g" {} \;
           find . -type f -name smithy-build.json \
-          -exec sed -i "s|:${{ steps.get-current.current }}|:${{ steps.fetch-latest.latest }}|g" {} \;
-          echo ${{ steps.fetch-latest.latest }} > SMITHY_VERSION
+          -exec sed -i "s|:${{ steps.get-current.outputs.current }}|:${{ steps.fetch-latest.outputs.latest }}|g" {} \;
+          echo ${{ steps.fetch-latest.outputs.latest }} > SMITHY_VERSION
 
       - name: Create PR
-        if: steps.update-check.update-required == 'true'
+        if: steps.update-check.outputs.update-required == 'true'
         run: |
           git add .
           git commit -m 'Update Smithy Version'
           gh pr create
+          echo "PR Created for version: ${{ steps.fetch-latest.outputs.latest }}"
