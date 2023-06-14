@@ -1,5 +1,6 @@
 name: Get latest smithy release version
 on:
+  workflow_dispatch: # on button click
   schedule:
     # Runs every wednesday at 10
     - cron:  '0 10 * * WED'
