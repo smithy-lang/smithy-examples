@@ -53,7 +53,9 @@ jobs:
         run: |
           git add .
           git commit -m 'Update Smithy Version'
-          gh pr create
-          echo "PR Created for version: ${{ steps.fetch-latest.outputs.latest }}"
+          gh pr create \
+            --title "[Automation] Smithy Version Bump - \`${{ steps.fetch-latest.outputs.latest }}\`" \
+            --body "Automated pull request to bump Smithy version from ${{ steps.get-current.outputs.current }} to ${{ steps.fetch-latest.outputs.latest }}" \
+          echo "PR Created for version bump to ${{ steps.fetch-latest.outputs.latest }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
