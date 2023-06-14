@@ -6,7 +6,7 @@ on:
     - cron:  '0 10 * * WED'
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
