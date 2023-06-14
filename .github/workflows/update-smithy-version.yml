@@ -27,7 +27,7 @@ jobs:
         id: update-check
         run: |
           echo update-required=$( \
-          [ "${{ steps.get-current.outputs.current }}" = "${{ steps.fetch-latest.outputs.latest }}" ] \
+          [ "${{ steps.get-current.outputs.version }}" = "${{ steps.fetch-latest.outputs.latest }}" ] \
           && echo "false" || echo "true") >> $GITHUB_OUTPUT
 
       - name: Set up new git branch for version bump
@@ -43,9 +43,9 @@ jobs:
         if: steps.update-check.outputs.update-required == 'true'
         run: |
           find . -type f -name 'gradle.properties' \
-          -exec sed -i "s|smithyVersion=${{ steps.get-current.outputs.current }}|smithyVersion=${{ steps.fetch-latest.latest }}|g" {} \;
+          -exec sed -i "s|smithyVersion=${{ steps.get-current.outputs.version }}|smithyVersion=${{ steps.fetch-latest.outputs.latest }}|g" {} \;
           find . -type f -name 'smithy-build.json' \
-          -exec sed -i "s|:${{ steps.get-current.outputs.current }}|:${{ steps.fetch-latest.outputs.latest }}|g" {} \;
+          -exec sed -i "s|:${{ steps.get-current.outputs.version }}|:${{ steps.fetch-latest.outputs.latest }}|g" {} \;
           echo ${{ steps.fetch-latest.outputs.latest }} > SMITHY_VERSION
 
       - name: Create PR
@@ -56,7 +56,8 @@ jobs:
           git push --set-upstream origin "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latest }}"
           gh pr create \
             --title "[Automation] Smithy Version Bump - \`${{ steps.fetch-latest.outputs.latest }}\`" \
-            --body "Automated pull request to bump Smithy version from ${{ steps.get-current.outputs.current }} to ${{ steps.fetch-latest.outputs.latest }}"
+            --body "Automated pull request to bump Smithy version from ${{ steps.get-current.outputs.version }} to ${{ steps.fetch-latest.outputs.latest }}" \
+            --base main
           echo "PR Created for version bump to ${{ steps.fetch-latest.outputs.latest }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
