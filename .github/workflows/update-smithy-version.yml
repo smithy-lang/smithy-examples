@@ -21,18 +21,14 @@ jobs:
       - name: Get current version
         id: get-version
         run: |
-          echo "Current version found: $(cat SMITHY_VERSION)"
           echo "version=$(cat SMITHY_VERSION)" >> $GITHUB_OUTPUT
 
       - name: Check if the current version of Smithy should be updated
         id: update-check
         run: |
-          echo "Found Current version: ${{ steps.get-version.outputs.version }}"
-          echo "Found Release version: ${{ steps.fetch-latest.outputs.latest }}"
           echo update-required=$( \
           [ "${{ steps.get-current.outputs.current }}" = "${{ steps.fetch-latest.outputs.latest }}" ] \
           && echo "false" || echo "true") >> $GITHUB_OUTPUT
-          echo "${{ steps.update-check.outputs.update-required }}"
 
       - name: Set up new git branch for version bump
         id: git-setup
@@ -46,9 +42,9 @@ jobs:
         id: replace-current-version
         if: steps.update-check.outputs.update-required == 'true'
         run: |
-          find . -type f -name gradle.properties \ 
+          find . -type f -name 'gradle.properties' \
           -exec sed -i "s|smithyVersion=${{ steps.get-current.outputs.current }}|smithyVersion=${{ steps.fetch-latest.latest }}|g" {} \;
-          find . -type f -name smithy-build.json \
+          find . -type f -name 'smithy-build.json' \
           -exec sed -i "s|:${{ steps.get-current.outputs.current }}|:${{ steps.fetch-latest.outputs.latest }}|g" {} \;
           echo ${{ steps.fetch-latest.outputs.latest }} > SMITHY_VERSION
 
