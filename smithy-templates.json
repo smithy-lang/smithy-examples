@@ -53,6 +53,18 @@
     "smithy-to-openapi": {
       "documentation": "Generates an OpenAPI spec from a Smithy model",
       "path": "conversion-examples/smithy-to-openapi"
+    },
+    "shared-model-package": {
+      "documentation": "Gradle project to create a shared package of common Smithy models.",
+      "path": "shared-models/common",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     }
   }
 }
