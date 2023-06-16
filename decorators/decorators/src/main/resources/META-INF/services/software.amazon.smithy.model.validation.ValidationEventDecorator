@@ -1,0 +1,4 @@
+io.smithy.examples.decorators.DecorateUnresolvedShapeEvent
+io.smithy.examples.decorators.DecorateUnresolvedTraitEvent
+
+
