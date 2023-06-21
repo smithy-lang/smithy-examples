@@ -3,7 +3,7 @@ Convert the quickstart guide Smithy model into the [OpenAPI](https://spec.openap
 
 ## Build
 To build the models in this project run: 
-```
+```console
 smithy build
 ```
 From the root of this template directory.

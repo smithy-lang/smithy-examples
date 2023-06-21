@@ -32,8 +32,8 @@ options, see the guide [here](https://smithy.io/2.0/guides/converting-to-openapi
 ### Use as a template
 To use this example as a template run the following.
 
-```
-smithy init -t smithy-to-openapi -o <REPLACE_WITH_DESIRED_OUTPUT_DIRECTORY_NAME>
+```console
+smithy init -t smithy-to-openapi
 ```
 
 ---

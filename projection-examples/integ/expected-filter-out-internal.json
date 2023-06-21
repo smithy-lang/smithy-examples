@@ -418,6 +418,7 @@
         }
       ],
       "traits": {
+        "smithy.api#documentation": "Provides weather forecasts",
         "smithy.api#paginated": {
           "inputToken": "nextToken",
           "outputToken": "nextToken",
