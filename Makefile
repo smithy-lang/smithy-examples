@@ -13,15 +13,8 @@ test-all-make:
 
 test-all-gradle:
 	@echo running all gradle tests...
-	for file in $$(find ${BASE_DIR} -type f -name gradlew) ; do \
-		(cd $$(dirname $$file) ; ./gradlew clean build test) ; \
-		if [ ! $$? = 0 ]; then \
-			echo "Gradle build for example $$file failed." ; \
-			exit 1 ; \
-		fi \
-	done
+	./gradlew clean build test
 	@echo ran all gradle tests
-
 
 test-all: test-all-make test-all-gradle
 	@echo all tests run
