@@ -1,4 +1,3 @@
-
 plugins {
     val smithyGradleVersion: String by project
 
@@ -24,5 +23,5 @@ buildscript {
 }
 
 dependencies {
-    implementation(project(":custom-string-trait"))
+    implementation(project(":custom-trait-examples:custom-annotation-trait"))
 }

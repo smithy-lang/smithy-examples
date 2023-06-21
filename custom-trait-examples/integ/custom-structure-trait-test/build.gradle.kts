@@ -1,3 +1,4 @@
+
 plugins {
     val smithyGradleVersion: String by project
 
@@ -8,11 +9,6 @@ plugins {
 // The test project doesn't produce a JAR.
 tasks["jar"].enabled = false
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 buildscript {
     val smithyVersion: String by project
 
@@ -22,6 +18,11 @@ buildscript {
     }
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 dependencies {
-    implementation(project(":custom-annotation-trait"))
+    implementation(project(":custom-trait-examples:custom-structure-trait"))
 }

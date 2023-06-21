@@ -9,6 +9,11 @@ plugins {
 // The test project doesn't produce a JAR.
 tasks["jar"].enabled = false
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 buildscript {
     val smithyVersion: String by project
 
@@ -18,11 +23,6 @@ buildscript {
     }
 }
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 dependencies {
-    implementation(project(":custom-structure-trait"))
+    implementation(project(":custom-trait-examples:custom-string-trait"))
 }
