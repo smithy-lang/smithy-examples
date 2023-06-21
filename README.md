@@ -13,10 +13,10 @@ API documentation, test automation, and example code.
 
 
 ## Examples
-- [Getting Started](getting-started/README.md) - Build the Smithy [quick start example](https://smithy.io/2.0/quickstart.html).
-- [Conversion](conversion/README.md) - Convert Smithy models to other formats (such as OpenAPI) and vice versa 
-- [Custom Traits](custom-traits/README.md) - Create custom Smithy [traits](https://smithy.io/2.0/spec/model.html#traits) to use for defining custom model metadata.
-- [Projections](projections/README.md) - Using Smithy [projections](https://smithy.io/2.0/guides/building-models/build-config.html#projections) to create different views of 
+- [Getting Started](getting-started-examples/README.md) - Build the Smithy [quick start example](https://smithy.io/2.0/quickstart.html).
+- [Conversion](conversion-examples/README.md) - Convert Smithy models to other formats (such as OpenAPI) and vice versa 
+- [Custom Traits](custom-trait-examples/README.md) - Create custom Smithy [traits](https://smithy.io/2.0/spec/model.html#traits) to use for defining custom model metadata.
+- [Projections](projection-examples/README.md) - Using Smithy [projections](https://smithy.io/2.0/guides/building-models/build-config.html#projections) to create different views of 
   your model for specific consumers.
 - [Shared Models](shared-models/README.md) - Create a package of common Smithy shapes that can be shared between Smithy models.
 
