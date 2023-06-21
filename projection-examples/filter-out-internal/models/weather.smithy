@@ -2,10 +2,9 @@ $version: "2.0"
 
 namespace smithy.example
 
-
+/// Provides weather forecasts
 @paginated(inputToken: "nextToken", outputToken: "nextToken",
            pageSize: "pageSize")
-/// Provides weather forecasts
 @title("Weather Service")
 service Weather {
     version: "2006-03-01",

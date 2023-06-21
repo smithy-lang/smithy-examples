@@ -4,7 +4,7 @@ Use this package to create a customizable String trait.
 ## Building
 To build this package run the following from the root of the package:
 
-```
+```console
 ./gradlew clean build
 ```
 
