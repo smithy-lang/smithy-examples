@@ -12,30 +12,30 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Fetch latest version
-        id: fetch-latest
+      - name: Fetch latest smithy version
+        id: fetch-latest-smithy
         run: |
-          echo "latest=$( \
+          echo "latestSmithy=$( \
             curl -sL https://api.github.com/repos/awslabs/smithy/releases/latest | \
             jq -r '.tag_name')" >> $GITHUB_OUTPUT
 
-      - name: Get current version
+      - name: Get current versions
         id: get-current
         run: |
-          echo "version=$(cat SMITHY_VERSION)" >> $GITHUB_OUTPUT
+          cat gradle.properties >> $GITHUB_OUTPUT
 
       - name: Check if the current version of Smithy should be updated
         id: update-check
         run: |
           echo update-required=$( \
-          [ "${{ steps.get-current.outputs.version }}" = "${{ steps.fetch-latest.outputs.latest }}" ] \
+          [ "${{ steps.get-current.outputs.smithyVersion }}" = "${{ steps.fetch-latest.outputs.latestSmithy }}" ] \
           && echo "false" || echo "true") >> $GITHUB_OUTPUT
 
       - name: Set up new git branch for version bump
         id: git-setup
         if: steps.update-check.outputs.update-required == 'true'
         run: |
-          git checkout -b "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latest }}"
+          git checkout -b "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latestSmithy }}"
           git config --global user.email "github-aws-smithy-automation@amazon.com"
           git config --global user.name "Smithy Automation"
 
@@ -44,21 +44,20 @@ jobs:
         if: steps.update-check.outputs.update-required == 'true'
         run: |
           find . -type f -name 'gradle.properties' \
-          -exec sed -i "s|smithyVersion=${{ steps.get-current.outputs.version }}|smithyVersion=${{ steps.fetch-latest.outputs.latest }}|g" {} \;
+          -exec sed -i "s|smithyVersion=${{ steps.get-current.outputs.smithyVersion }}|smithyVersion=${{ steps.fetch-latest.outputs.latestSmithy }}|g" {} \;
           find . -type f -name 'smithy-build.json' \
-          -exec sed -i "s|:${{ steps.get-current.outputs.version }}|:${{ steps.fetch-latest.outputs.latest }}|g" {} \;
-          echo ${{ steps.fetch-latest.outputs.latest }} > SMITHY_VERSION
+          -exec sed -i "s|:${{ steps.get-current.outputs.smithyVersion }}|:${{ steps.fetch-latest.outputs.latestSmithy }}|g" {} \;
 
       - name: Create PR
         if: steps.update-check.outputs.update-required == 'true'
         run: |
           git add .
           git commit -m 'Update Smithy Version'
-          git push --set-upstream origin "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latest }}"
+          git push --set-upstream origin "automation/bump-smithy-version/${{ steps.fetch-latest.outputs.latestSmithy }}"
           gh pr create \
-            --title "[Automation] Smithy Version Bump - \`${{ steps.fetch-latest.outputs.latest }}\`" \
-            --body "Automated pull request to bump Smithy version from ${{ steps.get-current.outputs.version }} to ${{ steps.fetch-latest.outputs.latest }}" \
+            --title "[Automation] Smithy Version Bump - \`${{ steps.fetch-latest.outputs.latestSmithy }}\`" \
+            --body "Automated pull request to bump Smithy version from ${{ steps.get-current.outputs.smithyVersion }} to ${{ steps.fetch-latest.outputs.latestSmithy }}" \
             --base main
-          echo "PR Created for version bump to ${{ steps.fetch-latest.outputs.latest }}"
+          echo "PR Created for version bump to ${{ steps.fetch-latest.outputs.latestSmithy }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
