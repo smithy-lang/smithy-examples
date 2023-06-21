@@ -2,7 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Weather Service",
-    "version": "2006-03-01"
+    "version": "2006-03-01",
+    "description": "Provides weather forecasts"
   },
   "paths": {
     "/city": {

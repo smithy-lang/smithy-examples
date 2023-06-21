@@ -7,19 +7,44 @@
     },
     "quickstart-gradle": {
       "documentation": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
-      "path": "getting-started/getting-started-gradle"
+      "path": "getting-started/getting-started-gradle",
+      "include": [ ".gitignore" ]
     },
     "custom-annotation-trait": {
       "documentation": "Gradle project for creating a package for a custom annotation trait.",
-      "path": "custom-traits/custom-annotation-trait"
+      "path": "custom-traits/custom-annotation-trait",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     },
     "custom-string-trait": {
       "documentation": "Gradle project for creating a package for a custom string trait.",
-      "path": "custom-traits/custom-string-trait"
+      "path": "custom-traits/custom-string-trait",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     },
     "custom-structure-trait": {
       "documentation": "Gradle project for creating a package for a custom structure trait.",
-      "path": "custom-traits/custom-structure-trait"
+      "path": "custom-traits/custom-structure-trait",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     },
     "filter-internal-projection": {
       "documentation": "Projection that filters out internal shapes and traits.",
