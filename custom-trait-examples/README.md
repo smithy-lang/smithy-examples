@@ -41,7 +41,7 @@ This example demonstrates how to create a custom [Annotation trait](https://smit
 package. Annotation traits are structure traits with no members.
 
 For example, you might use an annotation trait `smithy.example#beta` to mark an operation as still in `beta`:
-```
+```smithy
 use smithy.example#beta 
 
 @beta
@@ -53,7 +53,7 @@ operation MyOperation {
 ```
 
 Annotation traits can be defined as Smithy shapes without code. For example:
-```
+```smithy
 $version: "2"
 namespace smithy.example
 
@@ -67,7 +67,7 @@ other Java code such as code generators.
 ### Use as a template
 To use this example as a template run the following command.
 
-```
+```console
 smithy init -t custom-annotation-trait
 ```
 
@@ -76,7 +76,7 @@ This example demonstrates how to create a custom String trait package. String tr
 trait applied, and they accept a single string argument.
 
 For example, you might use a string trait `smithy.example#label` to add a label to a structure:
-```
+```smithy
 use smithy.example#label
 
 @label("myLabel")
@@ -93,7 +93,7 @@ dependency without being added to the `metadata validators` metadata key.
 ### Use as a template
 To use this example as a template run the following command.
 
-```
+```console
 smithy init -t custom-string-trait
 ```
 
@@ -122,6 +122,6 @@ dependency without being added to the `metadata validators` metadata key.
 ### Use as a template
 To use this example as a template run the following command.
 
-```
+```console
 smithy init -t custom-structure-trait
 ```

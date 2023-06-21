@@ -3,35 +3,56 @@
   "templates": {
     "quickstart-cli": {
       "documentation": "Smithy Quickstart example weather service using the Smithy CLI.",
-      "path": "getting-started/getting-started-cli"
+      "path": "getting-started-examples/getting-started-cli"
     },
     "quickstart-gradle": {
       "documentation": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
-      "path": "getting-started/getting-started-gradle"
+      "path": "getting-started-examples/getting-started-gradle",
+      "include": [ ".gitignore" ]
     },
     "custom-annotation-trait": {
       "documentation": "Gradle project for creating a package for a custom annotation trait.",
-      "path": "custom-traits/custom-annotation-trait"
+      "path": "custom-trait-examples/custom-annotation-trait",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     },
     "custom-string-trait": {
       "documentation": "Gradle project for creating a package for a custom string trait.",
-      "path": "custom-traits/custom-string-trait"
+      "path": "custom-trait-examples/custom-string-trait",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     },
     "custom-structure-trait": {
       "documentation": "Gradle project for creating a package for a custom structure trait.",
-      "path": "custom-traits/custom-structure-trait"
+      "path": "custom-trait-examples/custom-structure-trait",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     },
     "filter-internal-projection": {
       "documentation": "Projection that filters out internal shapes and traits.",
-      "path": "projections/filter-out-internal"
+      "path": "projection-examples/filter-out-internal"
     },
     "smithy-to-openapi": {
       "documentation": "Generates an OpenAPI spec from a Smithy model",
-      "path": "conversion/smithy-to-openapi"
-    },
-    "shared-model-package": {
-      "documentation": "Gradle project to create a shared package of common Smithy models.",
-      "path": "shared-models/common"
+      "path": "conversion-examples/smithy-to-openapi"
     }
   }
 }

@@ -4,7 +4,7 @@ Use this package to create a custom structure trait with multiple inputs.
 ## Building
 To build this package run the following from the root of the package:
 
-```
+```console
 ./gradlew clean build
 ```
 

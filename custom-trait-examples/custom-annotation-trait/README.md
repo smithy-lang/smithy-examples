@@ -4,7 +4,7 @@ Use this package to create a customizable [Annotation trait](https://smithy.io/2
 ## Building
 To build this package run the following from the root of the package:
 
-```
+```console
 ./gradlew clean build
 ```
 
