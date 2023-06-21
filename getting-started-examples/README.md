@@ -13,7 +13,7 @@ This example uses the [smithy cli](https://smithy.io/2.0/guides/smithy-cli/index
 
 ### Usage
 You can use this example in your local workspace by executing the following command:
-```
+```console
 smithy init
 ```
 Then, build the example by executing `smithy build` in the newly created `getting-started`
@@ -23,7 +23,7 @@ directory.
 ## Gradle
 This examples use the [smithy-gradle-plugin](https://github.com/awslabs/smithy-gradle-plugin) to build the Weather Service model.
 
-```
+```console
 smithy init -t getting-started-gradle
 ```
 

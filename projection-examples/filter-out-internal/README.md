@@ -3,7 +3,7 @@ Generate a model projection that filters internal data.
 
 ## Building 
 To build the models in this project run:
-```
+```console
 smithy build
 ```
 From the root of this template directory.

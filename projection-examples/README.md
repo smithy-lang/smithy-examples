@@ -26,6 +26,6 @@ The model used in this example is the weather service from the [quickstart guide
 ### Using as template
 To use this example as a template run the following.
 
-```
+```console
 smithy init -t filter-internal-projection
 ```
