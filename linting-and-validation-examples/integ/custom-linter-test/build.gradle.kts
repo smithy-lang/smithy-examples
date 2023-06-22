@@ -40,7 +40,7 @@ repositories {
 dependencies {
     val smithyVersion: String by project
 
-    implementation(project(":custom-linter"))
+    implementation(project(":linting-and-validation-examples:custom-linter"))
 
     testImplementation("software.amazon.smithy:smithy-model:$smithyVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
