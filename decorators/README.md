@@ -14,7 +14,7 @@ without them also having to know about it.
 
 Smithy uses the Java
 [Service Provider Interfaces](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html) (SPI) to discover
-all the packages offering this service and pass each of the decorators through each of the validation events
+all the packages offering this service and pass each of the validation events through the provided decorators 
 generated.
 
 In order for the package to expose the service interfaces it provides it MUST include a
