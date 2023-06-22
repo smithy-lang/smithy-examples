@@ -13,5 +13,5 @@ metadata validators = [
 namespace smithy.example.test
 
 // This should fail the `ForbiddedDocumentation` validator
-@documentation("BAD TEST BAD")
+@documentation("TODO write the documentation")
 string BadAbbreviationShapeID
