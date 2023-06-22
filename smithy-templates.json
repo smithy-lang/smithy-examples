@@ -65,6 +65,42 @@
         "gradle.properties",
         ".gitignore"
       ]
+    },
+    "common-linting-configuration": {
+      "documentation": "Gradle project to create a package to define a common set of model validations.",
+      "path": "linting-and-validation-examples/common-linting-configuration",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
+    },
+    "custom-linter": {
+      "documentation": "Gradle project to create a custom, configurable model linter.",
+      "path": "linting-and-validation-examples/custom-linter",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
+    },
+    "custom-validator": {
+      "documentation": "Gradle project to create a custom model validator.",
+      "path": "linting-and-validation-examples/custom-validator",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     }
   }
 }
