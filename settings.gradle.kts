@@ -35,5 +35,5 @@ include(":linting-and-validation-examples:custom-validator")
 
 // integration tests
 include(":linting-and-validation-examples:integ:common-linting-configuration-test")
-include(":linting-and-validation-examples:integ:customer-linter-test")
-include(":linting-and-validation-examples:integ:customer-validator-test")
+include(":linting-and-validation-examples:integ:custom-linter-test")
+include(":linting-and-validation-examples:integ:custom-validator-test")
