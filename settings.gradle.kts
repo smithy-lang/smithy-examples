@@ -32,8 +32,10 @@ include(":shared-model-examples:integ")
 include(":linting-and-validation-examples:custom-linter")
 include(":linting-and-validation-examples:common-linting-configuration")
 include(":linting-and-validation-examples:custom-validator")
+include(":linting-and-validation-examples:decorators")
 
 // integration tests
 include(":linting-and-validation-examples:integ:common-linting-configuration-test")
 include(":linting-and-validation-examples:integ:custom-linter-test")
 include(":linting-and-validation-examples:integ:custom-validator-test")
+include(":linting-and-validation-examples:integ:decorators-test")
