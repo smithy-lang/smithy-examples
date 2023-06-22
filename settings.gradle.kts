@@ -19,3 +19,10 @@ include(":custom-trait-examples:custom-structure-trait")
 include(":custom-trait-examples:integ:custom-annotation-trait-test")
 include(":custom-trait-examples:integ:custom-string-trait-test")
 include(":custom-trait-examples:integ:custom-structure-trait-test")
+
+// ---- shared models ----
+// Template directories
+include(":shared-model-examples:common")
+
+// Integration Tests
+include(":shared-model-examples:integ")
