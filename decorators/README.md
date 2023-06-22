@@ -3,7 +3,7 @@
 The examples in this directory demonstrate how to create a custom validation decorator package for Smithy.
 
 Validation events can be sometimes confusing for newcomers to Smithy, and adding some guidance on how to solve
-well-known issues helps the user to quickly resolve them.
+Validation decorators allow Smithy users to attach additional hints to Validation events to provide such guidance. 
 
 ### Custom Validation Decorators Package
 
