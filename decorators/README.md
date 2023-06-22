@@ -48,7 +48,7 @@ ValidationEvent decorate(ValidationEvent ev)
 The `canDecorate` method serves as a quick filter for the decorator to let Smithy know whether it knows how
 to decorate the given event. This usually can be done by using the id of the event.
 
-The `decorate` method does the decoration part by updating the event but might decide not to and return it
+The `decorate` method adds additional information to the the validation event by updating the event object but might decide not to and return it
 as-is. Implementations can decide how exactly to update the event but the best way is to add a "hint" to
 nudge the user towards the right solution for the problem.
 
