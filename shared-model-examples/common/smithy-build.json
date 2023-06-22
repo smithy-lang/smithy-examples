@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "projections": {
+    "package": {
+      "transforms": [
+        {
+          "name": "excludeMetadata",
+          "args": {
+            "keys": ["validators"]
+          }
+        }
+      ]
+    }
+  }
+}
