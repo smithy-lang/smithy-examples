@@ -17,7 +17,7 @@ public class DocumentationValidator extends AbstractValidator {
     @Override
     public List<ValidationEvent> validate(Model model) {
         return model.shapes()
-            .filter(shape -> !Prelude.isPreludeShape(shape.getId()))
+            .filter(shape -> !Prelude.isPreludeShape(shape))
             .filter(shape -> !shape.hasTrait(DocumentationTrait.class))
             .map(shape -> warning(shape, "This shape is not documented!"))
             .collect(Collectors.toList());
