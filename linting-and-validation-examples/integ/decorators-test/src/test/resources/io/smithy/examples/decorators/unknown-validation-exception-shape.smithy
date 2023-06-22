@@ -27,6 +27,3 @@ structure GetCurrentTemperatureRequest {
 structure GetCurrentTemperatureResponse {
     feelsLike: Float
 }
-
-
-
