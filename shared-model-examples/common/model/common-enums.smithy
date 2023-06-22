@@ -10,6 +10,7 @@ enum IpAddressVersion {
 /// Example country code list with just a few entries
 enum CountryCode {
     AF = "Afgahanistan",
+    BR = "Brazil",
     GB = "United Kingdom",
     US = "United States",
     MV = "Maldives",
