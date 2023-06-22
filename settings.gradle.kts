@@ -26,3 +26,14 @@ include(":shared-model-examples:common")
 
 // Integration Tests
 include(":shared-model-examples:integ")
+
+// ---- linting and validation ----
+// templates
+include(":linting-and-validation-examples:custom-linter")
+include(":linting-and-validation-examples:common-linting-configuration")
+include(":linting-and-validation-examples:custom-validator")
+
+// integration tests
+include(":linting-and-validation-examples:integ:common-linting-configuration-test")
+include(":linting-and-validation-examples:integ:customer-linter-test")
+include(":linting-and-validation-examples:integ:customer-validator-test")
