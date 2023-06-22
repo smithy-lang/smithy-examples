@@ -5,7 +5,7 @@ metadata validators = [
         name: "ForbiddenDocumentation"
         severity: "DANGER"
         configuration: {
-            forbid: ["TEST"]
+            forbid: ["TODO"]
         }
     }
 ]
