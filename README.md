@@ -19,7 +19,7 @@ API documentation, test automation, and example code.
 - [Projections](projection-examples/README.md) - Using Smithy [projections](https://smithy.io/2.0/guides/building-models/build-config.html#projections) to create different views of 
   your model for specific consumers.
 - [Shared Models](shared-models/README.md) - Create a package of common Smithy shapes that can be shared between Smithy models.
-
+- [Linting and Validation](linting-and-validation-examples/README.md) - Use linters and validators to ensure APIs adhere to best practices and standards.
 
 ## Contributing
 Contributions are welcome. Please read the [contribution guidelines](CONTRIBUTING.md) first.
