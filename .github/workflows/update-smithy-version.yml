@@ -60,4 +60,4 @@ jobs:
             --base main
           echo "PR Created for version bump to ${{ steps.fetch-latest.outputs.latestSmithy }}"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PR_TOKEN }}
