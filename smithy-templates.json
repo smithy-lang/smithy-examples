@@ -101,6 +101,18 @@
         "gradle.properties",
         ".gitignore"
       ]
+    },
+    "decorators": {
+      "documentation": "Gradle project to create a custom  decorator for validation events.",
+      "path": "linting-and-validation-examples/decorators",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore"
+      ]
     }
   }
 }
