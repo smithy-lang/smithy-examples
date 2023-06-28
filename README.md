@@ -1,4 +1,6 @@
 # Smithy Examples
+[![Build Status](https://github.com/smithy-lang/smithy-examples/workflows/integ/badge.svg)](https://github.com/smithy-lang/smithy-examples/actions/workflows/integ.yml)
+
 This repository contains a range of examples to help you get up and running with [Smithy](https://smithy.io).
 
 *Note*: You will need the [Smithy CLI](https://smithy.io/2.0/guides/smithy-cli/index.html) installed to use the examples in this
