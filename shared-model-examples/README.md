@@ -16,6 +16,6 @@ downstream consumers of the `common-shapes` package.
 To use this example as a template run the following.
 
 ```
-smithy init -t shared-shapes
+smithy init -t shared-model-package
 ```
 

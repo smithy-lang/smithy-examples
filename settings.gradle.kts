@@ -22,7 +22,7 @@ include(":custom-trait-examples:integ:custom-structure-trait-test")
 
 // ---- shared models ----
 // Template directories
-include(":shared-model-examples:common")
+include(":shared-model-examples:common-shapes")
 
 // Integration Tests
 include(":shared-model-examples:integ")

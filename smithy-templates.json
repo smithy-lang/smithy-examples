@@ -2,12 +2,12 @@
   "name": "smithy-examples",
   "templates": {
     "quickstart-cli": {
-      "documentation": "Smithy Quickstart example weather service using the Smithy CLI.",
-      "path": "getting-started-examples/getting-started-cli"
+      "documentation": "Smithy Quick Start example weather service using the Smithy CLI.",
+      "path": "quickstart-examples/quickstart-cli"
     },
     "quickstart-gradle": {
-      "documentation": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
-      "path": "getting-started-examples/getting-started-gradle",
+      "documentation": "Smithy Quick Start example weather service using the Smithy-Gradle-Plugin.",
+      "path": "quickstart-examples/quickstart-gradle",
       "include": [ ".gitignore" ]
     },
     "custom-annotation-trait": {

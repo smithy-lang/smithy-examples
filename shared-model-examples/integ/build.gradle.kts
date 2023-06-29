@@ -25,5 +25,5 @@ buildscript {
 dependencies {
     val smithyVersion: String by project
 
-    implementation(project(":shared-model-examples:common"))
+    implementation(project(":shared-model-examples:common-shapes"))
 }

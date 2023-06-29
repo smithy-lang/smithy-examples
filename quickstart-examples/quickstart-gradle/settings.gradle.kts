@@ -1,6 +1,4 @@
 
-rootProject.name = "common"
-
 pluginManagement {
     repositories {
         mavenLocal()
@@ -9,3 +7,4 @@ pluginManagement {
     }
 }
 
+rootProject.name = "quickstart-gradle"

@@ -15,7 +15,7 @@ API documentation, test automation, and example code.
 
 
 ## Examples
-- [Getting Started](getting-started-examples) - Build the Smithy [quick start example](https://smithy.io/2.0/quickstart.html).
+- [Quick Start](quickstart-examples) - Build the Smithy [quick start example](https://smithy.io/2.0/quickstart.html).
 - [Conversion](conversion-examples) - Convert Smithy models to other formats (such as OpenAPI) and vice versa 
 - [Custom Traits](custom-trait-examples) - Create custom Smithy [traits](https://smithy.io/2.0/spec/model.html#traits) to use for defining custom model metadata.
 - [Projections](projection-examples) - Using Smithy [projections](https://smithy.io/2.0/guides/building-models/build-config.html#projections) to create different views of 
