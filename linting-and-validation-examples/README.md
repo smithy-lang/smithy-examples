@@ -45,11 +45,19 @@ discover the custom linter implementation. See the [custom linter](#custom-linte
 
 For more information on model validation see: [Model Validation](https://smithy.io/2.0/spec/model-validation.html#validation).
 
+### Validation Decorators
+Validation events can be sometimes confusing for newcomers to Smithy and resolving validation events can sometimes require additional
+guidance. Validation decorators allow Smithy users to attach additional hints to Validation events to provide such guidance.
+
+For example, a validation decorator can be used to add the helpful HINT shown below to a validation event:
+
+![alt text](decorators/decorator-hint.png)
 
 ## Examples
 - [Common Linting Configuration](#common-linting-configuration)
 - [Custom Validator](#custom-validator)
-- [Custom Linter ](#custom-linter)
+- [Custom Linter](#custom-linter)
+- [Validation Event Decorators](#decorators)
 
 ---
 ## Common Linting Configuration
@@ -122,4 +130,60 @@ To use this example as a template run the following command.
 
 ```
 smithy init -t custom-linter
+```
+
+## Decorators
+This example demonstrates how to create a custom validation decorator package for Smithy.
+
+A custom validation decorator package can be created and added as a dependency to your build system or model package.
+For instance, the Smithy Gradle plugin can be wrapped in an internal package that also has a dependency on your
+decorator package. This way all the users of the internal package will also depend on the decorators package
+without them also having to know about it.
+
+### Custom Validation Decorators
+A custom validation decorator class must implement the
+[`software.amazon.smithy.model.validation.ValidationEventDecorator`](https://smithy.io/javadoc/1.32.0/software/amazon/smithy/model/validation/ValidationEventDecorator.html)
+interface. This class just consists of two methods:
+
+```java
+/** Returns true if this decorator knows how to decorate this event, usually by looking at the event id. */
+boolean canDecorate(ValidationEvent ev)
+
+/** Takes an event and potentially updates it to decorate it. */
+ValidationEvent decorate(ValidationEvent ev)
+```
+
+The `canDecorate` method serves as a quick filter for the decorator to let Smithy know whether it knows how to
+decorate the given event. This usually can be done by using the id of the event which defaults to the name of
+the validator.
+
+The `decorate` method adds additional information to the the validation event by updating the event object but might decide not to and return it
+as-is. Implementations can decide how exactly to update the event but the best way is to add a "hint" to
+nudge the user towards the right solution for the problem.
+
+
+### Decorator Discovery 
+Smithy uses the Java
+[Service Provider Interfaces](https://docs.oracle.com/javase/tutorial/sound/SPI-intro.html) (SPI) to discover
+all the packages offering the validation decorator service and passes each of the validation events through the provided decorators.
+
+In order for the package to expose the validation event decorator service interfaces it provides it MUST include a
+`META-INF/services/software.amazon.smithy.model.validation.ValidationEventDecorator` file inside the jar,
+usually packaged by the build system when found in the `src/main/resources` directory. The file contains the
+fully qualified names of the classes that implement the interface. For this example it contains:
+
+```
+io.smithy.examples.decorators.DecorateUnresolvedShapeEvent
+io.smithy.examples.decorators.DecorateUnresolvedTraitEvent
+```
+
+For the two decorators implemented in this package, `DecorateUnresolvedShapeEvent` and
+`DecorateUnresolvedTraitEvent`.
+
+
+### Use as a template
+To use this example as a template run the following.
+
+```console
+smithy init -t decorators
 ```
