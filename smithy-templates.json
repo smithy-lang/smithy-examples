@@ -56,7 +56,7 @@
     },
     "shared-model-package": {
       "documentation": "Gradle project to create a shared package of common Smithy models.",
-      "path": "shared-model-examples/common",
+      "path": "shared-model-examples/common-shapes",
       "include": [
         "config/",
         "gradle/",
