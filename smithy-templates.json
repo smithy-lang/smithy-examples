@@ -8,7 +8,7 @@
     "quickstart-gradle": {
       "documentation": "Smithy Quickstart example weather service using the Smithy-Gradle-Plugin.",
       "path": "getting-started-examples/getting-started-gradle",
-      "include": [ ".gitignore" ]
+      "include": [ ".gitignore", ".gitattributes" ]
     },
     "custom-annotation-trait": {
       "documentation": "Gradle project for creating a package for a custom annotation trait.",
@@ -19,7 +19,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "custom-string-trait": {
@@ -31,7 +32,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "custom-structure-trait": {
@@ -43,7 +45,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "filter-internal-projection": {
@@ -63,7 +66,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "common-linting-configuration": {
@@ -75,7 +79,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "custom-linter": {
@@ -87,7 +92,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "custom-validator": {
@@ -99,7 +105,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     },
     "decorators": {
@@ -111,7 +118,8 @@
         "gradlew",
         "gradlew.bat",
         "gradle.properties",
-        ".gitignore"
+        ".gitignore",
+        ".gitattributes"
       ]
     }
   }
