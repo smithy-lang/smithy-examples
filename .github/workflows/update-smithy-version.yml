@@ -1,10 +1,9 @@
 name: Get latest smithy release version
 on:
   workflow_dispatch: # on button click
-  # Uncomment once permissions to create PRs has been added.
-  #schedule:
+  schedule:
     # Runs every wednesday at 10
-    #- cron:  '0 10 * * WED'
+    - cron:  '0 10 * * WED'
 
 jobs:
   get-version:
