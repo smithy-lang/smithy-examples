@@ -23,7 +23,7 @@ jobs:
 
       - name: Install smithy cli
         run: |
-          brew tap aws/tap
+          brew tap smithy-lang/tap
           brew update
           brew install smithy-cli
           brew upgrade smithy-cli
