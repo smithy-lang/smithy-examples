@@ -20,9 +20,9 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu'
+          
       - name: Install smithy cli
         run: |
-          brew uninstall smithy-cli
           brew untap aws/tap
           brew tap smithy-lang/tap
           brew update
