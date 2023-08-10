@@ -17,9 +17,9 @@ public class DecoratorsTest {
                         .addImport(getClass().getResource("unknown-aws-protocol.smithy"))
                         .assemble();
         assertTrue(result.isBroken());
-        assertEquals(result.getValidationEvents().size(), 1);
-        assertTrue(result.getValidationEvents().get(0).getHint().isPresent());
-        assertTrue(result.getValidationEvents().get(0).getHint().get().contains("smithy-aws-traits"));
+        assertEquals(result.getValidationEvents().size(), 2);
+        assertTrue(result.getValidationEvents().get(1).getHint().isPresent());
+        assertTrue(result.getValidationEvents().get(1).getHint().get().contains("smithy-aws-traits"));
     }
 
     @Test
@@ -29,8 +29,8 @@ public class DecoratorsTest {
                         .addImport(getClass().getResource("unknown-validation-exception-shape.smithy"))
                         .assemble();
         assertTrue(result.isBroken());
-        assertEquals(result.getValidationEvents().size(), 1);
-        assertTrue(result.getValidationEvents().get(0).getHint().isPresent());
-        assertTrue(result.getValidationEvents().get(0).getHint().get().contains("smithy-validation-model"));
+        assertEquals(result.getValidationEvents().size(), 2);
+        assertTrue(result.getValidationEvents().get(1).getHint().isPresent());
+        assertTrue(result.getValidationEvents().get(1).getHint().get().contains("smithy-validation-model"));
     }
 }
