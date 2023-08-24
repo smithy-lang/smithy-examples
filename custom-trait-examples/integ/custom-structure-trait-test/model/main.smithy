@@ -5,17 +5,14 @@ namespace example
 use io.smithy.example#resourceMetadata
 
 @resourceMetadata(
-    description: "woo",
+    description: "woo"
     type: "NORMAL"
-    associatedStructures: [ ForecastStruct ]
+    associatedStructures: [ForecastStruct]
 )
 resource Forecast {
-    identifiers: { forecastId: ForecastId }
+    identifiers: {forecastId: ForecastId}
 }
 
 string ForecastId
 
 structure ForecastStruct {}
-
-
-

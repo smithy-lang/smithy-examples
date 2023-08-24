@@ -4,4 +4,3 @@ namespace example
 
 // This will fail the `Documentation` validator
 string BadAbbreviationShapeID
-

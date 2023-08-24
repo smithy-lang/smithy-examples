@@ -3,13 +3,15 @@ $version: "2.0"
 namespace io.smithy.example
 
 @trait(
-    selector: "resource",
-    breakingChanges: [{change: "presence"}]
+    selector: "resource"
+    breakingChanges: [
+        {change: "presence"}
+    ]
 )
 structure resourceMetadata {
     /// Provides a custom name for your resource.
     @required
-    description: String,
+    description: String
 
     /// A type for the resource
     @required
@@ -20,8 +22,8 @@ structure resourceMetadata {
 }
 
 enum ResourceType {
-    NORMAL,
-    SPECIAL,
+    NORMAL
+    SPECIAL
     NONE
 }
 

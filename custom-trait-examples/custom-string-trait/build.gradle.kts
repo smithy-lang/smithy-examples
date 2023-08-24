@@ -2,11 +2,9 @@
 description = "Package for a custom Smithy string trait"
 
 plugins {
-    val smithyGradleVersion: String by project
-
     `java-library`
     id("com.github.spotbugs").version("4.7.3")
-    id("software.amazon.smithy").version(smithyGradleVersion)
+    id("software.amazon.smithy.gradle.smithy-jar").version("0.8.0")
 }
 
 java {
@@ -54,17 +52,10 @@ repositories {
     mavenCentral()
 }
 
-buildscript {
-    val smithyVersion: String by project
-
-    // Set the version of the CLI for the smithy gradle plugin to use when building this project
-    dependencies {
-        classpath("software.amazon.smithy:smithy-cli:$smithyVersion")
-    }
-}
-
 dependencies {
     val smithyVersion: String by project
+
+    smithyCli("software.amazon.smithy:smithy-cli:$smithyVersion")
 
     implementation("software.amazon.smithy:smithy-model:$smithyVersion")
 

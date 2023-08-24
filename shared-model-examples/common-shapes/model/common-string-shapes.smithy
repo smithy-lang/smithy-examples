@@ -9,4 +9,3 @@ string IpV4Address
 @pattern("^[ a-zA-Z0-9_:-]{1,256}$")
 @length(min: 1, max: 256)
 string AlphaNumericName
-

@@ -11,10 +11,11 @@ string shouldbecamelcase
 // Fails the `MissingSensitiveTrait` linter
 string Ssn
 
-
 operation MyOperation {
     input: BadlyNamedOperationInput
-    errors: [BadlyName404]
+    errors: [
+        BadlyName404
+    ]
 }
 
 // This will fail the `OperationInputName` validator

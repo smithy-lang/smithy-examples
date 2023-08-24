@@ -2,9 +2,8 @@
 description = "A package used to share common shapes between smithy projects"
 
 plugins {
-    val smithyGradleVersion: String by project
     `java-library`
-    id("software.amazon.smithy").version(smithyGradleVersion)
+    id("software.amazon.smithy.gradle.smithy-jar").version("0.8.0")
 }
 
 repositories {
@@ -12,26 +11,18 @@ repositories {
     mavenCentral()
 }
 
-buildscript {
-    val smithyVersion: String by project
-
-    // Set the version of the CLI for the smithy gradle plugin to use when building this project
-    dependencies {
-        classpath("software.amazon.smithy:smithy-cli:$smithyVersion")
-        classpath("software.amazon.smithy:smithy-linters:$smithyVersion")
-    }
-}
-
 // use the `package` projection to filter out validators so downstream consumers are not
 // force to use them.
 smithy {
-    projection = "package"
+    sourceProjection.set("package")
     // Set tags so other smithy packages can include this in their built packages
-    tags = setOf("common", "example")
+    tags.addAll("common", "example")
 }
 
 
 dependencies {
     val smithyVersion: String by project
+
+    smithyCli("software.amazon.smithy:smithy-cli:$smithyVersion")
     implementation("software.amazon.smithy:smithy-linters:$smithyVersion")
 }

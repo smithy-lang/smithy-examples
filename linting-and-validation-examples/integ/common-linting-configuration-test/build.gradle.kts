@@ -1,19 +1,11 @@
-import software.amazon.smithy.gradle.tasks.SmithyBuild
 
 plugins {
-    val smithyGradleVersion: String by project
-
-    id("software.amazon.smithy").version(smithyGradleVersion)
+    id("java-library")
+    id("software.amazon.smithy.gradle.smithy-jar").version("0.8.0")
 }
-
 
 // The test project doesn't produce a JAR.
 tasks["jar"].enabled = false
-tasks["smithyBuildJar"].enabled = false
-
-tasks.create<SmithyBuild>("buildPackage") {
-    addRuntimeClasspath = true
-}
 
 tasks.named<Test>("test") {
     useJUnitPlatform()
@@ -22,25 +14,12 @@ tasks.named<Test>("test") {
     systemProperty("projectUnderTest",
         project(":linting-and-validation-examples:common-linting-configuration").buildDir.absolutePath)
 }
-tasks["test"].dependsOn(tasks["buildPackage"])
-
-
-buildscript {
-    val smithyVersion: String by project
-
-    // Set the version of the CLI for the smithy gradle plugin to use when building this project
-    dependencies {
-        classpath("software.amazon.smithy:smithy-cli:$smithyVersion")
-    }
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
+tasks["test"].dependsOn(tasks["smithyBuild"])
 
 dependencies {
     val smithyVersion: String by project
+
+    smithyCli("software.amazon.smithy:smithy-cli:$smithyVersion")
 
     implementation(project(":linting-and-validation-examples:common-linting-configuration"))
     implementation("software.amazon.smithy:smithy-linters:$smithyVersion")
