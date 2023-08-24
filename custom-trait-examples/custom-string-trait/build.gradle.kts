@@ -5,7 +5,7 @@ plugins {
     val smithyGradleVersion: String by project
 
     `java-library`
-    id("com.github.spotbugs").version("4.7.1")
+    id("com.github.spotbugs").version("4.7.3")
     id("software.amazon.smithy").version(smithyGradleVersion)
 }
 
