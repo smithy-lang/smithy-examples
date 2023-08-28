@@ -8,4 +8,3 @@ use smithy.example#special
 structure MyStructure {
     myMember: String
 }
-

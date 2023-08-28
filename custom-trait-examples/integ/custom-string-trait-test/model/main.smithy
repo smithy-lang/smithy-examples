@@ -9,4 +9,3 @@ structure MyStructure {
     @jsonName("TESTING")
     myMember: String
 }
-

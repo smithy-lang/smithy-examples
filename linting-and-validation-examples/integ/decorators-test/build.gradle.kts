@@ -4,6 +4,7 @@ plugins {
     // Apply the maven publish to publish your package to maven repositories
     `maven-publish`
 }
+
 // The test project doesn't produce a JAR.
 tasks["jar"].enabled = false
 
