@@ -39,12 +39,19 @@ jobs:
           git config --global user.email "github-aws-smithy-automation@amazon.com"
           git config --global user.name "Smithy Automation"
 
-      - name: Find and replace
-        id: replace-current-version
+      - name: Find and replace gradle version in properties files
+        id: replace-current-version-properties
         if: steps.update-check.outputs.update-required == 'true'
         run: |
           find . -type f -name 'gradle.properties' \
           -exec sed -i "s|smithyGradleVersion=${{ steps.get-current.outputs.smithyGradleVersion }}|smithyGradleVersion=${{ steps.fetch-latest.outputs.latestSmithyGradle }}|g" {} \;
+
+      - name: Find and replace gradle plugin versions in build files
+        id: sync-plugin-version
+        if: steps.update-check.outputs.update-required == 'true'
+        run: |
+          find . -type f -name 'build.gradle.kts' \
+          -exec sed -i '' "s/\(id(\"software\.amazon\.smithy\.gradle\.smithy-\([[:lower:]]*\)\")\.version(\"\)\([[:digit:]\.]*\)\")/\\1${{ steps.fetch-latest.outputs.latestSmithyGradle }}\")/" {} \;
 
       - name: Create PR
         if: steps.update-check.outputs.update-required == 'true'
