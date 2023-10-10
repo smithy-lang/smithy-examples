@@ -106,8 +106,6 @@ structure CitySummary {
 
 @readonly
 operation GetCurrentTime {
-    input := {}
-
     output := {
         @required
         time: Timestamp
