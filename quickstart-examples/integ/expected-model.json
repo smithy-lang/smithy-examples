@@ -138,20 +138,13 @@
         "example.weather#GetCurrentTime": {
             "type": "operation",
             "input": {
-                "target": "example.weather#GetCurrentTimeInput"
+                "target": "smithy.api#Unit"
             },
             "output": {
                 "target": "example.weather#GetCurrentTimeOutput"
             },
             "traits": {
                 "smithy.api#readonly": {}
-            }
-        },
-        "example.weather#GetCurrentTimeInput": {
-            "type": "structure",
-            "members": {},
-            "traits": {
-                "smithy.api#input": {}
             }
         },
         "example.weather#GetCurrentTimeOutput": {

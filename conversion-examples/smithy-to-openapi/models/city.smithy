@@ -3,74 +3,57 @@ $version: "2.0"
 namespace smithy.example
 
 resource City {
-    identifiers: { cityId: CityId }
-    properties: {
-        coordinates: CityCoordinates
-        name: String
-    }
+    identifiers: {cityId: CityId}
+    properties: {coordinates: CityCoordinates, name: String}
     read: GetCity
     create: CreateCity
     resources: [Forecast]
 }
 
 @readonly
-@http(
-    method: "GET",
-    uri: "/city/{cityId}"
-)
+@http(method: "GET", uri: "/city/{cityId}")
 operation GetCity {
-    input: GetCityInput,
-    output: GetCityOutput,
-    errors: [NoSuchResource]
+    input := for City {
+        @required
+        @httpLabel
+        $cityId
+    }
+
+    output := for City {
+        // "required" is used on output to indicate if the service
+        // will always provide a value for the member.
+        @required
+        $name
+
+        @required
+        $coordinates
+    }
+
+    errors: [
+        NoSuchResource
+    ]
 }
 
-@input
-structure GetCityInput for City {
-    // "cityId" provides the identifier for the resource and
-    // has to be marked as required.
-    @required
-    @httpLabel
-    $cityId
-}
-
-structure GetCityOutput for City {
-    // "required" is used on output to indicate if the service
-    // will always provide a value for the member.
-    @required
-    $name
-
-    @required
-    $coordinates
-}
-
-@http(
-    method: "POST",
-    uri: "/city"
-)
+@http(method: "POST", uri: "/city")
 operation CreateCity {
-    input: CreateCityInput,
-    output: CreateCityOutput
-}
+    input := for City {
+        @required
+        $name
 
-@input
-structure CreateCityInput for City {
-    @required
-    $name
+        @required
+        $coordinates
+    }
 
-    @required
-    $coordinates
-}
+    output := for City {
+        @required
+        $cityId
 
-@output
-structure CreateCityOutput for City {
-    @required
-    $cityId
+        @required
+        $name
 
-    @required
-    $name
-
-    @required
-    $coordinates
+        @required
+        $coordinates
+    }
 }
 
 // "pattern" is a trait that constrains the string value
@@ -84,5 +67,3 @@ structure CityCoordinates {
     @required
     longitude: Float
 }
-
-
