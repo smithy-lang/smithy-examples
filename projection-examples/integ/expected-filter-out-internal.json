@@ -225,6 +225,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "smithy.example#GetCurrentTime": {
@@ -248,6 +251,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "smithy.example#GetForecast": {

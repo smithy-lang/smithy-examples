@@ -2,7 +2,6 @@ $version: "2.0"
 
 namespace smithy.example
 
-
 // "error" is a trait that is used to specialize
 // a structure as an error.
 @error("client")
@@ -23,6 +22,3 @@ structure ServiceError {
     @required
     message: String
 }
-
-
-
