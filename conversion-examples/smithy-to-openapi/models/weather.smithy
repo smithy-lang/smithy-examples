@@ -5,8 +5,7 @@ namespace smithy.example
 use aws.protocols#restJson1
 
 /// Provides weather forecasts
-@paginated(inputToken: "nextToken", outputToken: "nextToken",
-           pageSize: "pageSize")
+@paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize")
 @restJson1
 @title("Weather Service")
 service Weather {
@@ -18,18 +17,10 @@ service Weather {
 }
 
 @readonly
-@http(
-    method: "GET",
-    uri: "/current-time"
-)
+@http(method: "GET", uri: "/current-time")
 operation GetCurrentTime {
-    output: GetCurrentTimeOutput
+    output := {
+        @required
+        time: Timestamp
+    }
 }
-
-structure GetCurrentTimeOutput {
-    @required
-    time: Timestamp
-}
-
-
-
