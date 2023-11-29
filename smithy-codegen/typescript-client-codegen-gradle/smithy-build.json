@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "sources": ["models"],
+  "plugins": {
+    "typescript-client-codegen": {
+      "package": "@smithy/typescript-client-codegen-example",
+      "packageVersion": "0.0.1",
+      "packageJson": {
+        "license": "MIT"
+      }
+    }
+  }
+}
