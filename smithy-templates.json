@@ -121,6 +121,14 @@
         ".gitignore",
         ".gitattributes"
       ]
+    },
+    "typescript-client-codegen": {
+      "documentation": "Smithy TypeScript Client Codegen example built using the Smithy CLI",
+      "path": "smithy-codegen/typescript-client-codegen"
+    },
+    "typescript-client-codegen-gradle": {
+      "documentation": "Smithy TypeScript Client Codegen example built using the Smithy CLI",
+      "path": "smithy-codegen/typescript-client-codegen"
     }
   }
 }
