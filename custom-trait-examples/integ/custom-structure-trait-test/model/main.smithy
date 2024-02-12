@@ -10,7 +10,7 @@ use io.smithy.example#resourceMetadata
     associatedStructures: [ForecastStruct]
 )
 resource Forecast {
-    identifiers: {forecastId: ForecastId}
+    identifiers: { forecastId: ForecastId }
 }
 
 string ForecastId

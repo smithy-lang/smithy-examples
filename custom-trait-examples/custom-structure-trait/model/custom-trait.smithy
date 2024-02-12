@@ -5,7 +5,9 @@ namespace io.smithy.example
 @trait(
     selector: "resource"
     breakingChanges: [
-        {change: "presence"}
+        {
+            change: "presence"
+        }
     ]
 )
 structure resourceMetadata {

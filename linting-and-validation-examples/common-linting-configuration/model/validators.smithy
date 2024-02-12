@@ -3,8 +3,14 @@ $version: "2.0"
 // The validators used here are either built-in linters (see: https://smithy.io/2.0/guides/model-linters.html#linters-in-smithy-linters)
 // or they are from the following guide:https://smithy.io/2.0/guides/model-validation-examples.html
 metadata validators = [
-    {name: "AbbreviationName", severity: "WARNING"}
-    {name: "CamelCase", severity: "WARNING"}
+    {
+        name: "AbbreviationName"
+        severity: "WARNING"
+    }
+    {
+        name: "CamelCase"
+        severity: "WARNING"
+    }
     {
         name: "MissingSensitiveTrait"
         severity: "WARNING"
