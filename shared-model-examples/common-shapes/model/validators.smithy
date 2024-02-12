@@ -1,11 +1,21 @@
 $version: "2.0"
 
 metadata validators = [
-    {name: "AbbreviationName"}
-    {name: "CamelCase"}
-    {name: "NoninclusiveTerms"}
-    {name: "RepeatedShapeName"}
-    {name: "ShouldHaveUsedTimestamp"}
+    {
+        name: "AbbreviationName"
+    }
+    {
+        name: "CamelCase"
+    }
+    {
+        name: "NoninclusiveTerms"
+    }
+    {
+        name: "RepeatedShapeName"
+    }
+    {
+        name: "ShouldHaveUsedTimestamp"
+    }
     // Require range for integers
     {
         name: "EmitEachSelector"
