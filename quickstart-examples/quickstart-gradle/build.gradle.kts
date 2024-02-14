@@ -1,5 +1,5 @@
 plugins {
-    id("java-library")
+    `java-library`
     id("software.amazon.smithy.gradle.smithy-jar")
 }
 
