@@ -15,7 +15,7 @@ jobs:
         id: fetch-latest
         run: |
           echo "latestSmithy=$( \
-            curl -sL https://api.github.com/repos/awslabs/smithy/releases/latest | \
+            curl -sL https://api.github.com/repos/smithy-lang/smithy/releases/latest | \
             jq -r '.tag_name')" >> $GITHUB_OUTPUT
 
       - name: Get current versions

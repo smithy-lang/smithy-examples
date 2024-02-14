@@ -4,7 +4,7 @@ description = "Custom Smithy structure trait with multiple inputs"
 plugins {
     `java-library`
     id("com.github.spotbugs").version("4.7.3")
-    id("software.amazon.smithy.gradle.smithy-jar").version("0.9.0")
+    id("software.amazon.smithy.gradle.smithy-jar")
 }
 
 java {
