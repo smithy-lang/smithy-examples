@@ -1,8 +1,8 @@
 description = "A package used to share a common linting configuration between smithy projects"
 
 plugins {
-    id("java-library")
-    id("software.amazon.smithy.gradle.smithy-jar").version("0.10.0")
+    `java-library`
+    id("software.amazon.smithy.gradle.smithy-jar")
 }
 
 repositories {

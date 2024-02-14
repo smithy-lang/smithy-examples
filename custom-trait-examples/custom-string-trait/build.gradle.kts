@@ -4,7 +4,7 @@ description = "Package for a custom Smithy string trait"
 plugins {
     `java-library`
     id("com.github.spotbugs").version("4.7.3")
-    id("software.amazon.smithy.gradle.smithy-jar").version("0.10.0")
+    id("software.amazon.smithy.gradle.smithy-jar")
 }
 
 java {

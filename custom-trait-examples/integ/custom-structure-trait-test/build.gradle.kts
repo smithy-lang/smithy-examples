@@ -1,7 +1,7 @@
 
 plugins {
-    id("java-library")
-    id("software.amazon.smithy.gradle.smithy-jar").version("0.10.0")
+    `java-library`
+    id("software.amazon.smithy.gradle.smithy-jar")
 }
 
 // The test project doesn't produce a JAR.
