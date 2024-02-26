@@ -14,3 +14,7 @@ dependencies {
 
     implementation(project(":custom-trait-examples:custom-structure-trait"))
 }
+
+smithy {
+    smithyBuildConfigs.set(project.files())
+}

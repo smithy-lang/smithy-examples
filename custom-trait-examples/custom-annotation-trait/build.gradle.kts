@@ -58,3 +58,8 @@ dependencies {
 
     implementation("software.amazon.smithy:smithy-model:$smithyVersion")
 }
+
+smithy {
+    // Set to an empty list because no smithy-build config files are used
+    smithyBuildConfigs.set(project.files())
+}

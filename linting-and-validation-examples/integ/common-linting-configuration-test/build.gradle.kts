@@ -30,3 +30,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
     testImplementation("org.hamcrest:hamcrest:2.1")
 }
+
+smithy {
+    smithyBuildConfigs.set(project.files())
+}

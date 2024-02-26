@@ -14,3 +14,7 @@ dependencies {
 
     implementation(project(":custom-trait-examples:custom-annotation-trait"))
 }
+
+smithy {
+    smithyBuildConfigs.set(project.files())
+}
