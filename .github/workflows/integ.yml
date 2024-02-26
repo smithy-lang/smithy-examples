@@ -25,10 +25,9 @@ jobs:
         run: |
           brew tap smithy-lang/tap
           brew update
-          brew install smithy-cli
-          brew upgrade smithy-cli
+          brew install smithy-lang/tap/smithy-cli
+          brew upgrade smithy-lang/tap/smithy-cli
           echo "Smithy CLI version $(smithy --version) installed"
 
       - name: Execute integration tests
         run: make test-all
-        
