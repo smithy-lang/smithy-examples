@@ -8,6 +8,11 @@
                     "target": "example.weather#CityId"
                 }
             },
+            "properties": {
+                "coordinates": {
+                    "target": "example.weather#CityCoordinates"
+                }
+            },
             "read": {
                 "target": "example.weather#GetCity"
             },
@@ -80,6 +85,11 @@
                     "target": "example.weather#CityId"
                 }
             },
+            "properties": {
+                "chanceOfRain": {
+                    "target": "smithy.api#Float"
+                }
+            },
             "read": {
                 "target": "example.weather#GetForecast"
             }
@@ -121,6 +131,7 @@
                 "name": {
                     "target": "smithy.api#String",
                     "traits": {
+                        "smithy.api#notProperty": {},
                         "smithy.api#required": {}
                     }
                 },
