@@ -6,19 +6,27 @@ namespace example.weather
 @paginated(inputToken: "nextToken", outputToken: "nextToken", pageSize: "pageSize")
 service Weather {
     version: "2006-03-01"
-    resources: [City]
-    operations: [GetCurrentTime]
+    resources: [
+        City
+    ]
+    operations: [
+        GetCurrentTime
+    ]
 }
 
 resource City {
-    identifiers: {cityId: CityId}
+    identifiers: { cityId: CityId }
+    properties: { coordinates: CityCoordinates }
     read: GetCity
     list: ListCities
-    resources: [Forecast]
+    resources: [
+        Forecast
+    ]
 }
 
 resource Forecast {
-    identifiers: {cityId: CityId}
+    identifiers: { cityId: CityId }
+    properties: { chanceOfRain: Float }
     read: GetForecast
 }
 
@@ -35,14 +43,15 @@ operation GetCity {
         $cityId
     }
 
-    output := {
+    output := for City {
         // "required" is used on output to indicate if the service
         // will always provide a value for the member.
         @required
+        @notProperty
         name: String
 
         @required
-        coordinates: CityCoordinates
+        $coordinates
     }
 
     errors: [
@@ -91,11 +100,11 @@ list CitySummaries {
 }
 
 // CitySummary contains a reference to a City.
-@references(
-    [
-        {resource: City}
-    ]
-)
+@references([
+    {
+        resource: City
+    }
+])
 structure CitySummary {
     @required
     cityId: CityId
@@ -121,7 +130,7 @@ operation GetForecast {
         $cityId
     }
 
-    output := {
-        chanceOfRain: Float
+    output := for Forecast {
+        $chanceOfRain
     }
 }
