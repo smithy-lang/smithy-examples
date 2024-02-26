@@ -58,3 +58,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
 }
+
+smithy {
+    // Set to an empty list because no smithy-build config files are used
+    smithyBuildConfigs.set(project.files())
+}

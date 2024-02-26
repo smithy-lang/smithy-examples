@@ -29,3 +29,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
 }
+
+smithy {
+    smithyBuildConfigs.set(project.files())
+}
