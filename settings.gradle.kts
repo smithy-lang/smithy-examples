@@ -45,3 +45,10 @@ include(":linting-and-validation-examples:integ:common-linting-configuration-tes
 include(":linting-and-validation-examples:integ:custom-linter-test")
 include(":linting-and-validation-examples:integ:custom-validator-test")
 include(":linting-and-validation-examples:integ:decorators-test")
+
+// ---- Gradle Plugin Examples -----
+// Templates
+includeBuild("gradle-plugin-examples/tutorial")
+
+// Integ test
+include(":gradle-plugin-examples:integ:tutorial")
