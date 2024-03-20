@@ -121,6 +121,19 @@
         ".gitignore",
         ".gitattributes"
       ]
+    },
+    "smithy-gradle-tutorial": {
+      "documentation": "Tutorial project that demonstrates how to use the Smithy Gradle plugins.",
+      "path": "gradle-plugin-examples/tutorial",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        "gradle.properties",
+        ".gitignore",
+        ".gitattributes"
+      ]
     }
   }
 }
