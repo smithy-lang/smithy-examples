@@ -1,6 +1,6 @@
 ### Smithy Gradle Plugin Tutorial 
 
-An example Smithy project that demonstrates how to use the [Smithy Gradle plugins](https://github.com/smithy-lang/smithy-gradle-plugin)
+An example Smithy project that demonstrates how to use [Smithy Gradle plugins](https://github.com/smithy-lang/smithy-gradle-plugin)
 by creating a simple Cafe service model.
 
 This project: 
