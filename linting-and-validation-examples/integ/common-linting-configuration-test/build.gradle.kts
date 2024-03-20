@@ -25,10 +25,10 @@ dependencies {
     implementation("software.amazon.smithy:smithy-linters:$smithyVersion")
 
     testImplementation("software.amazon.smithy:smithy-model:$smithyVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.4.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.4.0")
-    testImplementation("org.hamcrest:hamcrest:2.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.2")
+    testImplementation("org.hamcrest:hamcrest:2.2")
 }
 
 smithy {
