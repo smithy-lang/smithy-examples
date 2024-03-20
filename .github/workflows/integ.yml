@@ -12,7 +12,7 @@ jobs:
     name: Java 17 MacOs
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: gradle/wrapper-validation-action@v2
 
       - name: Set up JDK 17
