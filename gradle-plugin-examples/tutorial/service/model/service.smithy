@@ -2,6 +2,7 @@ $version: "2.0"
 
 metadata validators = [
     {
+        // The name of our custom validator
         name: "DocUrl"
     }
 ]
@@ -16,7 +17,7 @@ use com.example.cafe.common#Style
 use com.example.cafe.common#Type
 
 /// Provides an API for ordering coffee
-service CoffeeService {
+service DrinkService {
     version: "2024-03-30"
     resources: [
         Order
