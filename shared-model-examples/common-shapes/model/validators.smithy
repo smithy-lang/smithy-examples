@@ -22,9 +22,10 @@ metadata validators = [
         id: "RawIntegerWithoutRange"
         configuration: {
             messageTemplate: """
-                This number shape in member `@{id}` of the operation input `@{var|structure}` \
-                does not have a range constraint on both its minimum or maximum value. \
-                Add the `@@range` trait to this integer shape and provide both minimum and maximum values. \
+                This number shape in member `@{id}` of the operation
+                input `@{var|structure}` does not have a range constraint
+                on both its minimum or maximum value. Add the `@@range` trait
+                to this integer shape and provide both minimum and maximum values.
                 For example, `@@range(min: 1, max: 500)`.
                 """
             selector: """
@@ -38,9 +39,9 @@ metadata validators = [
         id: "RawIntegerWithoutRangeMin"
         configuration: {
             messageTemplate: """
-                This number shape in member `@{id}` of the operation input `@{var|structure}` \
-                does not have a maximum range constraint. \
-                Add a minimum value to the `@@range` trait on this shape. \
+                This number shape in member `@{id}` of the operation input `@{var|structure}`
+                does not have a maximum range constraint.
+                Add a minimum value to the `@@range` trait on this shape.
                 For example, `@@range(>>> min: 1 <<<, max: 500)`.
                 """
             selector: """
@@ -54,9 +55,9 @@ metadata validators = [
         id: "RawIntegerWithoutRangeMax"
         configuration: {
             messageTemplate: """
-                This number shape in member `@{id}` of the operation input `@{var|structure}` \
-                does not have a maximum range constraint. \
-                Add a maximum value to the `@@range` trait on this shape. \
+                This number shape in member `@{id}` of the operation input `@{var|structure}`
+                does not have a maximum range constraint.
+                Add a maximum value to the `@@range` trait on this shape.
                 For example, `@@range(min: 1, >>> max: 500 <<<)`.
                 """
             selector: """
@@ -71,7 +72,7 @@ metadata validators = [
         id: "ListWithoutLengthConstraint"
         configuration: {
             messageTemplate: """
-                List shape `@{id}` does not have a length constraint specified. \
+                List shape `@{id}` does not have a length constraint specified.
                 Add the `@@length` trait to the list shape. For example, `@@length(min: 1, max: 2)`.
                 """
             selector: "list:not([trait|length])"
@@ -82,8 +83,8 @@ metadata validators = [
         id: "ListWithoutLengthConstraintMinimum"
         configuration: {
             messageTemplate: """
-                List shape `@{id}` does not have a minimum length specified. \
-                Add a `min` value to the `@@length` trait on the list shape. \
+                List shape `@{id}` does not have a minimum length specified.
+                Add a `min` value to the `@@length` trait on the list shape.
                 For example, `@@length(>>> min: 1 <<<, max: 2)`.
                 """
             selector: "list[trait|length]:not([trait|length|min])"
@@ -94,8 +95,8 @@ metadata validators = [
         id: "ListWithoutLengthConstraintMaximum"
         configuration: {
             messageTemplate: """
-                List shape `@{id}` does not have a maximum length specified. \
-                Add a `max` value to the `@@length` trait on the list shape. \
+                List shape `@{id}` does not have a maximum length specified.
+                Add a `max` value to the `@@length` trait on the list shape.
                 For example, `@@length(min: 1, >>> max: 2 <<<)`.
                 """
             selector: "list[trait|length]:not([trait|length|max])"
@@ -108,10 +109,10 @@ metadata validators = [
         namespaces: ["example.common"]
         configuration: {
             messageTemplate: """
-                This String shape in member `@{id}` of the operation input `@{var|structure}` \
-                does not have a pattern constraint. \
-                Add the `@@pattern` trait to this string shape and provide a regex pattern. \
-                For example, `@@pattern("^[\\S\\s]+$")`.
+                This String shape in member `@{id}` of the operation input `@{var|structure}`
+                does not have a pattern constraint.
+                Add the `@@pattern` trait to this string shape and provide a regex pattern.
+                For example, `@@pattern("^[a-zA-z]+$")`.
                 """
             selector: """
                 operation -[input]-> $structure(*) > member
