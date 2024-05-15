@@ -3,8 +3,8 @@
   "sources": ["models"],
   "maven": {
     "dependencies": [
-      "software.amazon.smithy:smithy-openapi:1.48.0",
-      "software.amazon.smithy:smithy-aws-traits:1.48.0"
+      "software.amazon.smithy:smithy-openapi:1.49.0",
+      "software.amazon.smithy:smithy-aws-traits:1.49.0"
     ]
   },
   "projections": {
