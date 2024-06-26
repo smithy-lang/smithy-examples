@@ -29,7 +29,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation(libs.guava)
 
-    implementation("software.amazon.smithy:smithy-model:1.49.0")
+    implementation("software.amazon.smithy:smithy-model:1.50.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
