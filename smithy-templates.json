@@ -134,6 +134,11 @@
         ".gitignore",
         ".gitattributes"
       ]
-    }
+    },
+    "smithy-tutorial": {
+        "documentation": "Tutorial project that demonstrates how to use the Smithy in a simple web application and server.",
+        "path": "tutorial",
+        "include": [".gitignore",".gitattributes"]
+      }
   }
 }
