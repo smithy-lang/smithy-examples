@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 230, 210, 200;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Home styling */
+.home {
+    @apply flex min-h-screen flex-col items-center justify-between p-24
+}
+
+.home_header {
+    @apply z-10 w-full max-w-7xl items-center justify-between font-sans text-sm lg:flex
+}
+
+.home_header_content {
+    @apply fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none
+}
+
+/* ----------- */
+
+/* Menu styling */
+.home_menu {
+    @apply grid gap-8 pt-14;
+  }
+
+.menu-item_card {
+    @apply inline-flex p-6 justify-center items-start bg-orange-50 hover:bg-orange-100 hover:shadow-md rounded-3xl;
+}
+
+.menu-item_content {
+    @apply w-10 justify-between items-start gap-2 h-full text-nowrap;
+}
+
+.menu-item_name {
+    @apply text-[22px] leading-[26px] font-bold capitalize;
+}
+
+.menu-item_image_container {
+}
+
+.menu-item_image {
+    @apply relative w-full h-60 my-3 object-contain right-4;
+}
+
+.menu-item_description {
+}
+
+.menu-item_box {
+    @apply h-full 
+}
+
+.menu-item_box_description {
+    @apply font-bold
+}
+
+.menu-item_box_containers {
+    @apply h-48 w-80 flex flex-col place-content-evenly list-disc text-balance
+}
+/* ----------- */
+
+.order_button {
+    @apply w-full py-[16px] rounded-3xl bg-orange-200 hover:bg-orange-50
+}
