@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { getImage } from "..";
+import { getImage } from "../index";
 
 
 export default function Page() {

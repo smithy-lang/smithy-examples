@@ -34,10 +34,10 @@ build-app: build-client
 build: build-server build-client build-app
 
 dev-server: build-ssdk
-	cd server; yarn dev
+	cd server; yarn && yarn dev
 
 dev-app: build-client
-	cd app; yarn dev
+	cd app; yarn && yarn dev
 
 run-server: build-server
 	cd server; yarn start

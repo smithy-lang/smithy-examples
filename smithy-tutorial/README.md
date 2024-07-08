@@ -48,6 +48,8 @@ To run the server in production mode, run:
 make run-server
 ```
 
+Whether you launch in development mode or not, the server will run on `localhost:3001`. The web-application will make requests to this address.
+
 ### Web Application
 To run the web-application in development mode, run:
 ```
@@ -59,3 +61,5 @@ To run the app in production mode, run:
 ```
 make run-app
 ```
+
+Whether you launch in development mode or not, the web-application will run on `localhost:3000`. To access it, view this [address](http://localhost:3000) in your browser.
