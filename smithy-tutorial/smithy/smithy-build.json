@@ -1,0 +1,20 @@
+{
+    "version": "1.0",
+    "maven": {
+        "dependencies": [
+            "software.amazon.smithy:smithy-aws-traits:1.49.0",
+            "software.amazon.smithy:smithy-validation-model:1.49.0",
+            "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.21.1-test"
+        ]
+    },
+    "plugins": {
+        "typescript-client-codegen": {
+            "package": "@com.example/coffee-service-client",
+            "packageVersion": "0.0.1"
+        },
+        "typescript-ssdk-codegen": {
+            "package" : "@com.example/coffee-service-server",
+            "packageVersion": "0.0.1"
+        }
+    }
+}
