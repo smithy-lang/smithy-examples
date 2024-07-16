@@ -48,3 +48,5 @@ run-server: build-server ## Run the server
 
 run-app: build-app ## Run the web application
 	cd app; yarn start
+
+test-all: build
