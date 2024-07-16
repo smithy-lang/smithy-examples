@@ -1,14 +1,14 @@
 # Smithy Tutorial
-This package serves as an introduction to a simple web application that uses a smithy-based client to make calls to a smithy-based server. This project is laid out in the following way for ease of learning:
+This package serves as an introduction to a simple web application that uses a Smithy-based client to make calls to a Smithy-based server. This project is laid out in the following way:
 
 ### Model - `smithy/`
-This directory contains the smithy model and smithy build configuration.
+This directory contains the Smithy model and Smithy build configuration ([smithy-build.json](https://smithy.io/2.0/guides/smithy-build-json.html)).
 
 ### Server - `server/`
-This directory contains the server implementation, which is based on the generated server-sdk built from the smithy model.
+This directory contains the server implementation, which is based on the generated server-sdk built from the Smithy model.
 
 ### Client - `client/`
-This directory is empty until the generated client is built from the smithy model. After a build, this will be populated with a code-generated client.
+This directory is empty until the generated client is built from the Smithy model. After a build, this will be populated with a code-generated client.
 
 ### Web application - `app/`
 This directory contains the Next.js web-application that consumes the generated client and makes call to the server.
@@ -20,10 +20,10 @@ To build everything, run:
 ```
 make build
 ```
-This will build each distinct component of this project: the smithy model (`smithy/`), the client (`client/`), the application (`app/`), and the server (`server/`).
+This will build each distinct component of this project: the Smithy model (`smithy/`), the client (`client/`), the application (`app/`), and the server (`server/`).
 
 You may also independently build each component:
- * `make build-smithy`: build the smithy model and code-generate the client and server
+ * `make build-smithy`: build the Smithy model and code-generate the client and server
  * `make build-ssdk`: set up and build the generated server-sdk (`ssdk`)
  * `make build-server`: build the server implementation
  * `make build-client`: set up and build the generated client
@@ -55,7 +55,7 @@ To run the web-application in development mode, run:
 ```
 make dev-app
 ```
-The application will hot-load changes to the app, making it easier to test your changes. Any changes you make to the smithy model will require you to rebuild the client (`make build-client`) for them to reflect in this mode.
+The application will hot-load changes to the app, making it easier to test your changes. Any changes you make to the Smithy model will require you to rebuild the client (`make build-client`) for them to reflect in this mode.
 
 To run the app in production mode, run:
 ```

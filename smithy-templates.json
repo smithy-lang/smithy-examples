@@ -136,7 +136,7 @@
       ]
     },
     "smithy-tutorial": {
-        "documentation": "Tutorial project that demonstrates how to use the Smithy in a simple web application and server.",
+        "documentation": "Tutorial project that demonstrates how to use the Smithy to create a simple web application.",
         "path": "tutorial",
         "include": [".gitignore",".gitattributes"]
       }

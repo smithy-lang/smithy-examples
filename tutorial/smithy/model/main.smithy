@@ -10,22 +10,23 @@ use smithy.framework#ValidationException
 @title("Coffee Service")
 @restJson1
 service CoffeeService {
-   version: "2024-04-04"
-   operations: [
-      GetMenu
-   ]
-   resources: [
-      Order
-   ]
-   errors: [ValidationException]
+    version: "2024-04-04"
+    operations: [
+        GetMenu
+    ]
+    resources: [
+        Order
+    ]
+    errors: [
+        ValidationException
+    ]
 }
 
 /// Retrieve the menu
 @http(method: "GET", uri: "/menu")
 @readonly
 operation GetMenu {
-   output := {
-       items: CoffeeItems
-   }
+    output := {
+        items: CoffeeItems
+    }
 }
-
