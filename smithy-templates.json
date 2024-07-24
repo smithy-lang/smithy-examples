@@ -10,9 +10,9 @@
       "path": "quickstart-examples/quickstart-gradle",
       "include": [ ".gitignore", ".gitattributes" ]
     },
-    "custom-annotation-trait": {
-      "documentation": "Gradle project for creating a package for a custom annotation trait.",
-      "path": "custom-trait-examples/custom-annotation-trait",
+    "custom-trait": {
+      "documentation": "Gradle project for creating a package for custom traits.",
+      "path": "custom-trait-examples/custom-trait",
       "include": [
         "config/",
         "gradle/",
@@ -23,9 +23,9 @@
         ".gitattributes"
       ]
     },
-    "custom-string-trait": {
-      "documentation": "Gradle project for creating a package for a custom string trait.",
-      "path": "custom-trait-examples/custom-string-trait",
+    "custom-trait-handwritten": {
+      "documentation": "Gradle project for creating a package for custom traits with handwritten trait definitions.",
+      "path": "custom-trait-examples/custom-trait-handwritten",
       "include": [
         "config/",
         "gradle/",
@@ -36,9 +36,9 @@
         ".gitattributes"
       ]
     },
-    "custom-structure-trait": {
-      "documentation": "Gradle project for creating a package for a custom structure trait.",
-      "path": "custom-trait-examples/custom-structure-trait",
+    "custom-trait-with-java-validator": {
+      "documentation": "Gradle project for creating a package for custom traits with custom Java validators.",
+      "path": "custom-trait-examples/custom-trait-with-java-validator",
       "include": [
         "config/",
         "gradle/",
