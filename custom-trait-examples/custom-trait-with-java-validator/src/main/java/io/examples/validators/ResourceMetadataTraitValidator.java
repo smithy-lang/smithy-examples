@@ -14,8 +14,8 @@ import software.amazon.smithy.model.validation.AbstractValidator;
 import software.amazon.smithy.model.validation.ValidationEvent;
 
 /**
- * Use custom Java validators to
- * See:
+ * Custom Java validators can apply additional model validation associated with your trait.
+ * See: <a href="https://smithy.io/2.0/guides/model-linters.html#writing-custom-validators">writing custom validators</a>
  */
 public class ResourceMetadataTraitValidator extends AbstractValidator {
     @Override

@@ -14,8 +14,8 @@ gradle. The generated JAR file that should be used by downstream consumers can b
 found at `build/libs/custom-trait.jar`
 
 
-## Customization
-To customize this package, start by updating the `settings.gradle.kts` file and update
+## Configuring the example
+To configure this package for your own project, start by updating the `settings.gradle.kts` file and update
 the `rootProject.name` property to the desired name of your package. Also update the 
 `description` at the top of the `build.gradle.kts` file.
 

@@ -1,4 +1,4 @@
-# Custom Annotation Trait
+# Custom Trait with Java validator
 Use this package to create a custom trait with a [custom Java validator](https://smithy.io/2.0/guides/model-linters.html#writing-custom-validators). 
 
 ## Building
@@ -13,8 +13,8 @@ gradle. The generated JAR file that should be used by downstream consumers can b
 found at `build/libs/custom-trait-with-java-validator.jar`
 
 
-## Customization
-To customize this package, start by updating the `settings.gradle.kts` file and update
+## Configuring this example
+To configure this example for your own project, start by updating the `settings.gradle.kts` file and update
 the `rootProject.name` property to the desired name of your package. Also update the 
 `description` at the top of the `build.gradle.kts` file.
 

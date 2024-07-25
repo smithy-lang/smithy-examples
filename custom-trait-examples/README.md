@@ -36,7 +36,7 @@ For more information on defining traits see the [Smithy specification](https://s
 
 --- 
 ## Custom Trait
-This example demonstrates how to create a package for custom traits using the `smithy-trait-package` plugin 
+This example demonstrates how to create a package for custom traits using the `smithy-trait-package` Gradle plugin 
 and Smithy's `trait-codegen` build plugin.
 
 ### Use as a template
@@ -48,7 +48,7 @@ smithy init -t custom-trait
 
 ## Custom trait with Java validator
 This example demonstrates how to create a package for custom traits that includes a custom Java validator. This example
-uses the `smithy-trait-package` plugin and Smithy's `trait-codegen` build plugin to configure the package and generate traits.
+uses the `smithy-trait-package` Gradle plugin and Smithy's `trait-codegen` build plugin to configure the package and generate traits.
 
 Many custom traits require additional validations to ensure they are used correctly. Customers can use 
 [trait validators](https://smithy.io/2.0/spec/model-validation.html#smithy-api-traitvalidators-trait) 
