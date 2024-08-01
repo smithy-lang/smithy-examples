@@ -8,7 +8,7 @@ import { getImage } from "../index";
 
 export default function Page() {
     return (
-        <Suspense>
+      <Suspense>
             <main className="home">
                 <Coffee></Coffee>
             </main>

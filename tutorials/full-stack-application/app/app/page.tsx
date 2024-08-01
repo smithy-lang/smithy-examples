@@ -22,12 +22,12 @@ export default async function Page() {
                     />
                 </div>
             </div>
-            <div className="flex-1 pt-8 padding-x">
+            <div className="title_container">
                 <h1 className="title text-4xl font-sans font-medium">
                     Enjoy a nice cup of joe!
                 </h1>
-                <Menu></Menu>
             </div>
+            <Menu></Menu>
         </main>
     );
 }
