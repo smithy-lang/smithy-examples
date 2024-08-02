@@ -4,6 +4,7 @@ pluginManagement {
     plugins {
         id("software.amazon.smithy.gradle.smithy-jar").version(smithyGradleVersion)
         id("software.amazon.smithy.gradle.smithy-base").version(smithyGradleVersion)
+        id("software.amazon.smithy.gradle.smithy-trait-package").version(smithyGradleVersion)
     }
 
     repositories {
@@ -17,14 +18,14 @@ rootProject.name = "smithy-examples"
 
 // ---- custom-trait-examples ----
 // Template directories
-include(":custom-trait-examples:custom-annotation-trait")
-include(":custom-trait-examples:custom-string-trait")
-include(":custom-trait-examples:custom-structure-trait")
+include(":custom-trait-examples:custom-trait")
+include(":custom-trait-examples:custom-trait-with-java-validator")
+include(":custom-trait-examples:custom-trait-handwritten")
 
 // Integration Tests
-include(":custom-trait-examples:integ:custom-annotation-trait-test")
-include(":custom-trait-examples:integ:custom-string-trait-test")
-include(":custom-trait-examples:integ:custom-structure-trait-test")
+include(":custom-trait-examples:integ:custom-trait-test")
+include(":custom-trait-examples:integ:custom-trait-with-java-validator-test")
+include(":custom-trait-examples:integ:custom-trait-handwritten-test")
 
 // ---- shared models ----
 // Template directories

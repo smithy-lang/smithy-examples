@@ -1,9 +1,9 @@
 # Custom Traits
-The examples in this directory demonstrate how to create a custom trait package for Smithy. 
+The examples in this directory demonstrate how to create your own [traits](https://smithy.io/2.0/spec/model.html#traits)
+in Smithy.
 
-Traits are model components that can be attached to shapes to describe additional information about the shape; 
+Traits are model components that can be attached to shapes to describe additional information about the shape;
 shapes provide the structure and layout of an API, while traits provide refinement and style.
-
 
 ### Custom trait packages
 A custom trait package can be created to distribute your trait definition for use in both Smithy models and in code generators.
@@ -26,102 +26,55 @@ a nested `Provider` class that implements `software.amazon.smithy.model.traits.T
 then be added to a resource file `META-INF/services/software.amazon.smithy.model.traits.TraitService` in order for the SPI to 
 discover the custom trait implementation. See the examples in this directory for example implementations.
 
-
 For more information on defining traits see the [Smithy specification](https://smithy.io/2.0/spec/model.html#defining-traits)
 
 
 ## Examples
-- [Custom Annotation Trait](#custom-annotation-trait)
-- [Custom String Trait](#custom-string-trait)
-- [Custom Structure Trait](#custom-structure-trait)
+- [Custom trait](#custom-trait)
+- [Custom trait with Java validator](#custom-trait-with-java-validator)
+- [Custom, handwritten trait](#custom-handwritten-trait)
 
 --- 
-## Custom Annotation Trait
-This example demonstrates how to create a custom [Annotation trait](https://smithy.io/2.0/spec/model.html?highlight=annotation#annotation-traits)
-package. Annotation traits are structure traits with no members.
-
-For example, you might use an annotation trait `smithy.example#beta` to mark an operation as still in `beta`:
-```smithy
-use smithy.example#beta 
-
-@beta
-operation MyOperation {
-  input: MyOperationInput
-  output: MyOperationOutput
-}
-
-```
-
-Annotation traits can be defined as Smithy shapes without code. For example:
-```smithy
-$version: "2"
-namespace smithy.example
-
-@trait
-structure foo {}
-```
-
-However, sometimes defining the trait as Java class in addition to a smithy model makes it easier for the trait to be used by
-other Java code such as code generators.
+## Custom Trait
+This example demonstrates how to create a package for custom traits using the `smithy-trait-package` Gradle plugin 
+and Smithy's `trait-codegen` build plugin.
 
 ### Use as a template
 To use this example as a template run the following command.
 
 ```console
-smithy init -t custom-annotation-trait
+smithy init -t custom-trait
 ```
 
-## Custom String Trait
-This example demonstrates how to create a custom String trait package. String traits are string shapes with the `@trait`
-trait applied, and they accept a single string argument.
+## Custom trait with Java validator
+This example demonstrates how to create a package for custom traits that includes a custom Java validator. This example
+uses the `smithy-trait-package` Gradle plugin and Smithy's `trait-codegen` build plugin to configure the package and generate traits.
 
-For example, you might use a string trait `smithy.example#label` to add a label to a structure:
-```smithy
-use smithy.example#label
-
-@label("myLabel")
-structure MyStructure {
-  value: String
-}
-```
-Many custom traits require additional validations to ensure they are used correctly. This example also adds a validator 
-for the string trait that performs additional checks on the trait's usage.
-
-*Note*: the validator defined in this package will be used by packages that declare this custom trait package as a
-dependency without being added to the `metadata validators` metadata key.
+Many custom traits require additional validations to ensure they are used correctly. Customers can use 
+[trait validators](https://smithy.io/2.0/spec/model-validation.html#smithy-api-traitvalidators-trait) 
+to apply most validation. However, sometimes advanced validation that cannot be easily expressed with Smithy selectors 
+is required. [Custom Java validators](https://smithy.io/2.0/guides/model-linters.html#writing-custom-validators) can 
+be used apply advanced model validation using the Java programming language.
 
 ### Use as a template
 To use this example as a template run the following command.
 
 ```console
-smithy init -t custom-string-trait
+smithy init -t custom-trait-with-java-validator
 ```
 
-## Custom Structure Trait
-This example demonstrates how to create a custom complex trait package. This complex trait has multiple inputs.
+## Custom, handwritten trait
+Trait codegen can be used in most cases when defining a custom trait, but some customers may wish to customize the Java 
+definitions of their traits to support additional behavior such as parsing a string into a URL. To support such use cases
+customer can opt to handwrite their trait definitions. Such handwritten trait definitions can be included in a package alongside 
+automatically generated Java trait definitions.
 
-Complex structure traits can be useful for adding complex metadata to a shape for applications
-such as code generation.
-
-For example, the [`smithy.api#http`](https://smithy.io/2.0/spec/http-bindings.html#smithy-api-http-trait) trait defines multiple
-inputs that are used by client and server code generators for generating http route handlers.
-
-```smithy
-@idempotent
-@http(method: "PUT", uri: "/{bucketName}/{key}", code: 200)
-operation PutObject {
-    input: PutObjectInput
-}
-```
-Many custom traits require these additional validations to ensure they are used correctly. This example also adds a validator 
-for the custom trait that performs additional checks on the usage of the trait. 
-
-*Note*: the validator defined in this package will be used by packages that declare this custom trait package as a 
-dependency without being added to the `metadata validators` metadata key.
+This package demonstrates how to include a handwritten Java trait alongside traits generated by the `trait-codegen`
+plugin.
 
 ### Use as a template
 To use this example as a template run the following command.
 
 ```console
-smithy init -t custom-structure-trait
+smithy init -t custom-trait-handwritten
 ```

@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "plugins": {
+    "trait-codegen": {
+      "package": "io.examples.traits",
+      "namespace": "example.traits",
+      "header": [
+        "Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.",
+        "SPDX-License-Identifier: MIT-0"
+      ],
+      "excludeTags": ["not-generated"]
+    }
+  }
+}
