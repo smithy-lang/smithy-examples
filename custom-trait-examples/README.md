@@ -1,9 +1,9 @@
 # Custom Traits
-The examples in this directory demonstrate how to create a custom trait package for Smithy. 
+The examples in this directory demonstrate how to create your own [traits](https://smithy.io/2.0/spec/model.html#traits)
+in Smithy.
 
-Traits are model components that can be attached to shapes to describe additional information about the shape; 
+Traits are model components that can be attached to shapes to describe additional information about the shape;
 shapes provide the structure and layout of an API, while traits provide refinement and style.
-
 
 ### Custom trait packages
 A custom trait package can be created to distribute your trait definition for use in both Smithy models and in code generators.
