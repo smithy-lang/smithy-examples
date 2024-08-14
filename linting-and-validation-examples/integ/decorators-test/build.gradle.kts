@@ -23,7 +23,7 @@ dependencies {
     implementation(project(":linting-and-validation-examples:decorators"))
 
     testImplementation("software.amazon.smithy:smithy-model:$smithyVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.11.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.11.0")
 }
