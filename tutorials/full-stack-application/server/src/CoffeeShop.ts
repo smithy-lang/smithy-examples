@@ -1,8 +1,8 @@
-import { CoffeeServiceService, CoffeeType, CreateOrderServerInput, CreateOrderServerOutput, GetMenuServerInput, GetMenuServerOutput, GetOrderServerInput, GetOrderServerOutput, OrderNotFound, OrderStatus } from "@com.example/coffee-service-server";
+import { CoffeeShopService, CoffeeType, CreateOrderServerInput, CreateOrderServerOutput, GetMenuServerInput, GetMenuServerOutput, GetOrderServerInput, GetOrderServerOutput, OrderNotFound, OrderStatus } from "@com.example/coffee-service-server";
 import { randomUUID } from "crypto";
 
 // An implementation of the service from the SSDK
-export class CoffeeService implements CoffeeServiceService<Context> {
+export class CoffeeShop implements CoffeeShopService<Context> {
     //  set up a map for storing order information
     orders = new Map<string, OrderData>();
     // set up an orders queue for handling orders 
@@ -33,19 +33,26 @@ export class CoffeeService implements CoffeeServiceService<Context> {
             items: [
                 {
                     type: CoffeeType.DRIP,
-                    description: "A clean-bodied, rounder, and more simplistic flavour profile.\nOften praised for mellow and less intense notes.\nFar less concentrated than espresso."
+                    description: "A clean-bodied, rounder, and more simplistic flavour profile.\n" +
+                        "Often praised for mellow and less intense notes.\n" +
+                        "Far less concentrated than espresso."
                 },
                 {
                     type: CoffeeType.POUR_OVER,
-                    description: "Similar to drip coffee, but with a process that brings out more subtle nuances in flavor.\nMore concentrated than drip, but less than espresso."
+                    description: "Similar to drip coffee, but with a process that brings out more subtle nuances in flavor.\n" +
+                        "More concentrated than drip, but less than espresso."
                 },
                 {
                     type: CoffeeType.LATTE,
-                    description: "A creamier, milk-based drink made with espresso.\nA subtle coffee taste, with smooth texture.\nHigh milk-to-coffee ratio."
+                    description: "A creamier, milk-based drink made with espresso.\n" +
+                        "A subtle coffee taste, with smooth texture.\n" +
+                        "High milk-to-coffee ratio."
                 },
                 {
                     type: CoffeeType.ESPRESSO,
-                    description: "A highly concentrated form of coffee, brewed under high pressure.\nSyrupy, thick liquid in a small serving size.\n Firm, full-bodies, and intensly aromatic."
+                    description: "A highly concentrated form of coffee, brewed under high pressure.\n" +
+                        "Syrupy, thick liquid in a small serving size.\n" +
+                        "Full bodied and intensly aromatic."
                 }
             ]
         }
@@ -68,11 +75,12 @@ export class CoffeeService implements CoffeeServiceService<Context> {
         }
     }
 
-    // handle orders as they come in (FIFO), marking them completed based on some random timing
+    // handle orders as they come in (FIFO), marking them completed based on some random
+    // timing (to simulate a delay)
     handleOrders = async () => {
         console.log("handling orders...")
         while (true) {
-            await new Promise(resolve => setTimeout(resolve, Math.random() * 5000 + 1000));
+            await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 1000));
             let order = this.queue.shift()
             if (order != null) {
                 order.status = OrderStatus.COMPLETED

@@ -5,12 +5,12 @@ namespace com.example
 use aws.protocols#restJson1
 use smithy.framework#ValidationException
 
-/// Allows users to create a coffee order and
+/// Allows users to retrieve a menu, create a coffee order, and
 /// and to view the status of their orders
-@title("Coffee Service")
+@title("Coffee Shop Service")
 @restJson1
-service CoffeeService {
-    version: "2024-04-04"
+service CoffeeShop {
+    version: "2024-08-23"
     operations: [
         GetMenu
     ]

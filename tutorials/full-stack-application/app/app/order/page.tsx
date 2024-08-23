@@ -25,7 +25,9 @@ function Coffee() {
     return (
         <div>
             <h2 className="text-center text-6xl">Enjoy!</h2>
-            <Image className="" src={imageSrc} width={1024} height={1024} alt="coffee-display" priority/>
+            <Image className="flex justify-center mx-auto" src={imageSrc} width={1024} height={1024}
+                alt="coffee-display" priority
+            />
         </div>
     );
 }

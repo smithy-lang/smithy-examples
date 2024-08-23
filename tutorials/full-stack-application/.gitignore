@@ -1,0 +1,8 @@
+# Ignore node_modules, next cache 
+node_modules 
+.next
+**/dist
+
+# Ignore generated code
+client/sdk
+server/ssdk

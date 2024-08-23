@@ -1,13 +1,13 @@
-import { getCoffeeServiceServiceHandler } from "@com.example/coffee-service-server";
+import { getCoffeeShopServiceHandler } from "@com.example/coffee-service-server";
 import { IncomingMessage, ServerResponse, createServer } from "http";
 import { convertRequest, writeResponse } from "@aws-smithy/server-node";
-import { CoffeeService } from "./CoffeeService";
+import { CoffeeShop } from "./CoffeeShop";
 
 
 // instantiate our coffee service implementation
-const coffeeService = new CoffeeService();
+const coffeeService = new CoffeeShop();
 // create a service handler using our coffee service
-const serviceHandler = getCoffeeServiceServiceHandler(coffeeService);
+const serviceHandler = getCoffeeShopServiceHandler(coffeeService);
 
 // create the node server with the service handler
 const server = createServer(async function (

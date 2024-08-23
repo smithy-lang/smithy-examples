@@ -1,4 +1,4 @@
-import { CoffeeItem, CoffeeService, CoffeeType, OrderStatus } from "@com.example/coffee-service-client";
+import { CoffeeItem, CoffeeShop, CoffeeType, OrderStatus } from "@com.example/coffee-service-client";
 
 // Convert a string to a "friendly" variant
 export function displayName(str: string): string {
@@ -23,9 +23,9 @@ export function getImage(type: CoffeeType | string): string {
 }
 
 // create a coffee service client singleton and getter
-let client: CoffeeService
-export function getClient(): CoffeeService {
-    return client || (client = new CoffeeService({
+let client: CoffeeShop
+export function getClient(): CoffeeShop {
+    return client || (client = new CoffeeShop({
         endpoint: {
             protocol: "http",
             hostname: "localhost",

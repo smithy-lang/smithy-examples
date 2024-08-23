@@ -43,10 +43,16 @@ dev-server: build-ssdk ## Run the server in development-mode
 dev-app: build-client ## Run the web application in development-mode
 	cd app; yarn && yarn dev
 
+dev: # Run the server and web application in development-mode in the same session
+	$(MAKE) -j 2 dev-server dev-app
+
 run-server: build-server ## Run the server
 	cd server; yarn start
 
 run-app: build-app ## Run the web application
 	cd app; yarn start
+
+run: ## Run the server and web application in the same session
+	$(MAKE) -j 2 run-server run-app
 
 test-all: build

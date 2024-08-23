@@ -23,6 +23,3 @@ bin/
 # Ignore Gradle build output directory
 build
 
-# Ignore node_modules, next cache
-node_modules
-.next

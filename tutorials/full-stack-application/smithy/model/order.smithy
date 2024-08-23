@@ -58,7 +58,7 @@ operation GetOrder {
     ]
 }
 
-/// An error indicating that an order could not be found
+/// An error indicating an order could not be found
 @httpError(404)
 @error("client")
 structure OrderNotFound {
