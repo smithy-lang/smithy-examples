@@ -63,3 +63,16 @@ make run-app
 ```
 
 Whether you launch in development mode or not, the web-application will run on `localhost:3000`. To access it, view this [address](http://localhost:3000) in your browser.
+
+### 
+To run the server and the web application, run:
+```
+make run
+```
+
+Alternatively, for development mode, run:
+```
+make dev
+```
+
+Both of these commands will run the processes in the same session. Because of this, the logs may be interleaved, so it is preferable to run the server and application in separate sessions if possible.
