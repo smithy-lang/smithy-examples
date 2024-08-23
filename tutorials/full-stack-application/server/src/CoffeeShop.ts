@@ -2,10 +2,10 @@ import { CoffeeShopService, CoffeeType, CreateOrderServerInput, CreateOrderServe
 import { randomUUID } from "crypto";
 
 // An implementation of the service from the SSDK
-export class CoffeeShop implements CoffeeShopService<Context> {
-    //  set up a map for storing order information
+export class CoffeeShop implements CoffeeShopService<{}> {
+    // Set up a map for storing order information
     orders = new Map<string, OrderData>();
-    // set up an orders queue for handling orders 
+    // Set up an orders queue for handling orders
     queue: OrderData[] = []
 
     CreateOrder = async (input: CreateOrderServerInput): Promise<CreateOrderServerOutput> => {
@@ -75,7 +75,7 @@ export class CoffeeShop implements CoffeeShopService<Context> {
         }
     }
 
-    // handle orders as they come in (FIFO), marking them completed based on some random
+    // Handle orders as they come in (FIFO), marking them completed based on some random
     // timing (to simulate a delay)
     handleOrders = async () => {
         console.log("handling orders...")
@@ -90,10 +90,7 @@ export class CoffeeShop implements CoffeeShopService<Context> {
     }
 }
 
-// an empty context object
-interface Context {}
-
-// a data object to hold some order data
+// A data object to hold order data
 interface OrderData {
     orderId: string
     coffeeType: CoffeeType;

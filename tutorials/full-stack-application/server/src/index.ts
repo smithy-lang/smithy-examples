@@ -4,12 +4,12 @@ import { convertRequest, writeResponse } from "@aws-smithy/server-node";
 import { CoffeeShop } from "./CoffeeShop";
 
 
-// instantiate our coffee service implementation
+// Instantiate our coffee service implementation
 const coffeeService = new CoffeeShop();
 // create a service handler using our coffee service
 const serviceHandler = getCoffeeShopServiceHandler(coffeeService);
 
-// create the node server with the service handler
+// Create the node server with the service handler
 const server = createServer(async function (
   req: IncomingMessage,
   res: ServerResponse<IncomingMessage> & { req: IncomingMessage }
@@ -28,4 +28,6 @@ const server = createServer(async function (
 const port = 3001
 server.listen(port);
 console.log(`Started server on port ${port}...`);
+
+// Asynchronously handle orders as they come in
 coffeeService.handleOrders()
