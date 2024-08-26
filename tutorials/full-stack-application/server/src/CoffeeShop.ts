@@ -53,6 +53,12 @@ export class CoffeeShop implements CoffeeShopService<{}> {
                     description: "A highly concentrated form of coffee, brewed under high pressure.\n" +
                         "Syrupy, thick liquid in a small serving size.\n" +
                         "Full bodied and intensly aromatic."
+                },
+                {
+                    type: CoffeeType.COLD_BREW,
+                    description: "A high-extraction and chilled form of coffee that has been cold-pressed..\n" +
+                        "Different flavor profile than other hot methods of brewing.\n" +
+                        "Smooth and slightly more caffeinated as a result of its concentration."
                 }
             ]
         }

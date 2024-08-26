@@ -17,9 +17,16 @@ export function getImage(type: CoffeeType | string): string {
                 return "/latte.png"    
         case CoffeeType.ESPRESSO:
             return "/espresso.png"
+        case CoffeeType.COLD_BREW:
+            return "/cold-brew.png"
         default:
             return "/pour-over.png"
     }
+}
+
+export interface Order {
+    coffeeType: CoffeeType;
+    status: OrderStatus;
 }
 
 // create a coffee service client singleton and getter
@@ -58,11 +65,6 @@ export async function submitOrder(cofeeType: CoffeeType): Promise<string> {
         console.log(err)
     }
     return orderId
-}
-
-export interface Order {
-    coffeeType: CoffeeType;
-    status: OrderStatus;
 }
 
 export async function getOrder(orderId: string): Promise<Order | undefined> {
