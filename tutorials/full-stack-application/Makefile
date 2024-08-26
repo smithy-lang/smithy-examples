@@ -8,10 +8,15 @@ init: ## Initialize the project and set it to the tutorial state
 	git init; git add -A; git commit -m 'Initial commit'; git apply .patches/start.patch
 	@echo Initialized.
 
+reset: clean ## Reset the project to its completed state
+	@echo Resetting...
+	git reset --hard HEAD
+	@echo Done.
+
 clean: ## Clean all build artifacts of this project
 	@echo Cleaning build Directories...
 	rm -rf build/ */build/ */dist */node_modules client/sdk server/ssdk app/.next
-	@echo Cleaning Complete.
+	@echo Cleaning complete.
 
 build-smithy: ## Build the smithy model and code-generate the client and server
 	@echo Building smithy models...
