@@ -52,7 +52,7 @@ export class CoffeeShop implements CoffeeShopService<{}> {
                     type: CoffeeType.ESPRESSO,
                     description: "A highly concentrated form of coffee, brewed under high pressure.\n" +
                         "Syrupy, thick liquid in a small serving size.\n" +
-                        "Full bodied and intensly aromatic."
+                        "Full bodied and intensely aromatic."
                 },
                 {
                     type: CoffeeType.COLD_BREW,
