@@ -60,7 +60,7 @@ body {
 }
 
 .menu-item_title {
-    @apply items-center mb-1 p-1 w-full border-b-2 border-gray-100;
+    @apply items-center mb-1 p-1 w-full border-b-2 border-gray-100 dark:text-gray-400;
 }
 
 .menu-item_title_text {

@@ -76,7 +76,8 @@ export class CoffeeShop implements CoffeeShopService<{}> {
         } else {
             console.log(`order (${input.id}) does not exist.`)
             throw new OrderNotFound({
-                message: `order ${input.id} not found.`
+                message: `order ${input.id} not found.`,
+                orderId: input.id
             })
         }
     }

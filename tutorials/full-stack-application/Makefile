@@ -20,7 +20,7 @@ clean: ## Clean all build artifacts of this project
 
 build-smithy: ## Build the smithy model and code-generate the client and server
 	@echo Building smithy models...
-	cd smithy; smithy format model/; smithy build model/
+	cd smithy; smithy format model/; smithy build
 	@echo Finished building models.
 
 build-ssdk: build-smithy ## Set up and build the generated server-sdk (`ssdk`)
@@ -64,5 +64,8 @@ run-app: build-app ## Run the web application
 
 run: ## Run the server and web application in the same session
 	$(MAKE) -j 2 run-server run-app
+
+repl-client: build-client ## Start a REPL with in the client installed
+	cd client; yarn && yarn start
 
 test-all: build
