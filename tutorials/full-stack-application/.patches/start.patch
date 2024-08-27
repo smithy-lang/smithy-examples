@@ -1,8 +1,8 @@
 diff --git a/server/src/CoffeeShop.ts b/server/src/CoffeeShop.ts
-index 1d4c2c2..b7456f8 100644
+index eb45a8c..740faa6 100644
 --- a/server/src/CoffeeShop.ts
 +++ b/server/src/CoffeeShop.ts
-@@ -10,75 +10,20 @@ export class CoffeeShop implements CoffeeShopService<{}> {
+@@ -10,76 +10,18 @@ export class CoffeeShop implements CoffeeShopService<{}> {
  
      CreateOrder = async (input: CreateOrderServerInput): Promise<CreateOrderServerOutput> => {
          console.log("received an order request...")
@@ -24,7 +24,7 @@ index 1d4c2c2..b7456f8 100644
 +        // TODO: Implement me!
 +        return;
      }
- 
+-
      GetMenu = async (input: GetMenuServerInput): Promise<GetMenuServerOutput> => {
          console.log("getting menu...")
 -        return {
@@ -50,7 +50,7 @@ index 1d4c2c2..b7456f8 100644
 -                    type: CoffeeType.ESPRESSO,
 -                    description: "A highly concentrated form of coffee, brewed under high pressure.\n" +
 -                        "Syrupy, thick liquid in a small serving size.\n" +
--                        "Full bodied and intensly aromatic."
+-                        "Full bodied and intensely aromatic."
 -                },
 -                {
 -                    type: CoffeeType.COLD_BREW,
@@ -63,7 +63,7 @@ index 1d4c2c2..b7456f8 100644
 +        // TODO: Implement me!
 +        return;
      }
- 
+-
      GetOrder = async (input: GetOrderServerInput): Promise<GetOrderServerOutput> => {
          console.log(`getting an order (${input.id})...`)
 -        if (this.orders.has(input.id)) {
@@ -76,7 +76,8 @@ index 1d4c2c2..b7456f8 100644
 -        } else {
 -            console.log(`order (${input.id}) does not exist.`)
 -            throw new OrderNotFound({
--                message: `order ${input.id} not found.`
+-                message: `order ${input.id} not found.`,
+-                orderId: input.id
 -            })
 -        }
 +        // TODO: Implement me!
@@ -235,3 +236,30 @@ index be1b19a..25cc77f 100644
 -    IN_PROGRESS
 -    COMPLETED
 -}
+diff --git a/smithy/smithy-build.json b/smithy/smithy-build.json
+index 4b1269d..e3811fb 100644
+--- a/smithy/smithy-build.json
++++ b/smithy/smithy-build.json
+@@ -1,21 +1,4 @@
+ {
+     "version": "1.0",
+-    "sources": ["model/"],
+-    "maven": {
+-        "dependencies": [
+-            "software.amazon.smithy:smithy-aws-traits:1.50.0",
+-            "software.amazon.smithy:smithy-validation-model:1.50.0",
+-            "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.22.0"
+-        ]
+-    },
+-    "plugins": {
+-        "typescript-client-codegen": {
+-            "package": "@com.example/coffee-service-client",
+-            "packageVersion": "0.0.1"
+-        },
+-        "typescript-ssdk-codegen": {
+-            "package" : "@com.example/coffee-service-server",
+-            "packageVersion": "0.0.1"
+-        }
+-    }
++    "sources": ["model/"]
+ }
