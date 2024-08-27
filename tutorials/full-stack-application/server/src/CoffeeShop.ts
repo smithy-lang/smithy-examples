@@ -12,7 +12,7 @@ export interface CoffeeShopContext {
 // An implementation of the service from the SSDK
 export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
 
-    CreateOrder(input: CreateOrderServerInput, context: CoffeeShopContext): CreateOrderServerOutput {
+    async CreateOrder(input: CreateOrderServerInput, context: CoffeeShopContext): Promise<CreateOrderServerOutput> {
         console.log("received an order request...")
         const order = {
             orderId: randomUUID(),
@@ -31,7 +31,7 @@ export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
         }
     }
 
-    GetMenu(input: GetMenuServerInput, context: CoffeeShopContext): GetMenuServerOutput {
+    async GetMenu(input: GetMenuServerInput, context: CoffeeShopContext): Promise<GetMenuServerOutput> {
         console.log("getting menu...")
         return {
             items: [
@@ -68,7 +68,7 @@ export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
         }
     }
 
-    GetOrder(input: GetOrderServerInput, context: CoffeeShopContext): GetOrderServerOutput {
+    async GetOrder(input: GetOrderServerInput, context: CoffeeShopContext): Promise<GetOrderServerOutput> {
         console.log(`getting an order (${input.id})...`)
         if (context.orders.has(input.id)) {
             const order = context.orders.get(input.id)
