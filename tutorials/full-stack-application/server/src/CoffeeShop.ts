@@ -1,14 +1,18 @@
 import { CoffeeShopService, CoffeeType, CreateOrderServerInput, CreateOrderServerOutput, GetMenuServerInput, GetMenuServerOutput, GetOrderServerInput, GetOrderServerOutput, OrderNotFound, OrderStatus } from "@com.example/coffee-service-server";
 import { randomUUID } from "crypto";
 
-// An implementation of the service from the SSDK
-export class CoffeeShop implements CoffeeShopService<{}> {
-    // Set up a map for storing order information
-    orders = new Map<string, OrderData>();
-    // Set up an orders queue for handling orders
-    queue: OrderData[] = []
+// A context object for holding state in our service
+export interface CoffeeShopContext {
+    // A map for storing order information
+    orders: Map<string, OrderData>;
+    // An order queue for handling orders
+    queue: OrderData[];
+}
 
-    CreateOrder = async (input: CreateOrderServerInput): Promise<CreateOrderServerOutput> => {
+// An implementation of the service from the SSDK
+export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
+
+    CreateOrder(input: CreateOrderServerInput, context: CoffeeShopContext): CreateOrderServerOutput {
         console.log("received an order request...")
         const order = {
             orderId: randomUUID(),
@@ -16,8 +20,8 @@ export class CoffeeShop implements CoffeeShopService<{}> {
             status: OrderStatus.IN_PROGRESS
         }
 
-        this.orders.set(order.orderId, order)
-        this.queue.push(order)
+        context.orders.set(order.orderId, order)
+        context.queue.push(order)
 
         console.log(`created order: ${JSON.stringify(order)}`)
         return {
@@ -27,7 +31,7 @@ export class CoffeeShop implements CoffeeShopService<{}> {
         }
     }
 
-    GetMenu = async (input: GetMenuServerInput): Promise<GetMenuServerOutput> => {
+    GetMenu(input: GetMenuServerInput, context: CoffeeShopContext): GetMenuServerOutput {
         console.log("getting menu...")
         return {
             items: [
@@ -64,10 +68,10 @@ export class CoffeeShop implements CoffeeShopService<{}> {
         }
     }
 
-    GetOrder = async (input: GetOrderServerInput): Promise<GetOrderServerOutput> => {
+    GetOrder(input: GetOrderServerInput, context: CoffeeShopContext): GetOrderServerOutput {
         console.log(`getting an order (${input.id})...`)
-        if (this.orders.has(input.id)) {
-            const order = this.orders.get(input.id)
+        if (context.orders.has(input.id)) {
+            const order = context.orders.get(input.id)
             return {
                 id: order.orderId,
                 coffeeType: order.coffeeType,
@@ -84,11 +88,11 @@ export class CoffeeShop implements CoffeeShopService<{}> {
 
     // Handle orders as they come in (FIFO), marking them completed based on some random
     // timing (to simulate a delay)
-    handleOrders = async () => {
+    async handleOrders(context: CoffeeShopContext) {
         console.log("handling orders...")
         while (true) {
             await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 1000));
-            let order = this.queue.shift()
+            let order = context.queue.shift()
             if (order != null) {
                 order.status = OrderStatus.COMPLETED
                 console.log(`order ${order.orderId} is completed.`)  

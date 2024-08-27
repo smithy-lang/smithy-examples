@@ -6,8 +6,10 @@ import { CoffeeShop } from "./CoffeeShop";
 
 // Instantiate our coffee service implementation
 const coffeeService = new CoffeeShop();
-// create a service handler using our coffee service
+// Create a service handler using our coffee service
 const serviceHandler = getCoffeeShopServiceHandler(coffeeService);
+// The coffee shop context object
+const ctx = { orders: new Map(), queue: [] };
 
 // Create the node server with the service handler
 const server = createServer(async function (
@@ -19,7 +21,7 @@ const server = createServer(async function (
 
   // Call the service handler, which will route the request to the GreetingService
   // implementation and then serialize the response to an HttpResponse.
-  const httpResponse = await serviceHandler.handle(httpRequest, {});
+  const httpResponse = await serviceHandler.handle(httpRequest, ctx);
 
   // Write the HttpResponse to NodeJS http's response expected format.
   return writeResponse(httpResponse, res);
@@ -30,4 +32,4 @@ server.listen(port);
 console.log(`Started server on port ${port}...`);
 
 // Asynchronously handle orders as they come in
-coffeeService.handleOrders()
+coffeeService.handleOrders(ctx)
