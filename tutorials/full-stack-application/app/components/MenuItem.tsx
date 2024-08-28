@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CoffeeType } from "@com.example/coffee-service-client"  
+import { CoffeeType } from "@com.example/coffee-shop-client"  
 import Order from "./Order";
 import { displayName, getImage } from "@/app";
 

@@ -10,11 +10,11 @@
     },
     "plugins": {
         "typescript-client-codegen": {
-            "package": "@com.example/coffee-service-client",
+            "package": "@com.example/coffee-shop-client",
             "packageVersion": "0.0.1"
         },
         "typescript-ssdk-codegen": {
-            "package" : "@com.example/coffee-service-server",
+            "package" : "@com.example/coffee-shop-server",
             "packageVersion": "0.0.1"
         }
     }

@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@aws-smithy/server-node": "^1.0.0-alpha.10",
-    "@com.example/coffee-service-server": "link:ssdk",
+    "@com.example/coffee-shop-server": "link:ssdk",
     "@types/node": "^20.12.13"
   }
 }

@@ -1,5 +1,5 @@
 import { getOrder, submitOrder } from "@/app";
-import { CoffeeType } from "@com.example/coffee-service-client";
+import { CoffeeType } from "@com.example/coffee-shop-client";
 import OrderButton from "./OrderButton";
 import { redirect } from "next/navigation";
 

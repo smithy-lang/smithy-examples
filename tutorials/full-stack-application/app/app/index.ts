@@ -1,4 +1,4 @@
-import { CoffeeItem, CoffeeShop, CoffeeType, OrderStatus } from "@com.example/coffee-service-client";
+import { CoffeeItem, CoffeeShop, CoffeeType, OrderStatus } from "@com.example/coffee-shop-client";
 
 // Convert a string to a "friendly" variant
 export function displayName(str: string): string {

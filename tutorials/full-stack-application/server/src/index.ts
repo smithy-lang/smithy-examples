@@ -1,4 +1,4 @@
-import { getCoffeeShopServiceHandler } from "@com.example/coffee-service-server";
+import { getCoffeeShopServiceHandler } from "@com.example/coffee-shop-server";
 import { IncomingMessage, ServerResponse, createServer } from "http";
 import { convertRequest, writeResponse } from "@aws-smithy/server-node";
 import { CoffeeShop } from "./CoffeeShop";

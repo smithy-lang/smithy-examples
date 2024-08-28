@@ -1,6 +1,6 @@
 import { getMenuItems } from "@/app";
 import MenuItem from "@/components/MenuItem";
-import { CoffeeItem } from "@com.example/coffee-service-client";
+import { CoffeeItem } from "@com.example/coffee-shop-client";
 
 
 const Menu = async () => {
