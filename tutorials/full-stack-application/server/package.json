@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "A cool example coffee service server.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "yarn build && node dist/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.16.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@aws-smithy/server-node": "^1.0.0-alpha.10",
+    "@com.example/coffee-shop-server": "link:ssdk",
+    "@types/node": "^20.12.13"
+  }
+}

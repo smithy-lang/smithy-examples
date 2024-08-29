@@ -1,0 +1,276 @@
+diff --git a/app/app/index.ts b/app/app/index.ts
+index 4fde2d6..0805132 100644
+--- a/app/app/index.ts
++++ b/app/app/index.ts
+@@ -17,8 +17,6 @@ export function getImage(type: CoffeeType | string): string {
+                 return "/latte.png"    
+         case CoffeeType.ESPRESSO:
+             return "/espresso.png"
+-        case CoffeeType.COLD_BREW:
+-            return "/cold-brew.png"
+         default:
+             return "/pour-over.png"
+     }
+diff --git a/server/src/CoffeeShop.ts b/server/src/CoffeeShop.ts
+index a8419ef..9011890 100644
+--- a/server/src/CoffeeShop.ts
++++ b/server/src/CoffeeShop.ts
+@@ -14,76 +14,20 @@ export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
+ 
+     async CreateOrder(input: CreateOrderServerInput, context: CoffeeShopContext): Promise<CreateOrderServerOutput> {
+         console.log("received an order request...")
+-        const order = {
+-            orderId: randomUUID(),
+-            coffeeType: input.coffeeType,
+-            status: OrderStatus.IN_PROGRESS
+-        }
+-
+-        context.orders.set(order.orderId, order)
+-        context.queue.push(order)
+-
+-        console.log(`created order: ${JSON.stringify(order)}`)
+-        return {
+-            id: order.orderId,
+-            coffeeType: order.coffeeType,
+-            status: order.status
+-        }
++        // TODO: Implement me!
++        return;
+     }
+ 
+     async GetMenu(input: GetMenuServerInput, context: CoffeeShopContext): Promise<GetMenuServerOutput> {
+         console.log("getting menu...")
+-        return {
+-            items: [
+-                {
+-                    type: CoffeeType.DRIP,
+-                    description: "A clean-bodied, rounder, and more simplistic flavour profile.\n" +
+-                        "Often praised for mellow and less intense notes.\n" +
+-                        "Far less concentrated than espresso."
+-                },
+-                {
+-                    type: CoffeeType.POUR_OVER,
+-                    description: "Similar to drip coffee, but with a process that brings out more subtle nuances in flavor.\n" +
+-                        "More concentrated than drip, but less than espresso."
+-                },
+-                {
+-                    type: CoffeeType.LATTE,
+-                    description: "A creamier, milk-based drink made with espresso.\n" +
+-                        "A subtle coffee taste, with smooth texture.\n" +
+-                        "High milk-to-coffee ratio."
+-                },
+-                {
+-                    type: CoffeeType.ESPRESSO,
+-                    description: "A highly concentrated form of coffee, brewed under high pressure.\n" +
+-                        "Syrupy, thick liquid in a small serving size.\n" +
+-                        "Full bodied and intensely aromatic."
+-                },
+-                {
+-                    type: CoffeeType.COLD_BREW,
+-                    description: "A high-extraction and chilled form of coffee that has been cold-pressed..\n" +
+-                        "Different flavor profile than other hot methods of brewing.\n" +
+-                        "Smooth and slightly more caffeinated as a result of its concentration."
+-                }
+-            ]
+-        }
++        // TODO: Implement me!
++        return;
+     }
+ 
+     async GetOrder(input: GetOrderServerInput, context: CoffeeShopContext): Promise<GetOrderServerOutput> {
+         console.log(`getting an order (${input.id})...`)
+-        if (context.orders.has(input.id)) {
+-            const order = context.orders.get(input.id)
+-            return {
+-                id: order.orderId,
+-                coffeeType: order.coffeeType,
+-                status: order.status
+-            }
+-        } else {
+-            console.log(`order (${input.id}) does not exist.`)
+-            throw new OrderNotFound({
+-                message: `order ${input.id} not found.`,
+-                orderId: input.id
+-            })
+-        }
++        // TODO: Implement me!
++        return;
+     }
+ 
+     // Handle orders as they come in (FIFO), marking them completed based on some random
+diff --git a/smithy/model/coffee.smithy b/smithy/model/coffee.smithy
+index 3dd6c49..25cc77f 100644
+--- a/smithy/model/coffee.smithy
++++ b/smithy/model/coffee.smithy
+@@ -1,26 +1,3 @@
+ $version: "2.0"
+ 
+ namespace com.example
+-
+-/// An enum describing the types of coffees available
+-enum CoffeeType {
+-    DRIP
+-    POUR_OVER
+-    LATTE
+-    ESPRESSO
+-    COLD_BREW
+-}
+-
+-/// A structure which defines a coffee item which can be ordered
+-structure CoffeeItem {
+-    @required
+-    type: CoffeeType
+-
+-    @required
+-    description: String
+-}
+-
+-/// A list of coffee items
+-list CoffeeItems {
+-    member: CoffeeItem
+-}
+diff --git a/smithy/model/main.smithy b/smithy/model/main.smithy
+index 2e2b0f4..25cc77f 100644
+--- a/smithy/model/main.smithy
++++ b/smithy/model/main.smithy
+@@ -1,32 +1,3 @@
+ $version: "2.0"
+ 
+ namespace com.example
+-
+-use aws.protocols#restJson1
+-use smithy.framework#ValidationException
+-
+-/// Allows users to retrieve a menu, create a coffee order, and
+-/// and to view the status of their orders
+-@title("Coffee Shop Service")
+-@restJson1
+-service CoffeeShop {
+-    version: "2024-08-23"
+-    operations: [
+-        GetMenu
+-    ]
+-    resources: [
+-        Order
+-    ]
+-    errors: [
+-        ValidationException
+-    ]
+-}
+-
+-/// Retrieve the menu
+-@http(method: "GET", uri: "/menu")
+-@readonly
+-operation GetMenu {
+-    output := {
+-        items: CoffeeItems
+-    }
+-}
+diff --git a/smithy/model/order.smithy b/smithy/model/order.smithy
+index be1b19a..25cc77f 100644
+--- a/smithy/model/order.smithy
++++ b/smithy/model/order.smithy
+@@ -1,78 +1,3 @@
+ $version: "2.0"
+ 
+ namespace com.example
+-
+-/// An Order resource, which has an id and descibes an order by the type of coffee
+-/// and the order's status
+-resource Order {
+-    identifiers: { id: Uuid }
+-    properties: { coffeeType: CoffeeType, status: OrderStatus }
+-    read: GetOrder
+-    create: CreateOrder
+-}
+-
+-/// Create an order
+-@idempotent
+-@http(method: "PUT", uri: "/order")
+-operation CreateOrder {
+-    input := for Order {
+-        @required
+-        $coffeeType
+-    }
+-
+-    output := for Order {
+-        @required
+-        $id
+-
+-        @required
+-        $coffeeType
+-
+-        @required
+-        $status
+-    }
+-}
+-
+-/// Retrieve an order
+-@readonly
+-@http(method: "GET", uri: "/order/{id}")
+-operation GetOrder {
+-    input := for Order {
+-        @httpLabel
+-        @required
+-        $id
+-    }
+-
+-    output := for Order {
+-        @required
+-        $id
+-
+-        @required
+-        $coffeeType
+-
+-        @required
+-        $status
+-    }
+-
+-    errors: [
+-        OrderNotFound
+-    ]
+-}
+-
+-/// An error indicating an order could not be found
+-@httpError(404)
+-@error("client")
+-structure OrderNotFound {
+-    message: String
+-    orderId: Uuid
+-}
+-
+-/// An identifier to describe a unique order
+-@length(min: 1, max: 128)
+-@pattern("^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$")
+-string Uuid
+-
+-/// An enum describing the status of an order
+-enum OrderStatus {
+-    IN_PROGRESS
+-    COMPLETED
+-}
+diff --git a/smithy/smithy-build.json b/smithy/smithy-build.json
+index 4b1269d..d757d9a 100644
+--- a/smithy/smithy-build.json
++++ b/smithy/smithy-build.json
+@@ -3,19 +3,7 @@
+     "sources": ["model/"],
+     "maven": {
+         "dependencies": [
+-            "software.amazon.smithy:smithy-aws-traits:1.50.0",
+-            "software.amazon.smithy:smithy-validation-model:1.50.0",
+-            "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.22.0"
++            "software.amazon.smithy:smithy-aws-traits:1.50.0"
+         ]
+-    },
+-    "plugins": {
+-        "typescript-client-codegen": {
+-            "package": "@com.example/coffee-shop-client",
+-            "packageVersion": "0.0.1"
+-        },
+-        "typescript-ssdk-codegen": {
+-            "package" : "@com.example/coffee-shop-server",
+-            "packageVersion": "0.0.1"
+-        }
+     }
+ }

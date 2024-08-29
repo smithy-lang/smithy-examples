@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Home styling */
+.home {
+    @apply container mx-auto px-2 pt-8
+}
+
+.home_header {
+    @apply sticky top-0 w-full max-w-7xl items-center justify-between font-sans text-sm lg:flex;
+}
+
+.home_header_content {
+    @apply fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none;
+}
+
+.title_container {
+    @apply max-w-2xl mx-auto m-10 pl-4;
+}
+
+/* ----------- */
+
+/* Menu styling */
+.home_menu {
+    @apply max-w-2xl mx-auto mt-10;
+}
+
+.menu-item_card {
+    @apply flex flex-col bg-white rounded-lg shadow-md border m-5;
+}
+
+.menu-item_title {
+    @apply items-center mb-1 p-1 w-full border-b-2 border-gray-100 dark:text-gray-400;
+}
+
+.menu-item_title_text {
+    @apply text-[22px] font-bold capitalize;
+    text-align: center;
+}
+
+.menu-item_content {
+    @apply flex flex-row gap-2 p-4
+}
+
+.menu-item_image_container {
+   @apply relative w-48 h-48 ml-3 flex-shrink-0;
+}
+
+.menu-item_image {
+    @apply relative w-full h-56 mb-0 pb-0 object-contain right-4;
+}
+
+.menu-item_description {
+   @apply text-gray-500;
+}
+
+.menu-item_box {
+    @apply h-56 p-2 mr-2 place-content-evenly
+}
+
+.menu-item_box_description {
+    @apply font-bold
+}
+
+.menu-item_box_list {
+    @apply mt-1 mb-3 space-y-2 text-gray-500 list-disc dark:text-gray-400 list-outside ms-4;
+}
+
+/* ----------- */
+
+.order_button {
+    @apply w-full bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded duration-300 ease-in-out;
+}
