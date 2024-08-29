@@ -7,14 +7,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -41,7 +33,7 @@ body {
 }
 
 .home_header_content {
-    @apply fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none;
+    @apply fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white lg:static lg:size-auto lg:bg-none;
 }
 
 .title_container {
@@ -60,7 +52,7 @@ body {
 }
 
 .menu-item_title {
-    @apply items-center mb-1 p-1 w-full border-b-2 border-gray-100 dark:text-gray-400;
+    @apply items-center mb-1 p-1 w-full border-b-2 border-gray-100;
 }
 
 .menu-item_title_text {
@@ -93,7 +85,7 @@ body {
 }
 
 .menu-item_box_list {
-    @apply mt-1 mb-3 space-y-2 text-gray-500 list-disc dark:text-gray-400 list-outside ms-4;
+    @apply mt-1 mb-3 space-y-2 text-gray-500 list-disc list-outside ms-4;
 }
 
 /* ----------- */

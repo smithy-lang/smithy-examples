@@ -15,7 +15,7 @@ export default async function Page() {
                     <Image
                         src="/coffee-cup.png"
                         alt="Logo"
-                        className="dark:invert"
+                        className=""
                         width={100}
                         height={24}
                         priority
