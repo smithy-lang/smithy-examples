@@ -5,8 +5,13 @@ namespace com.example
 /// An Order resource, which has an id and descibes an order by the type of coffee
 /// and the order's status
 resource Order {
-    identifiers: { id: Uuid }
-    properties: { coffeeType: CoffeeType, status: OrderStatus }
+    identifiers: {
+        id: Uuid
+    }
+    properties: {
+        coffeeType: CoffeeType
+        status: OrderStatus
+    }
     read: GetOrder
     create: CreateOrder
 }
