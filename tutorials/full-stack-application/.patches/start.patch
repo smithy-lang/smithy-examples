@@ -1,5 +1,5 @@
 diff --git a/app/app/index.ts b/app/app/index.ts
-index 4fde2d6..0805132 100644
+index 6bbaec6..256b44b 100644
 --- a/app/app/index.ts
 +++ b/app/app/index.ts
 @@ -17,8 +17,6 @@ export function getImage(type: CoffeeType | string): string {
@@ -12,13 +12,14 @@ index 4fde2d6..0805132 100644
              return "/pour-over.png"
      }
 diff --git a/server/src/CoffeeShop.ts b/server/src/CoffeeShop.ts
-index a8419ef..9011890 100644
+index 163321c..a4f2eab 100644
 --- a/server/src/CoffeeShop.ts
 +++ b/server/src/CoffeeShop.ts
-@@ -14,76 +14,20 @@ export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
+@@ -13,77 +13,21 @@ export interface CoffeeShopContext {
+ export class CoffeeShop implements CoffeeShopService<CoffeeShopContext> {
  
      async CreateOrder(input: CreateOrderServerInput, context: CoffeeShopContext): Promise<CreateOrderServerOutput> {
-         console.log("received an order request...")
+-        console.log("received an order request...")
 -        const order = {
 -            orderId: randomUUID(),
 -            coffeeType: input.coffeeType,
@@ -75,6 +76,7 @@ index a8419ef..9011890 100644
 -        }
 +        // TODO: Implement me!
 +        return;
++
      }
  
      async GetOrder(input: GetOrderServerInput, context: CoffeeShopContext): Promise<GetOrderServerOutput> {
@@ -167,10 +169,10 @@ index 2e2b0f4..25cc77f 100644
 -    }
 -}
 diff --git a/smithy/model/order.smithy b/smithy/model/order.smithy
-index be1b19a..25cc77f 100644
+index 77e080f..25cc77f 100644
 --- a/smithy/model/order.smithy
 +++ b/smithy/model/order.smithy
-@@ -1,78 +1,3 @@
+@@ -1,83 +1,3 @@
  $version: "2.0"
  
  namespace com.example
@@ -178,8 +180,13 @@ index be1b19a..25cc77f 100644
 -/// An Order resource, which has an id and descibes an order by the type of coffee
 -/// and the order's status
 -resource Order {
--    identifiers: { id: Uuid }
--    properties: { coffeeType: CoffeeType, status: OrderStatus }
+-    identifiers: {
+-        id: Uuid
+-    }
+-    properties: {
+-        coffeeType: CoffeeType
+-        status: OrderStatus
+-    }
 -    read: GetOrder
 -    create: CreateOrder
 -}
@@ -250,17 +257,17 @@ index be1b19a..25cc77f 100644
 -    COMPLETED
 -}
 diff --git a/smithy/smithy-build.json b/smithy/smithy-build.json
-index 4b1269d..d757d9a 100644
+index 13280a9..3cc6af0 100644
 --- a/smithy/smithy-build.json
 +++ b/smithy/smithy-build.json
 @@ -3,19 +3,7 @@
      "sources": ["model/"],
      "maven": {
          "dependencies": [
--            "software.amazon.smithy:smithy-aws-traits:1.50.0",
--            "software.amazon.smithy:smithy-validation-model:1.50.0",
+-            "software.amazon.smithy:smithy-aws-traits:1.51.0",
+-            "software.amazon.smithy:smithy-validation-model:1.51.0",
 -            "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.22.0"
-+            "software.amazon.smithy:smithy-aws-traits:1.50.0"
++            "software.amazon.smithy:smithy-aws-traits:1.51.0"
          ]
 -    },
 -    "plugins": {
