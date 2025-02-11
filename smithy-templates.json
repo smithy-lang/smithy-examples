@@ -139,6 +139,18 @@
         "documentation": "Tutorial project that demonstrates how to use the Smithy to create a full-stack application.",
         "path": "tutorials/full-stack-application",
         "include": [".gitattributes"]
+    },
+    "smithy-java-quickstart": {
+      "documentation": "Quickstart example for Smithy Java",
+      "path": "smithy-java-examples/quickstart-java",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        ".gitignore",
+        ".gitattributes"
+      ]
     }
   }
 }
