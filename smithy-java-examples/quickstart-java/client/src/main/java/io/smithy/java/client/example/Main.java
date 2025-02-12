@@ -12,8 +12,8 @@ import software.amazon.smithy.java.client.core.endpoint.EndpointResolver;
 /**
  * Entrypoint for executing cafe client commands
  */
-public final class ClientEntrypoint {
-    private static final Logger LOGGER = Logger.getLogger(ClientEntrypoint.class.getName());
+public final class Main {
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
     private static final CoffeeShopClient client =  CoffeeShopClient.builder()
             .endpointResolver(EndpointResolver.staticEndpoint("http://localhost:8888"))
             .build();

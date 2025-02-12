@@ -6,13 +6,10 @@ to create Java clients and servers.
 For more information on this example, see the [Smithy Java Quickstart Guide](https://smithy.io/2.0/java/quickstart.html).
 
 ### Layout 
+
 - `client/`: Code generated client that can call the server.
-<<<<<<< HEAD
-- `plugins/`: A package defining client plugins.
-=======
 - `model/`: Common package for the service API model. Shared by both client and server.
 - `server/`: Code generated Server that implements stubbed operations code-generated from the service model.
->>>>>>> 371c184 (Simplify quickstart example)
 
 ### Usage
 
