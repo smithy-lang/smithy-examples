@@ -15,7 +15,6 @@ pluginManagement {
 }
 
 // Subprojects
-include("lib")
-include("server")
 include("client")
-include("plugins")
+include("model")
+include("server")
