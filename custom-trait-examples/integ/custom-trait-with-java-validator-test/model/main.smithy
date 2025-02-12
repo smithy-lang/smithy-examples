@@ -10,7 +10,9 @@ use example.traits#resourceMetadata
     associatedStructures: [ForecastStruct]
 )
 resource Forecast {
-    identifiers: { forecastId: ForecastId }
+    identifiers: {
+        forecastId: ForecastId
+    }
 }
 
 string ForecastId

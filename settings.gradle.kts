@@ -53,3 +53,10 @@ includeBuild("gradle-plugin-examples/tutorial")
 
 // Integ test
 include(":gradle-plugin-examples:integ:tutorial")
+
+// ---- Smithy-Java examples ----
+// templates
+includeBuild("smithy-java-examples/quickstart-java")
+
+// integration tests
+include(":smithy-java-examples:integ")

@@ -26,8 +26,14 @@ service DrinkService {
 
 @externalDocumentation(wikipedia: "https://en.wikipedia.org/wiki/Order")
 resource Order {
-    identifiers: { id: MenuItemId }
-    properties: { price: Price, style: Style, type: Type }
+    identifiers: {
+        id: MenuItemId
+    }
+    properties: {
+        price: Price
+        style: Style
+        type: Type
+    }
     create: CreateOrder
     read: GetOrder
 }
