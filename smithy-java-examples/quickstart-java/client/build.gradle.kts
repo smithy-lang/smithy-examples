@@ -14,7 +14,7 @@ dependencies {
     smithyBuild("software.amazon.smithy.java.codegen:plugins:$smithyJavaVersion")
 
     // === Service model ===
-    implementation(project(":model"))
+    implementation(project(":smithy"))
 
     // === Client Dependencies ===
     // Core client dependency required by generated client code.

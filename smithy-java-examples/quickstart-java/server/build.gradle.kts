@@ -14,7 +14,7 @@ dependencies {
     smithyBuild("software.amazon.smithy.java.codegen:plugins:$smithyJavaVersion")
 
     // === Service model ===
-    implementation(project(":model"))
+    implementation(project(":smithy"))
 
     // === Server dependencies ===
     // Adds an HTTP server implementation based on netty

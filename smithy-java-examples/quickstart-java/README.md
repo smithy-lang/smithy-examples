@@ -8,7 +8,7 @@ For more information on this example, see the [Smithy Java Quickstart Guide](htt
 ### Layout 
 
 - `client/`: Code generated client that can call the server.
-- `model/`: Common package for the service API model. Shared by both client and server.
+- `smithy/`: Common package for the service API model. Shared by both client and server.
 - `server/`: Code generated Server that implements stubbed operations code-generated from the service model.
 
 ### Usage
