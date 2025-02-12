@@ -34,5 +34,5 @@ tasks.named("compileJava") {
 }
 
 application {
-    mainClass = "io.smithy.java.client.example.ClientEntrypoint"
+    mainClass = "io.smithy.java.client.example.Main"
 }
