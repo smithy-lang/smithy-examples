@@ -16,5 +16,5 @@ pluginManagement {
 
 // Subprojects
 include("client")
-include("model")
+include("smithy")
 include("server")
