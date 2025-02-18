@@ -22,7 +22,7 @@ smithy init -t smithy-java-quickstart
 
 ### Running and testing server
 
-To run and test the server, run `./gradlew run` from the root of a project created from this
+To run and test the server, run `./gradlew :server:run` from the root of a project created from this
 template. That will start the server running on port `8888`.
 
 Once the server is running you can call the server using `curl`
@@ -34,5 +34,5 @@ curl -H "content-type: application/json" -d '{"coffeeType": "LATTE"}' -X POST lo
 or by running the client application in the `client` subproject
 
 ```console
-./gradlew :client:run`
+./gradlew :client:run
 ```
