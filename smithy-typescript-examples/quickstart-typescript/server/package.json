@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "A cool example coffee service server.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build-model": "cd .. && ./gradlew build",
+    "link-ssdk": "ln -fs ../smithy/build/smithyprojections/smithy/source/typescript-ssdk-codegen ssdk",
+    "build-ssdk": "cd ssdk && yarn install && yarn build",
+    "setup" : "yarn build-model && yarn link-ssdk && yarn build-ssdk",
+    "build" : "tsc",
+    "start": "yarn install && yarn build && node dist/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.16.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@aws-smithy/server-node": "^1.0.0-alpha.10",
+    "@com.example/coffee-shop-server": "link:ssdk",
+    "@types/node": "^20.12.13"
+  }
+}

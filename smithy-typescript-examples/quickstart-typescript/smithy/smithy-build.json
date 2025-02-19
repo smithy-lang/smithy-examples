@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "sources": ["model/"],
+  "plugins": {
+    "typescript-client-codegen": {
+      "package": "@com.example/coffee-shop-client",
+      "packageVersion": "0.0.1"
+    },
+    "typescript-ssdk-codegen": {
+      "package" : "@com.example/coffee-shop-server",
+      "packageVersion": "0.0.1"
+    }
+  }
+}

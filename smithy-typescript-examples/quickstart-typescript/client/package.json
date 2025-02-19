@@ -1,0 +1,24 @@
+{
+  "name": "client-repl",
+  "version": "0.0.1",
+  "description": "A REPL that can be used to experiment with the generated client.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build-model": "cd .. && ./gradlew build",
+    "link-sdk": "ln -fs ../smithy/build/smithyprojections/smithy/source/typescript-client-codegen sdk",
+    "build-sdk": "cd sdk && yarn install && yarn build",
+    "setup": "yarn build-model && yarn link-sdk && yarn build-sdk && yarn install",
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@com.example/coffee-shop-client": "link:sdk",
+    "@types/node": "^20.12.13"
+  }
+}
