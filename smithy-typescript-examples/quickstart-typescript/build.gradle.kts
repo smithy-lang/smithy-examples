@@ -6,11 +6,17 @@ allprojects {
         mavenCentral()
     }
 }
-
-tasks{
-    register("clean"){
-        exec{
-            commandLine("bash", "-c", "rm -rf */build */dist */node_modules client/sdk server/ssdk")
-        }
-    }
+// Add gradle tasks
+// Custom clean task to remove all build artifacts and dependencies
+tasks.register<Delete>("clean") {
+    delete(
+        "server/node_modules",
+        "server/dist",
+        "server/ssdk",
+        "client/node_modules",
+        "client/sdk",
+    )
 }
+
+
+

@@ -32,7 +32,7 @@ async function main() {
 
         // Get the order again.
         const getResponse2 = await client.getOrder(getRequest);
-        console.log("Completed Order:", getResponse2);
+        console.log(`Completed Order:{id:${getResponse2["id"]}, coffeeType:${getResponse2["coffeeType"]}, status:${getResponse2["status"]}}`);
     } catch (error) {
         console.error("An error occurred:", error);
     }
