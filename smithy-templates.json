@@ -151,6 +151,18 @@
         ".gitignore",
         ".gitattributes"
       ]
+    },
+    "smithy-typescript-quickstart": {
+      "documentation": "Quickstart example for Smithy TypeScript",
+      "path": "smithy-typescript-examples/quickstart-typescript",
+      "include": [
+        "config/",
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        ".gitignore",
+        ".gitattributes"
+      ]
     }
   }
 }
