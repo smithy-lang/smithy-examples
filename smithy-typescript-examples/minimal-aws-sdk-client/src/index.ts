@@ -1,4 +1,4 @@
-import { DynamoDB, ListTablesCommand, GetItemCommand, PutItemCommand }
+import { DynamoDB }
     from '@aws-sdk/client-dynamodb'
 
 // Create the client, specifying the exact endpoint to use
@@ -24,8 +24,8 @@ async function main() {
     let putItemResponse = await client.putItem({
         TableName: 'MyTestTable',
         Item: {
-            'id': { S: '0' },
-            'name': { S: 'abc123' }
+            'Id': { S: '0' },
+            'Name': { S: 'abc123' }
         }
     })
     // Log the response, there should a '200' in `$metadata.httpStatusCode`
@@ -35,7 +35,7 @@ async function main() {
     let getItemResponse = await client.getItem({
         TableName: 'MyTestTable',
         Key: {
-            'id': { S: '0' }
+            'Id': { S: '0' }
         }
     })
     // Log the response, we should see the item under the `Item` field

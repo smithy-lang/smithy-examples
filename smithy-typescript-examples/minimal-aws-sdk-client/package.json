@@ -1,7 +1,7 @@
 {
-  "name": "client-repl",
+  "name": "minimal-example",
   "version": "0.0.1",
-  "description": "A REPL that can be used to experiment with the generated client.",
+  "description": "An example that can be used to experiment with the minimal client.",
   "main": "dist/index.js",
   "scripts": {
     "build-model": "smithy build",

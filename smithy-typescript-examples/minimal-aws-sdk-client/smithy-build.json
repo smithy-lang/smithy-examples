@@ -1,6 +1,7 @@
 {
     "version": "1.0",
     "sources": [
+        // Use the dynamodb model
         ".models/api-models-aws/models/dynamodb"
     ],
     "maven": {
@@ -15,18 +16,21 @@
     "projections": {
         "minimal": {
             "transforms": [
+                // Strip out all operations that aren't given below
                 {
                     "name": "excludeShapesBySelector",
                     "args": {
                         "selector": "operation[id|name != ListTables] operation[id|name != GetItem] operation[id|name != PutItem]"
                     }
                 },
+                // Remove the endpoint rulesets because they don't play well without the full closure of operations
                 {
                     "name": "excludeTraits",
                     "args": {
                         "traits": ["smithy.rules#endpointRuleSet"]
                     }
                 },
+                // Remove any shapes that are unused (such as the inputs and outputs of removed operations)
                 {
                     "name": "removeUnusedShapes",
                     "args": {}

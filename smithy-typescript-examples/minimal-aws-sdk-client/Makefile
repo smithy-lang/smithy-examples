@@ -15,4 +15,9 @@ get-aws-models:
 	cd .models && git clone git@github.com:aws/api-models-aws.git
 	@echo Successfully retrieved models.
 
+run: build-minimal-sdk
+	@echo Running...
+	yarn start
+	@echo Finished running.
+
 test-all: build-minimal-sdk
