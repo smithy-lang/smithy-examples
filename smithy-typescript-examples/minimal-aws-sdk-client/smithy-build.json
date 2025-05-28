@@ -1,0 +1,43 @@
+{
+    "version": "1.0",
+    "sources": [
+        ".models/api-models-aws/models/dynamodb"
+    ],
+    "maven": {
+        "dependencies": [
+            "software.amazon.smithy:smithy-aws-traits:1.58.0",
+            "software.amazon.smithy:smithy-aws-smoke-test-model:1.58.0",
+            "software.amazon.smithy:smithy-smoke-test-traits:1.58.0",
+            "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.30.0",
+            "software.amazon.smithy.typescript:smithy-typescript-codegen:0.30.0"
+        ]
+    },
+    "projections": {
+        "minimal": {
+            "transforms": [
+                {
+                    "name": "excludeShapesBySelector",
+                    "args": {
+                        "selector": "operation[id|name != ListTables] operation[id|name != GetItem] operation[id|name != PutItem]"
+                    }
+                },
+                {
+                    "name": "excludeTraits",
+                    "args": {
+                        "traits": ["smithy.rules#endpointRuleSet"]
+                    }
+                },
+                {
+                    "name": "removeUnusedShapes",
+                    "args": {}
+                }
+            ],
+            "plugins": {
+                "typescript-client-codegen": {
+                    "package": "@aws-sdk/client-dynamodb",
+                    "packageVersion": "0.0.1"
+                }
+            }
+        }
+    }
+}
