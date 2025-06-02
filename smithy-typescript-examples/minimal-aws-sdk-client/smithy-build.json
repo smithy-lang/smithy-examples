@@ -1,14 +1,10 @@
 {
     "version": "1.0",
-    "sources": [
-        // Use the dynamodb model
-        ".models/api-models-aws/models/dynamodb"
-    ],
     "maven": {
         "dependencies": [
-            "software.amazon.smithy:smithy-aws-traits:1.58.0",
-            "software.amazon.smithy:smithy-aws-smoke-test-model:1.58.0",
-            "software.amazon.smithy:smithy-smoke-test-traits:1.58.0",
+            // The AWS API model dependency for DynamoDB
+            "software.amazon.api.models:dynamodb:(,1.0]",
+            // The TypeScript codegen dependencies
             "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.30.0",
             "software.amazon.smithy.typescript:smithy-typescript-codegen:0.30.0"
         ]
@@ -27,7 +23,7 @@
                 {
                     "name": "excludeTraits",
                     "args": {
-                        "traits": ["smithy.rules#endpointRuleSet"]
+                        "traits": ["smithy.rules#endpointRuleSet", "smithy.rules#endpointTests"]
                     }
                 },
                 // Remove any shapes that are unused (such as the inputs and outputs of removed operations)
