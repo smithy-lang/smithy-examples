@@ -163,6 +163,11 @@
         ".gitignore",
         ".gitattributes"
       ]
+    },
+    "smithy-typescript-minimal-aws-sdk": {
+      "documentation": "Minimal AWS SDK example using Smithy TypeScript",
+      "path": "smithy-typescript-examples/minimal-aws-sdk-client",
+      "include": [ ".gitignore", ".gitattributes" ]
     }
   }
 }
