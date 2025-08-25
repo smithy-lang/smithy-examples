@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "sources": [
+    "model"
+  ],
+  "maven": {
+    "dependencies": [
+      "software.amazon.smithy:smithy-docgen:1.60.3",
+      "software.amazon.smithy:smithy-protocol-traits:1.60.3",
+      "software.amazon.smithy:smithy-aws-traits:1.60.3"
+    ]
+  },
+  "plugins": {
+    "docgen": {
+      "service": "smithy.example#PeopleDirectory"
+    }
+  }
+}
