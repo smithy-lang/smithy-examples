@@ -3,7 +3,7 @@
 This project provides a template to get started using [Smithy Java](https://github.com/smithy-lang/smithy-java/) 
 to create Java clients and servers.
 
-For more information on this example, see the [Smithy Java Quickstart Guide](https://smithy.io/2.0/java/quickstart.html).
+For more information on this example, see the [Smithy Java Quickstart Guide](https://smithy.io/2.0/languages/java/quickstart.html).
 
 ### Layout 
 
