@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "plugins": {
+    "rust-client-codegen": {
+      "codegen": {
+        "addMessageToErrors": true,
+        "renameErrors": true,
+        "enableNewSmithyRuntime": "orchestrator"
+      },
+      "service": "com.example#CoffeeShop",
+      "module": "coffeeshop_client_sdk",
+      "moduleVersion": "0.1.0",
+      "moduleDescription": "Quickstart smithy-rs Cafe client example",
+      "moduleAuthors": ["Smithy Team"]
+    }
+  }
+}

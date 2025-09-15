@@ -60,3 +60,7 @@ includeBuild("smithy-java-examples/quickstart-java")
 
 // integration tests
 include(":smithy-java-examples:integ")
+
+// ---- Smithy-Rust examples ----
+// templates
+includeBuild("smithy-rs-examples/quickstart-rust")
