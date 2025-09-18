@@ -179,6 +179,10 @@
         ".gitignore",
         ".gitattributes"
       ]
+    },
+    "docgen-cli": {
+      "documentation": "Generate documentation using the smithy-docgen plugin.",
+      "path": "smithy-docgen-examples/docgen-cli"
     }
   }
 }
