@@ -3,7 +3,7 @@
     "maven": {
         "dependencies": [
             // The AWS API model dependency for DynamoDB
-            "software.amazon.api.models:dynamodb:(,1.0]",
+            "software.amazon.api.models:dynamodb:(,1.1]",
             // The TypeScript codegen dependencies
             "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.30.0",
             "software.amazon.smithy.typescript:smithy-typescript-codegen:0.30.0"
