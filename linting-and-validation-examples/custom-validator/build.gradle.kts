@@ -1,9 +1,10 @@
+import com.github.spotbugs.snom.Effort
 
 description = "Creates a custom Smithy model validator"
 
 plugins {
     `java-library`
-    id("com.github.spotbugs").version("4.7.3")
+    id("com.github.spotbugs") version "6.2.5"
     id("software.amazon.smithy.gradle.smithy-jar")
 }
 
@@ -34,7 +35,7 @@ tasks["spotbugsTest"].enabled = false
 
 // Configure the bug filter for spotbugs.
 spotbugs {
-    setEffort("max")
+    effort = Effort.MAX
     val excludeFile = File("${project.rootDir}/config/spotbugs/filter.xml")
     if (excludeFile.exists()) {
         excludeFilter.set(excludeFile)

@@ -1,0 +1,27 @@
+description = "Smithy definition of a Cafe service."
+
+plugins {
+    `java-library`
+    // Packages the models in this package into a jar for sharing/distribution by other packages
+    id("software.amazon.smithy.gradle.smithy-jar")
+}
+
+dependencies {
+    val smithyVersion: String by project
+
+    // Adds the `@restJson1` protocol trait
+    api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+
+    // ValidationException requirement enforced by smithy-rs server codegen
+    api("software.amazon.smithy:smithy-validation-model:$smithyVersion")
+
+}
+
+// Helps the Smithy IntelliJ plugin identify models
+sourceSets {
+    main {
+        java {
+            srcDir("model")
+        }
+    }
+}
