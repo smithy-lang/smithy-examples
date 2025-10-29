@@ -4,7 +4,7 @@ description = "Creates a custom Smithy model validator"
 
 plugins {
     `java-library`
-    id("com.github.spotbugs") version "6.2.5"
+    id("com.github.spotbugs") version "6.4.4"
     id("software.amazon.smithy.gradle.smithy-jar")
 }
 
