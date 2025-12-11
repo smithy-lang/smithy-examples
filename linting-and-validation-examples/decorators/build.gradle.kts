@@ -32,7 +32,7 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.11.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.0.1")
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     val smithyVersion: String by project
