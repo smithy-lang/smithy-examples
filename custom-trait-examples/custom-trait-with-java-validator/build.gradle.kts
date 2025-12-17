@@ -1,7 +1,7 @@
 description = "A package used to define custom trait with a Java validator"
 
 plugins {
-    id("com.github.spotbugs") version "6.4.4"
+    id("com.github.spotbugs") version "6.4.8"
     id("software.amazon.smithy.gradle.smithy-trait-package")
 }
 
