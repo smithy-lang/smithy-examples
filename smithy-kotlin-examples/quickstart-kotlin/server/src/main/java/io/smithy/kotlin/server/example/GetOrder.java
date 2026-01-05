@@ -3,12 +3,12 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-package io.smithy.kotlin.server;
+package io.smithy.kotlin.server.example;
 
-import io.smithy.java.server.example.model.GetOrderInput;
-import io.smithy.java.server.example.model.GetOrderOutput;
-import io.smithy.java.server.example.model.OrderNotFound;
-import io.smithy.java.server.example.service.GetOrderOperation;
+import io.smithy.kotlin.server.example.model.GetOrderInput;
+import io.smithy.kotlin.server.example.model.GetOrderOutput;
+import io.smithy.kotlin.server.example.model.OrderNotFound;
+import io.smithy.kotlin.server.example.service.GetOrderOperation;
 import java.util.UUID;
 import java.util.logging.Logger;
 import software.amazon.smithy.java.server.RequestContext;

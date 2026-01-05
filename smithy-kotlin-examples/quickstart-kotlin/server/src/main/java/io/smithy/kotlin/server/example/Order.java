@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-package io.smithy.kotlin.server;
+package io.smithy.kotlin.server.example;
 
-import io.smithy.java.server.example.model.CoffeeType;
-import io.smithy.java.server.example.model.OrderStatus;
+import io.smithy.kotlin.server.example.model.CoffeeType;
+import io.smithy.kotlin.server.example.model.OrderStatus;
 import java.util.UUID;
 
 /**
