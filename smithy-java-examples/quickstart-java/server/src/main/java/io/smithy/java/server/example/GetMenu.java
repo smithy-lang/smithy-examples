@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-package io.smithy.kotlin.server.example;
+package io.smithy.java.server.example;
 
-import io.smithy.kotlin.server.example.model.CoffeeItem;
-import io.smithy.kotlin.server.example.model.CoffeeType;
-import io.smithy.kotlin.server.example.model.GetMenuInput;
-import io.smithy.kotlin.server.example.model.GetMenuOutput;
-import io.smithy.kotlin.server.example.service.GetMenuOperation;
+import io.smithy.java.server.example.model.CoffeeItem;
+import io.smithy.java.server.example.model.CoffeeType;
+import io.smithy.java.server.example.model.GetMenuInput;
+import io.smithy.java.server.example.model.GetMenuOutput;
+import io.smithy.java.server.example.service.GetMenuOperation;
 import java.util.List;
 
 import software.amazon.smithy.java.server.RequestContext;

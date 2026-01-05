@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-package io.smithy.kotlin.server.example;
+package io.smithy.java.server.example;
 
-import io.smithy.kotlin.server.example.model.OrderStatus;
+import io.smithy.java.server.example.model.OrderStatus;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
