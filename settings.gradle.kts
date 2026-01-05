@@ -64,3 +64,7 @@ include(":smithy-java-examples:integ")
 // ---- Smithy-Rust examples ----
 // templates
 includeBuild("smithy-rs-examples/quickstart-rust")
+
+// ---- Smithy-Kotlin examples ----
+// templates
+includeBuild("smithy-kotlin-examples/quickstart-kotlin")
