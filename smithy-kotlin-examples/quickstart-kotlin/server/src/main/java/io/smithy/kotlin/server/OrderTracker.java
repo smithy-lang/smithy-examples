@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT-0
  */
 
-package io.smithy.java.server.example;
+package io.smithy.kotlin.server;
 
 import io.smithy.java.server.example.model.OrderStatus;
 import java.util.Map;
