@@ -18,29 +18,25 @@ tasks.named("compileKotlin") {
 }
 
 dependencies {
-    val coroutinesCoreVersion: String by project
-    val smithyKotlinCodegenVersion: String by project
-    val smithyKotlinRuntimeVersion: String by project
-
     // Code generators
-    compileOnly("software.amazon.smithy.kotlin:smithy-aws-kotlin-codegen:$smithyKotlinCodegenVersion")
+    compileOnly(libs.smithy.kotlin.aws.codegen)
 
     // Service model
     implementation(project(":smithy"))
 
     // Client Dependencies
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesCoreVersion")
-    implementation("aws.smithy.kotlin:runtime-core:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:smithy-client:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:http-client:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:telemetry-api:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:telemetry-defaults:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:smithy-rpcv2-protocols:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:aws-protocol-core:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:aws-signing-common:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:serde:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:serde-cbor:$smithyKotlinRuntimeVersion")
-    implementation("aws.smithy.kotlin:http-client-engine-default:$smithyKotlinRuntimeVersion")
+    implementation(libs.smithy.kotlin.runtime.core)
+    implementation(libs.smithy.kotlin.smithy.client)
+    implementation(libs.smithy.kotlin.http.client)
+    implementation(libs.smithy.kotlin.telemetry.api)
+    implementation(libs.smithy.kotlin.telemetry.defaults)
+    implementation(libs.smithy.kotlin.rpcv2.protocol)
+    implementation(libs.smithy.kotlin.aws.protocol.core)
+    implementation(libs.smithy.kotlin.aws.signing.common)
+    implementation(libs.smithy.kotlin.serde)
+    implementation(libs.smithy.kotlin.serde.cbor)
+    implementation(libs.smithy.kotlin.http.client.engine.default)
+    implementation(libs.kotlinx.coroutines.core)
 }
 
 val optinAnnotations = listOf("kotlin.RequiresOptIn", "aws.smithy.kotlin.runtime.InternalApi")

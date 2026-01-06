@@ -7,11 +7,8 @@ plugins {
 }
 
 dependencies {
-    val smithyVersion: String by project
-
-    // Adds the `@rpcv2Cbor` and `@restJson1` protocol trait
-    api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
-
+    // Adds the `@rpcv2Cbor` and `@restJson1` protocol traits
+    api(libs.smithy.aws.traits)
 }
 
 // Helps the Smithy IntelliJ plugin identify models

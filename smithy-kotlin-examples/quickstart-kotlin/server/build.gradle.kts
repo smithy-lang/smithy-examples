@@ -8,21 +8,19 @@ plugins {
 }
 
 dependencies {
-    val smithyJavaVersion: String by project
-
     // Code generators
-    smithyBuild("software.amazon.smithy.java.codegen:plugins:$smithyJavaVersion")
+    smithyBuild(libs.smithy.java.plugins)
 
     // Service model
     implementation(project(":smithy"))
 
     // Server dependencies
     // Adds an HTTP server implementation based on netty
-    implementation("software.amazon.smithy.java:server-netty:$smithyJavaVersion")
-    // Adds the server implementation of the `RestJson1` protocol
-    implementation("software.amazon.smithy.java:aws-server-restjson:$smithyJavaVersion")
-    // Adds the server implementation of the `Rpcv2Cbor` protocol
-    implementation("software.amazon.smithy.java:server-rpcv2-cbor:${smithyJavaVersion}")
+    implementation(libs.smithy.java.server.netty)
+    // Adds a server implementation of the `RestJson1` protocol
+    implementation(libs.smithy.java.aws.server.restjson)
+    // Adds a server implementation of the `Rpcv2Cbor` protocol
+    implementation(libs.smithy.java.aws.server.rpcv2.cbor)
 }
 
 // Add generated source code to the compilation sourceSet
