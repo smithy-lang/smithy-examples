@@ -1,4 +1,4 @@
-description = "Cafe service server implementation"
+description = "Coffee shop service server implementation"
 
 plugins {
     `java-library`
@@ -37,6 +37,6 @@ tasks.named("compileJava") {
 
 // Use the application plugin to start the service via the `run` task.
 application {
-    mainClass = "io.smithy.kotlin.server.example.CafeService"
+    mainClass = "io.smithy.kotlin.server.example.CoffeeShopService"
 }
 

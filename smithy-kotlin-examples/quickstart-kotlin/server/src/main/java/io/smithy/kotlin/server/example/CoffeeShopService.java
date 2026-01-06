@@ -11,11 +11,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 import software.amazon.smithy.java.server.Server;
 
-public class CafeService implements Runnable {
-    private static final Logger LOGGER = Logger.getLogger(CafeService.class.getName());
+public class CoffeeShopService implements Runnable {
+    private static final Logger LOGGER = Logger.getLogger(CoffeeShopService.class.getName());
 
     public static void main(String... args) throws InterruptedException, ExecutionException {
-        new CafeService().run();
+        new CoffeeShopService().run();
     }
 
     @Override

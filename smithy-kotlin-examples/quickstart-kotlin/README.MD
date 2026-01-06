@@ -18,21 +18,13 @@ To create a new project from this template, use the [Smithy CLI](https://smithy.
 smithy init -t smithy-kotlin-quickstart
 ```
 
-### Running and testing server
+### Running and testing client
 
-To run and test the server, run `./gradlew :server:run` from the root of a project created from this
+To run and test the client, first start a server by running `./gradlew :server:run` from the root of a project created from this
 template. That will start the server running on port `8888`.
 
-Once the server is running you can call the server by running the client application in the `client` subproject
+Once the server is running you can run the client application in the `client` subproject
 
 ```console
 ./gradlew :client:run
 ```
-
-Or by using `curl`
-
-```console
-curl -H "content-type: application/json" -d '{"coffeeType": "LATTE"}' -X POST localhost:8888/order
-```
-
-
