@@ -1,4 +1,4 @@
-description = "Smithy definition of a Cafe service."
+description = "Smithy definition of a coffee shop service."
 
 plugins {
     `java-library`

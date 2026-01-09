@@ -1,4 +1,4 @@
-description = "CoffeeShop service client"
+description = "Coffee shop service client"
 
 plugins {
     application
