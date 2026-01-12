@@ -180,6 +180,17 @@
         ".gitattributes"
       ]
     },
+    "smithy-kotlin-quickstart": {
+      "documentation": "Quickstart example for Smithy Kotlin",
+      "path": "smithy-kotlin-examples/quickstart-kotlin",
+      "include": [
+        "gradle/",
+        "gradlew",
+        "gradlew.bat",
+        ".gitignore",
+        ".gitattributes"
+      ]
+    },
     "docgen-cli": {
       "documentation": "Generate documentation using the smithy-docgen plugin.",
       "path": "smithy-docgen-examples/docgen-cli"

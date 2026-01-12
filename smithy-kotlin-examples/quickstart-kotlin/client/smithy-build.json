@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "plugins": {
+    "kotlin-codegen": {
+      "service": "com.example#CoffeeShop",
+      "sdkId": "CoffeeShop",
+      "package": {
+        "name": "io.smithy.kotlin.client.example",
+        "version": "0.0.1"
+      },
+      "build": {
+        "rootProject": false,
+        "generateDefaultBuildFiles": false
+      },
+      "api": {
+        "nullabilityCheckMode": "client"
+      }
+    }
+  }
+}

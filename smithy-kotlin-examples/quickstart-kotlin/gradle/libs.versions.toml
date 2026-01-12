@@ -1,0 +1,29 @@
+[versions]
+smithy-version="1.63.0"
+smithy-java-version="0.0.1"
+smithy-kotlin-codegen-version="0.35.25"
+smithy-kotlin-runtime-version="1.5.25"
+coroutines-core-version="1.10.2"
+
+[libraries]
+smithy-aws-traits = { module="software.amazon.smithy:smithy-aws-traits", version.ref = "smithy-version" }
+
+smithy-java-plugins = { module="software.amazon.smithy.java.codegen:plugins", version.ref = "smithy-java-version" }
+smithy-java-server-netty = { module="software.amazon.smithy.java:server-netty", version.ref = "smithy-java-version" }
+smithy-java-aws-server-restjson = { module="software.amazon.smithy.java:aws-server-restjson", version.ref = "smithy-java-version" }
+smithy-java-aws-server-rpcv2-cbor = { module="software.amazon.smithy.java:server-rpcv2-cbor", version.ref = "smithy-java-version" }
+
+smithy-kotlin-aws-codegen = { module = "software.amazon.smithy.kotlin:smithy-aws-kotlin-codegen", version.ref = "smithy-kotlin-codegen-version" }
+smithy-kotlin-runtime-core = { module = "aws.smithy.kotlin:runtime-core", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-smithy-client = { module = "aws.smithy.kotlin:smithy-client", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-http-client = { module = "aws.smithy.kotlin:http-client", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-telemetry-api = { module = "aws.smithy.kotlin:telemetry-api", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-telemetry-defaults = { module = "aws.smithy.kotlin:telemetry-defaults", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-rpcv2-protocol = { module = "aws.smithy.kotlin:smithy-rpcv2-protocols", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-aws-protocol-core = { module = "aws.smithy.kotlin:aws-protocol-core", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-aws-signing-common = { module = "aws.smithy.kotlin:aws-signing-common", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-serde = { module = "aws.smithy.kotlin:serde", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-serde-cbor = { module = "aws.smithy.kotlin:serde-cbor", version.ref = "smithy-kotlin-runtime-version" }
+smithy-kotlin-http-client-engine-default = { module = "aws.smithy.kotlin:http-client-engine-default", version.ref = "smithy-kotlin-runtime-version" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-core-version" }
