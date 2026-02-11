@@ -2,7 +2,7 @@ description = "Coffee shop service client"
 
 plugins {
     application
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.3.10"
     // Executes smithy-build process to generate client code
     id("software.amazon.smithy.gradle.smithy-base")
 }
