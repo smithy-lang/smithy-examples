@@ -53,8 +53,8 @@ dependencies {
     smithyCli("software.amazon.smithy:smithy-cli:$smithyVersion")
     implementation("software.amazon.smithy:smithy-model:$smithyVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
