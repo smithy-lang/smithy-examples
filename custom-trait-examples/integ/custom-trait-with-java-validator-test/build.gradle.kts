@@ -13,9 +13,9 @@ dependencies {
     implementation(project(":custom-trait-examples:custom-trait-with-java-validator"))
 
     testImplementation("software.amazon.smithy:smithy-model:$smithyVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

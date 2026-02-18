@@ -25,9 +25,9 @@ dependencies {
     implementation("software.amazon.smithy:smithy-linters:$smithyVersion")
 
     testImplementation("software.amazon.smithy:smithy-model:$smithyVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.3")
     testImplementation("org.hamcrest:hamcrest:3.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
