@@ -11,7 +11,7 @@ dependencies {
     val smithyJavaVersion: String by project
 
     // === Code generators ===
-    smithyBuild("software.amazon.smithy.java.codegen:plugins:$smithyJavaVersion")
+    smithyBuild("software.amazon.smithy.java:codegen-plugin:$smithyJavaVersion")
 
     // === Service model ===
     implementation(project(":smithy"))
@@ -25,11 +25,24 @@ dependencies {
 
 // Add generated client source code to the main sourceSet
 afterEvaluate {
-    val clientPath = smithy.getPluginProjectionPath(smithy.sourceProjection.get(), "java-client-codegen")
-    sourceSets.main.get().java.srcDir(clientPath)
+    val clientPath = smithy.getPluginProjectionPath(smithy.sourceProjection.get(), "java-codegen").get()
+    sourceSets {
+        main {
+            java {
+                srcDir("$clientPath/java")
+            }
+            resources {
+                srcDir("$clientPath/resources")
+            }
+        }
+    }
 }
 
 tasks.named("compileJava") {
+    dependsOn("smithyBuild")
+}
+
+tasks.named("processResources") {
     dependsOn("smithyBuild")
 }
 

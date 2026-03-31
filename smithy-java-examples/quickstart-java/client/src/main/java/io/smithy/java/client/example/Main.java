@@ -1,12 +1,13 @@
 package io.smithy.java.client.example;
 
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+
 import io.smithy.java.client.example.client.CoffeeShopClient;
 import io.smithy.java.client.example.model.CoffeeType;
 import io.smithy.java.client.example.model.CreateOrderInput;
 import io.smithy.java.client.example.model.GetOrderInput;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
-import software.amazon.smithy.java.client.core.endpoint.EndpointResolver;
+import software.amazon.smithy.java.endpoints.EndpointResolver;
 
 
 /**
@@ -14,7 +15,7 @@ import software.amazon.smithy.java.client.core.endpoint.EndpointResolver;
  */
 public final class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
-    private static final CoffeeShopClient client =  CoffeeShopClient.builder()
+    private static final CoffeeShopClient client = CoffeeShopClient.builder()
             .endpointResolver(EndpointResolver.staticEndpoint("http://localhost:8888"))
             .build();
 
@@ -26,12 +27,12 @@ public final class Main {
 
         // Call the service to create an order
         var createResponse = client.createOrder(createRequest);
-        LOGGER.info("Created request with id = " + createResponse.id());
+        LOGGER.info("Created request with id = " + createResponse.getId());
 
         // Get the order. Should still be in progress.
-        var getRequest = GetOrderInput.builder().id(createResponse.id()).build();
+        var getRequest = GetOrderInput.builder().id(createResponse.getId()).build();
         var getResponse1 = client.getOrder(getRequest);
-        LOGGER.info("Got order with id = " + getResponse1.id());
+        LOGGER.info("Got order with id = " + getResponse1.getId());
 
         // Give order some time to complete
         LOGGER.info("Waiting for order to complete....");

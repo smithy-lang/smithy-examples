@@ -21,17 +21,17 @@ final class GetOrder implements GetOrderOperation {
 
     @Override
     public GetOrderOutput getOrder(GetOrderInput input, RequestContext context) {
-        var order = OrderTracker.getOrderById(UUID.fromString(input.id()));
+        var order = OrderTracker.getOrderById(UUID.fromString(input.getId()));
         if (order == null) {
-            LOGGER.warning("Order not found: " + input.id());
+            LOGGER.warning("Order not found: " + input.getId());
             throw OrderNotFound.builder()
-                    .orderId(input.id())
+                    .orderId(input.getId())
                     .message("Order not found")
                     .build();
         }
-        LOGGER.info("Order " + input.id() + " found.");
+        LOGGER.info("Order " + input.getId() + " found.");
         return GetOrderOutput.builder()
-                .id(input.id())
+                .id(input.getId())
                 .coffeeType(order.type())
                 .status(order.status())
                 .build();
