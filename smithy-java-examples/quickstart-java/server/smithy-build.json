@@ -1,10 +1,11 @@
 {
-  "version": "1.0",
-  "plugins": {
-    "java-server-codegen": {
-      "service": "com.example#CoffeeShop",
-      "namespace": "io.smithy.java.server.example",
-      "headerFile": "../license.txt"
+    "version": "1.0",
+    "plugins": {
+        "java-codegen": {
+            "service": "com.example#CoffeeShop",
+            "namespace": "io.smithy.java.server.example",
+            "headerFile": "../license.txt",
+            "modes": ["server"]
+        }
     }
-  }
 }

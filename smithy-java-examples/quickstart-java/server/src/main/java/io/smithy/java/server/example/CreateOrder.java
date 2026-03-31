@@ -23,13 +23,13 @@ final class CreateOrder implements CreateOrderOperation {
     @Override
     public CreateOrderOutput createOrder(CreateOrderInput input, RequestContext context) {
         var id = UUID.randomUUID();
-        OrderTracker.putOrder(new Order(id, input.coffeeType(), OrderStatus.IN_PROGRESS));
+        OrderTracker.putOrder(new Order(id, input.getCoffeeType(), OrderStatus.IN_PROGRESS));
 
-        LOGGER.info("Created order " + id + " for a " + input.coffeeType());
+        LOGGER.info("Created order " + id + " for a " + input.getCoffeeType());
 
         return CreateOrderOutput.builder()
                 .id(id.toString())
-                .coffeeType(input.coffeeType())
+                .coffeeType(input.getCoffeeType())
                 .status(OrderStatus.IN_PROGRESS)
                 .build();
     }
