@@ -4,7 +4,7 @@ description = "A custom Smithy model-linter"
 
 plugins {
     `java-library`
-    id("com.github.spotbugs") version "6.4.8"
+    id("com.github.spotbugs") version "6.5.0"
 }
 
 java {
