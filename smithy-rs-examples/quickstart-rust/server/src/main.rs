@@ -11,10 +11,12 @@ use coffeeshop_server_sdk::server::{
     layer::alb_health_check::AlbHealthCheckLayer,
     plugin::{HttpPlugins, ModelPlugins},
     request::request_id::ServerRequestIdProviderLayer,
+    routing::IntoMakeServiceWithConnectInfo,
 };
 use hyper::StatusCode;
 use server::State;
 use std::{net::SocketAddr, sync::Arc};
+use tower::Layer;
 use tracing_subscriber::{EnvFilter, prelude::*};
 
 use coffeeshop_server_sdk::{CoffeeShop, CoffeeShopConfig};
@@ -63,10 +65,6 @@ async fn main() {
     let config = CoffeeShopConfig::builder()
         // Setup shared state and middlewares
         .layer(AddExtensionLayer::new(Arc::new(State::default())))
-        // Handle '/ping' health checks
-        .layer(AlbHealthCheckLayer::from_handler("/ping", |_req| async {
-            StatusCode::OK
-        }))
         // Add server request IDs
         .layer(ServerRequestIdProviderLayer::new())
         .http_plugin(http_plugins)
@@ -83,9 +81,16 @@ async fn main() {
         .build()
         .expect("failed to build an instance of CoffeeShop service");
 
-    // Using `into_make_service_with_connect_info`, rather than `into_make_service`, to adjoin the `SocketAddr`
-    // connection info.
-    let make_app = app.into_make_service_with_connect_info::<SocketAddr>();
+    // Handle '/ping' health checks. Applied outside `CoffeeShop` so requests
+    // reach the layer before routing — otherwise `/ping` is rejected as an
+    // unknown operation.
+    let ping_layer = AlbHealthCheckLayer::from_handler("/ping", |_req| async {
+        StatusCode::OK
+    });
+    let app = ping_layer.layer(app);
+
+    // Adjoin the `SocketAddr` connection info to each request.
+    let make_app = IntoMakeServiceWithConnectInfo::<_, SocketAddr>::new(app);
 
     // Bind the application to a socket.
     let bind: SocketAddr = format!("{}:{}", args.address, args.port)
