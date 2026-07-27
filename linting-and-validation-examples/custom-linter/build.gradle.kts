@@ -4,7 +4,7 @@ description = "A custom Smithy model-linter"
 
 plugins {
     `java-library`
-    id("com.github.spotbugs") version "6.5.4"
+    id("com.github.spotbugs") version "6.5.9"
 }
 
 java {
@@ -57,8 +57,8 @@ dependencies {
 
     implementation("software.amazon.smithy:smithy-model:$smithyVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.1.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
