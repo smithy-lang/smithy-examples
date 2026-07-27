@@ -23,7 +23,7 @@
                 {
                     "name": "excludeTraits",
                     "args": {
-                        "traits": ["smithy.rules#endpointRuleSet", "smithy.rules#endpointTests"]
+                        "traits": ["smithy.rules#endpointRuleSet", "smithy.rules#endpointTests", "smithy.rules#endpointBdd"]
                     }
                 },
                 // Remove any shapes that are unused (such as the inputs and outputs of removed operations)
