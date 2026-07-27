@@ -3,8 +3,8 @@
     "sources": ["model/"],
     "maven": {
         "dependencies": [
-            "software.amazon.smithy:smithy-aws-traits:1.70.0",
-            "software.amazon.smithy:smithy-validation-model:1.70.0",
+            "software.amazon.smithy:smithy-aws-traits:1.72.1",
+            "software.amazon.smithy:smithy-validation-model:1.72.1",
             "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.22.0"
         ]
     },
