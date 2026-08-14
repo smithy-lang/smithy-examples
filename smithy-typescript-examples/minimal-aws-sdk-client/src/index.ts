@@ -1,14 +1,8 @@
 import { DynamoDB }
     from '@aws-sdk/client-dynamodb'
 
-// Create the client, specifying the exact endpoint to use
+// Create the client, resolving the endpoint from the region.
 const client = new DynamoDB({
-    endpoint: {
-        protocol: 'https',
-        hostname: 'dynamodb.us-west-2.amazonaws.com',
-        port: 443,
-        path: '/'
-    },
     region: 'us-west-2'
 })
 
@@ -28,7 +22,7 @@ async function main() {
             'Name': { S: 'abc123' }
         }
     })
-    // Log the response, there should a '200' in `$metadata.httpStatusCode`
+    // Log the response, there should be a '200' in `$metadata.httpStatusCode`
     console.log("PutItemCommandOutput:", putItemResponse)
 
     // Call `GetItem` to get the item we created above
