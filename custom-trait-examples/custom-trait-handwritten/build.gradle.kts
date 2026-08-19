@@ -1,7 +1,7 @@
 description = "A package used to define custom traits"
 
 plugins {
-    id("com.github.spotbugs") version "6.5.9"
+    id("com.github.spotbugs") version "6.5.10"
     id("software.amazon.smithy.gradle.smithy-trait-package")
 }
 
@@ -11,9 +11,9 @@ dependencies {
     smithyCli("software.amazon.smithy:smithy-cli:$smithyVersion")
     implementation("software.amazon.smithy:smithy-model:$smithyVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.1.2")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.1.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
