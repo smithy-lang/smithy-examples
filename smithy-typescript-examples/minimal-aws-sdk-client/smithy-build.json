@@ -8,7 +8,7 @@
             "software.amazon.smithy.typescript:smithy-aws-typescript-codegen:0.30.0",
             "software.amazon.smithy.typescript:smithy-typescript-codegen:0.30.0",
             // Pin the rules engine to 1.73.0+ until the codegen dependencies pull it in transitively.
-            "software.amazon.smithy:smithy-rules-engine:1.73.0"
+            "software.amazon.smithy:smithy-rules-engine:1.74.0"
         ]
     },
     "projections": {
