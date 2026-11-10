@@ -13,13 +13,14 @@ use coffeeshop_server_sdk::server::{
     request::request_id::ServerRequestIdProviderLayer,
     routing::IntoMakeServiceWithConnectInfo,
 };
-use hyper::StatusCode;
+use http::StatusCode;
 use server::State;
 use std::{net::SocketAddr, sync::Arc};
+use tokio::net::TcpListener;
 use tower::Layer;
 use tracing_subscriber::{EnvFilter, prelude::*};
 
-use coffeeshop_server_sdk::{CoffeeShop, CoffeeShopConfig};
+use coffeeshop_server_sdk::{CoffeeShop, CoffeeShopConfig, serve};
 
 pub const DEFAULT_ADDRESS: &str = "127.0.0.1";
 pub const DEFAULT_PORT: u16 = 8888;
@@ -96,12 +97,14 @@ async fn main() {
     let bind: SocketAddr = format!("{}:{}", args.address, args.port)
         .parse()
         .expect("unable to parse the server bind address and port");
-    let server = hyper::Server::bind(&bind).serve(make_app);
+    let listener = TcpListener::bind(bind)
+        .await
+        .expect("failed to bind TCP listener");
 
     tracing::info!("server listening on: {bind:?}");
 
     // Run forever-ish...
-    if let Err(err) = server.await {
+    if let Err(err) = serve(listener, make_app).await {
         eprintln!("server error: {}", err);
     }
 }

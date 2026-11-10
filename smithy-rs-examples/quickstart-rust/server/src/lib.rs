@@ -63,7 +63,8 @@ use std::{
 ///     .into();
 /// let shared_state = Arc::new(State::default());
 /// let app = app.layer(ServiceBuilder::new().layer(AddExtensionLayer::new(shared_state)));
-/// let server = hyper::Server::bind(&"0.0.0.0:13734".parse().unwrap()).serve(app.into_make_service());
+/// let listener = tokio::net::TcpListener::bind("0.0.0.0:13734").await.unwrap();
+/// let server = aws_smithy_http_server::serve(listener, app.into_make_service());
 /// ...
 /// ```
 ///

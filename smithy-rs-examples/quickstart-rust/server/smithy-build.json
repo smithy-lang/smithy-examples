@@ -2,6 +2,9 @@
   "version": "1.0",
   "plugins": {
     "rust-server-codegen": {
+      "codegen": {
+        "http-1x": true
+      },
       "service": "com.example#CoffeeShop",
       "module": "coffeeshop_server_sdk",
       "moduleVersion": "0.1.0",
