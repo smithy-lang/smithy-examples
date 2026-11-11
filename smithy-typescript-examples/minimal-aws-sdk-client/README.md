@@ -3,7 +3,7 @@
 This project provides a template to get started using [Smithy TypeScript](https://github.com/smithy-lang/smithy-typescript/) 
 to create a minimal AWS SDK client (for DynamoDB).
 
-For more information Smithy Typescript, see the [Smithy Typescript Quickstart Guide](https://smithy.io/2.0/typescript/quickstart.html).
+For more information on Smithy TypeScript, see the [Smithy TypeScript Quickstart Guide](https://smithy.io/2.0/typescript/quickstart.html).
 
 ### Layout 
 
@@ -21,7 +21,8 @@ smithy init -t smithy-typescript-minimal-aws-sdk
 
 ### Building and running the example
 
-**NOTE**: This example assumes you have an existing AWS account, see [Additional Setup](#additional-setup) for preliminary instructions before running the example.
+**NOTE**: This example assumes you have an existing AWS account, see [Additional Setup](#additional-setup) for
+preliminary instructions before running the example.
 
 To build and run the example with one single command, run:
 ```console
@@ -29,30 +30,25 @@ make run
 ```
 This command will build the minimal sdk from the smithy model, and then run the example code.
 
-You can examine the generated code for the minimal (dynamodb) client under `sdk/`. You'll notice that under `src/commands`, there are only three commands generated for the operations we filtered! If you run `npm publish --dry-run` under `sdk/`, you can get an approximate size of our minimal client package. It's only ~40KB, which is approximately 1/5th the size of the full client (~200KB).
+You can examine the generated code for the minimal (dynamodb) client under `sdk/`. You'll notice that under
+`src/commands`, there are only three commands generated for the operations we filtered! If you run `npm publish
+--dry-run` under `sdk/`, you can get an approximate size of our minimal client package. It's only ~40KB, which is
+approximately 1/5th the size of the full client (~200KB).
 
 For cases where every byte counts, an AWS SDK client with only the operations you use can make a big difference. 
 
+**NOTE**: This example requires Smithy `1.73.0` or later. Earlier versions do not include the
+`CleanEndpointRuleSetParameters` transform that keeps the endpoint rule set valid after operations are removed.
+
 ### Caveats
 
-#### Endpoints
-With how AWS code-generators are written, some generator logic is tied heavily to how endpoints are modelled by AWS services. This example strips this information from the model before the generator is ran, and therefore endpoint-related code is not generated. This means that the client must have the endpoint set explicitly, otherwise it will not function:
-```typescript
-    endpoint: {
-        protocol: 'https',
-        hostname: 'dynamodb.us-west-2.amazonaws.com',
-        port: 443,
-        path: '/'
-    },
-    region: 'us-west-2'
-```
-
 #### Incompatibilities
-Given the above information, some AWS services require customizations by the AWS SDKs to correctly generate clients. Since we strip out endpoint information, those customizations may not function, and the client may not generate correctly. Therefore, your ability to generate a *working* minimal client for a given AWS service will vary.
+Some AWS services require customizations by the AWS SDKs to correctly generate clients. A minimal client generated this
+way may not be customized, so your ability to generate a *working* minimal client for a given AWS service will vary.
 
 #### Unsupported
-Clients generated using the setup described here are not official SDK clients. Therefore, support for issues or problems encountered when using said generated clients will be limited. 
-Please use at your own risk.
+Clients generated using the setup described here are not official SDK clients. Therefore, support for issues or problems
+encountered when using said generated clients will be limited. Please use at your own risk.
 
 ### Additional Setup
 
